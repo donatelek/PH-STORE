@@ -272,10 +272,6 @@ div.pagination li.pagiNation div div:hover .cartIcon {
     bottom: 10px;
 }
 
-.chuj {
-    background-image: url('./huaweimate10lite.png');
-    right: -50px;
-}
 
 .cartIcon:disabled {
     transition: font-size none;
