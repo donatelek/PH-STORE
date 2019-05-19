@@ -1,0 +1,80 @@
+.feedbackName,
+.feedbackText {
+    display: block;
+    margin: 0 auto;
+    /* background-color: green; */
+    width: 400px;
+    font-size: 17px;
+}
+
+
+
+.feedbackName input,
+.feedbackText textarea {
+
+    width: 400px;
+    margin: 0;
+    padding: 6px;
+    border: 0px;
+    outline: 2px solid rgb(185, 128, 128);
+    outline-offset: -2px;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75em;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.feedbackName label,
+.feedbackText label {
+    font-size: 0.625em;
+    color: rgb(185, 128, 128);
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-bottom: 10px; */
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+.otherFeedbacks {
+    text-align: center;
+}
+
+h1.buyersFeedback {
+    border-bottom: 1px solid grey;
+    padding: 15px;
+    /* background-color: green; */
+    display: inline-block;
+    margin-top: 50px;
+    letter-spacing: 3px;
+    /* color: rgb(59, 27, 27); */
+}
+
+.feedbackSubmit {
+    display: block;
+    width: 250px;
+    padding: 12px 0;
+    background: rgb(87, 39, 39);
+    color: rgb(255, 255, 255);
+    border: 0;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+div.feedback h1.feedbackTitle {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: rgb(59, 27, 27);
+    letter-spacing: 3px;
+}
+
+.feedbackName input {
+    height: 20px;
+}

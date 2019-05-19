@@ -1,0 +1,112 @@
+.sellItem {
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 1250px;
+    margin-top: 100px;
+    text-align: center;
+    border: 5px solid rgb(185, 128, 128);
+    border-radius: 50px;
+}
+
+.sellItem .wrap-label {
+    /* background-color: red; */
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.sellItem select {
+    color: rgb(87, 39, 39);
+    background-color: transparent;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 5px 30px;
+    font-size: 13px;
+    border: 0px;
+    outline: 2px solid rgb(185, 128, 128);
+}
+
+.sellItem .uploadedImg {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 450px;
+    max-height: 320px;
+    background-position: center;
+}
+
+.sellItem h1 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(87, 39, 39);
+    letter-spacing: 3px;
+}
+
+.sellItem label {
+    /* font-size: 0.625em; */
+    /* margin-bottom: 55px; */
+    color: rgb(185, 128, 128);
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-bottom: 4px; */
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    /* background-color: red; */
+}
+
+.sellItem input {
+    width: 30%;
+    margin: 0;
+    padding: 10px;
+    border: 0px;
+
+    outline: 2px solid rgb(185, 128, 128);
+    /* outline-offset: -2px; */
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* font-size: 0.75em; */
+    font-size: 13px;
+    background-color: transparent;
+    /* margin-bottom: 20px; */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.sellItem textarea {
+    width: 50%;
+    height: 200px;
+    resize: none;
+    margin: 0;
+    border: 0px;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    outline: 2px solid rgb(185, 128, 128);
+}
+
+.zdjecie img {
+    /* height: 27%; */
+    /* background-color: green; */
+
+}
+
+.sellItem button.submitSell {
+    display: block;
+    width: 250px;
+    padding: 12px 0;
+    background: rgb(87, 39, 39);
+    color: rgb(255, 255, 255);
+    border: 0;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translateX(-50%); */
+}

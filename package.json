@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.0",
+    "fonoapi-nodejs": "^0.1.1",
+    "mathjs": "^5.10.0",
     "react": "^16.8.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
-    "react-scripts": "2.1.5"
+    "react-image": "^2.0.0",
+    "react-image-crop": "^6.0.14",
+    "react-image-file": "^0.3.0",
+    "react-js-pagination": "^3.0.2",
+    "react-player": "^1.11.0",
+    "react-pure-lifecycle": "^3.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "video-react": "^0.13.7"
   },
   "scripts": {
     "start": "react-scripts start",

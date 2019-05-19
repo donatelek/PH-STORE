@@ -1,0 +1,67 @@
+.contactForm {
+    display: block;
+    margin: 0 auto;
+    /* background-color: green; */
+    width: 400px;
+    margin-top: 150px;
+    height: 800px;
+}
+
+
+
+.contactForm .contactName input,
+.contactForm .contactEmail input,
+.contactForm .contactMessage textarea {
+    width: 400px;
+    margin: 0;
+    padding: 6px;
+    border: 0px;
+    outline: 2px solid rgb(185, 128, 128);
+    outline-offset: -2px;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75em;
+    background-color: transparent;
+}
+
+
+.contactForm label {
+    font-size: 0.625em;
+    color: rgb(185, 128, 128);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+
+
+
+.contactSubmit {
+    display: block;
+    width: 250px;
+    padding: 12px 0;
+    background: rgb(87, 39, 39);
+    color: rgb(255, 255, 255);
+    border: 0;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translateX(-50%); */
+}
+
+.contactMessage textarea {
+    height: 200px;
+    resize: none;
+}
+
+.contactForm h1 {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(59, 27, 27);
+    letter-spacing: 3px;
+}

@@ -1,0 +1,77 @@
+.loginForm {
+    /* background-color: green; */
+    height: 800px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.loginForm .login label,
+.loginForm .password label {
+    font-size: 0.625em;
+    color: rgb(185, 128, 128);
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-bottom: 4px;
+    /* margin-left: 50%; */
+    /* transform: translateX(-50%); */
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+
+.loginForm .login input,
+.loginForm .password input {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    border: 0px;
+    outline: 2px solid rgb(185, 128, 128);
+    outline-offset: -2px;
+    font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75em;
+    background-color: transparent;
+    margin-bottom: 20px;
+    /* margin-left: 50%; */
+    /* transform: translateX(-50%); */
+    /* background-color: red; */
+}
+
+.loginForm button.submitLogin {
+    display: block;
+    width: 250px;
+    padding: 12px 0;
+    background: rgb(87, 39, 39);
+    color: rgb(255, 255, 255);
+    border: 0;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translateX(-50%); */
+
+}
+
+.loginForm h1 {
+    text-align: center;
+    color: rgb(59, 27, 27);
+    letter-spacing: 3px;
+}
+
+.loginForm .returnToStore {
+    outline: none;
+    border: none;
+    background-color: rgb(158, 158, 158);
+    margin-top: 25px;
+    margin-left: 50%;
+    color: white;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 30px;
+    /* width: 100%; */
+    /* background-color: pink; */
+}

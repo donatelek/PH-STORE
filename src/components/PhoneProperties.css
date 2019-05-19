@@ -1,0 +1,200 @@
+section.phoneProperty {
+    /* background-color: green; */
+    margin: 40px 15% 0 15%;
+    height: 700px;
+    position: relative;
+    background-color: white;
+    border-radius: 50px;
+    /* border: 3px solid rgb(98, 57, 57); */
+    border: 5px solid rgb(185, 128, 128);
+}
+
+section.phoneProperty .phoneImg img {
+    /* height: 300px; */
+    max-height: 500px;
+    max-width: 90%;
+    /* width: 90%; */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+
+
+section.phoneDetails {
+    /* background-color: pink; */
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+}
+
+section.phoneImg {
+    /* background-color: purple; */
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    /* z-index: 321321312; */
+    /* width: 47%;  */
+}
+
+section.phoneDetails .deviceName {
+    /* background-color: red; */
+    /* position: absolute; */
+    text-align: center;
+    font-size: 40px;
+    color: rgb(87, 39, 39);
+    margin-top: 50px;
+    letter-spacing: 3px;
+}
+
+section.phoneDetails .price {
+    /* background-color: green; */
+    font-size: 25px;
+    text-align: center;
+    color: rgb(124, 68, 68);
+    margin-bottom: 50px;
+}
+
+section.phoneDetails .seller {
+    /* margin-left: 100px; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+section.phoneDetails .condition {
+    /* margin-left: 100px; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+section.phoneDetails .userContact {
+    /* margin-left: 100px; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+section.phoneDetails .itemDescription {
+    /* margin-left: 100px; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+section.phoneDetails .itemDescription span {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+
+section.phoneDetails .shipping {
+    /* margin-left: 100px; */
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+
+section.phoneDetails .addToCart {
+    /* background-color: purple; */
+    display: block;
+    width: 250px;
+    padding: 12px 0;
+    background: rgb(87, 39, 39);
+    color: rgb(255, 255, 255);
+    border: 0;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* margin-top: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translateX(-50%); */
+
+}
+
+
+
+
+
+
+
+section.recommendedProducts {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    height: 350px;
+    border: 5px solid rgb(185, 128, 128);
+    border-radius: 50px;
+    margin-top: 50px;
+}
+
+section.recommendedProducts ul li img {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+section.recommendedProducts h1.recommendedProductsTitle {
+    font-size: 25px;
+    text-align: center;
+    color: rgb(87, 39, 39);
+    letter-spacing: 3px;
+}
+
+section.recommendedProducts ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    list-style-type: none;
+}
+
+section.recommendedProducts ul li div.deviceName {
+    text-align: center;
+
+}
+
+/* section.recommendedProducts {
+ 
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+ 
+    height: 350px;
+    border: 5px solid black;
+    margin-top: 20px;
+    border-radius: 50px;
+}
+
+section.recommendedProducts img {
+    height: 200px;
+   
+
+
+}
+
+section.recommendedProducts div {
+    
+    width: 250px;
+
+}
+
+h1.recommendedProductsTitle {
+    text-align: center;
+    background-color: white;
+}
+
+section.recommendedProducts .deviceName {
+    text-align: center;
+    font-size: 20px;
+    
+} */
