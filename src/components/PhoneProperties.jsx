@@ -114,9 +114,9 @@ class PhoneProperties extends Component {
             })
         }, 1000)
         if(this.props.idOfProduct){
-        this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].Photo, this.props.Products[indexOfProduct].PriceUsd, this.props.Products[indexOfProduct].DeviceName, this.props.Products[indexOfProduct].Quantity)
+        this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].photo, this.props.Products[indexOfProduct].priceusd, this.props.Products[indexOfProduct].devicename, this.props.Products[indexOfProduct].quantity)
         }else{
-            this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].Photo, this.props.Products[indexOfProduct].PriceUsd, this.props.Products[indexOfProduct].DeviceName, this.props.Products[indexOfProduct].Quantity)
+            this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].photo, this.props.Products[indexOfProduct].priceusd, this.props.Products[indexOfProduct].devicename, this.props.Products[indexOfProduct].quantity)
         }
     }
     aaa=(index)=>{
@@ -156,12 +156,12 @@ class PhoneProperties extends Component {
                     <section className="phoneImg">
                         {/* {this.props.Products[this.props.idOfProduct].Photo.includes('blob') ?
                             <Img src={this.props.Products[this.props.idOfProduct].Photo} /> : <img src={require(`./${this.props.Products[this.props.idOfProduct].Photo}`)} />} */}
-                            <img src={this.props.Products[indexOfProduct].Photo} onClick={this.testt} alt=""/>
+                            <img src={this.props.Products[indexOfProduct].photo} onClick={this.testt} alt=""/>
                     </section>
                     <section className='phoneDetails'>
                     {/* <div>{this.props.Products}</div> */}
-                        <div className='deviceName'>{this.props.Products[indexOfProduct].DeviceName}</div>
-                        <img src={this.props.Products[indexOfProduct].Photo} onClick={this.testt} alt=""/>
+                        <div className='deviceName'>{this.props.Products[indexOfProduct].devicename}</div>
+                        <img src={this.props.Products[indexOfProduct].photo} onClick={this.testt} alt=""/>
                         <div className='price'>Price: {this.maniek(this.props.currency)} {this.props.currency}</div>
                             <div className="seller">Seller: Marian</div>
                         {/* <div className='quantity'>item quantity</div> */}
@@ -232,27 +232,27 @@ class PhoneProperties extends Component {
                         
                            
                                 
-                                <div className='deviceName'>{this.props.Products[this.props.shuffle[0]].DeviceName}</div>
-                       <img src={this.props.Products[this.props.shuffle[0]].Photo} />
+                                <div className='deviceName'>{this.props.Products[this.props.shuffle[0]].devicename}</div>
+                       <img src={this.props.Products[this.props.shuffle[0]].photo} />
                      
                        </li>
                             
                             
                    
                    
-                       <li onClick={()=>this.aaa(this.props.shuffle[1])}><div className='deviceName'>{this.props.Products[this.props.shuffle[1]].DeviceName}</div>
-                        <img src={this.props.Products[this.props.shuffle[1]].Photo} /></li>
+                       <li onClick={()=>this.aaa(this.props.shuffle[1])}><div className='deviceName'>{this.props.Products[this.props.shuffle[1]].devicename}</div>
+                        <img src={this.props.Products[this.props.shuffle[1]].photo} /></li>
                             
 
                   
-                        <li onClick={()=>this.aaa(this.props.shuffle[2])}> <div className='deviceName'>{this.props.Products[this.props.shuffle[2]].DeviceName}</div>
-                       <img src={this.props.Products[this.props.shuffle[2]].Photo} /></li>
+                        <li onClick={()=>this.aaa(this.props.shuffle[2])}> <div className='deviceName'>{this.props.Products[this.props.shuffle[2]].devicename}</div>
+                       <img src={this.props.Products[this.props.shuffle[2]].photo} /></li>
                             
 
                    
                   
-                       <li onClick={()=>this.aaa(this.props.shuffle[3])}><div className='deviceName'>{this.props.Products[this.props.shuffle[3]].DeviceName}</div>
-                        <img src={this.props.Products[this.props.shuffle[3]].Photo} /></li>
+                       <li onClick={()=>this.aaa(this.props.shuffle[3])}><div className='deviceName'>{this.props.Products[this.props.shuffle[3]].devicename}</div>
+                        <img src={this.props.Products[this.props.shuffle[3]].photo} /></li>
                            
                         </ul>
                     
