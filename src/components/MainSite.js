@@ -261,8 +261,8 @@ class App extends Component {
           handleShowProperties={this.handleShowProperties}
           id={product.id}
           Photo={product.photo}
-          DeviceName={product.devicename}
-          PriceUsd={product.priceusd}
+          devicename={product.devicename}
+          priceusd={product.priceusd}
           Quantity={product.quantity}
           AddedToCart={product.AddedToCart}
           EUR={this.state.EUR}

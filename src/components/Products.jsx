@@ -33,8 +33,8 @@ handleActiveButton=(id)=>{
 
                         <img className="devicePhoto" src={this.props.Photo} alt=""/>
 
-                    <h1 className='deviceName'>{this.props.DeviceName}</h1>
-                    <h2 className='devicePrice'>{this.props.PriceUsd + ' '+this.props.currency}</h2>
+                    <h1 className='deviceName'>{this.props.devicename}</h1>
+                    <h2 className='devicePrice'>{this.props.priceusd + ' '+this.props.currency}</h2>
                   
                 </Link>
                     <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
@@ -57,8 +57,8 @@ handleActiveButton=(id)=>{
 
 <img className="devicePhoto" src={this.props.Photo} alt=""/>
 
-<h1 className='deviceName'>{this.props.DeviceName}</h1>
-<h2 className='devicePrice'>{Math.round(this.props.PriceUsd * this.props.EUR)} {this.props.currency}</h2>
+<h1 className='deviceName'>{this.props.devicename}</h1>
+<h2 className='devicePrice'>{Math.round(this.props.priceusd * this.props.EUR)} {this.props.currency}</h2>
 
 </Link>
 <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
@@ -78,8 +78,8 @@ handleActiveButton=(id)=>{
 
 <img className="devicePhoto" src={this.props.Photo} alt=""/>
 
-<h1 className='deviceName'>{this.props.DeviceName}</h1>
-<h2 className="devicePrice">{Math.round(this.props.PriceUsd * this.props.PLN)} {this.props.currency}</h2>
+<h1 className='deviceName'>{this.props.devicename}</h1>
+<h2 className="devicePrice">{Math.round(this.props.priceusd * this.props.PLN)} {this.props.currency}</h2>
 </Link>
 <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
 
@@ -98,8 +98,8 @@ handleActiveButton=(id)=>{
 
 <img className="devicePhoto" src={this.props.Photo} alt=""/>
 
-<h1 className='deviceName'>{this.props.DeviceName}</h1>
-<h2 className="devicePrice">{math.round(this.props.PriceUsd * this.props.BTC, 4)} {this.props.currency}</h2>
+<h1 className='deviceName'>{this.props.devicename}</h1>
+<h2 className="devicePrice">{math.round(this.props.priceusd * this.props.BTC, 4)} {this.props.currency}</h2>
 </Link>
 <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
 
