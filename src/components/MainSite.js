@@ -152,15 +152,15 @@ class App extends Component {
     })
   }
 
-  handleAddItem = (DeviceName, Photo, PriceUsd, Quantity) => {
+  handleAddItem = (devicename, photo, priceusd, quantity) => {
 
     const currentProducts = this.state.Products
     currentProducts.push({
       id: this.state.Products.length,
-      DeviceName: DeviceName,
-      Photo: Photo,
-      PriceUsd: PriceUsd,
-      Quantity,
+      devicename: devicename,
+      photo: photo,
+      priceusd: priceusd,
+      quantity,
       AddedToCart: false
     })
     this.setState({
@@ -260,10 +260,10 @@ class App extends Component {
           handleAddToCart={this.handleAddToCart}
           handleShowProperties={this.handleShowProperties}
           id={product.id}
-          Photo={product.Photo}
-          DeviceName={product.DeviceName}
-          PriceUsd={product.PriceUsd}
-          Quantity={product.Quantity}
+          Photo={product.photo}
+          DeviceName={product.devicename}
+          PriceUsd={product.priceusd}
+          Quantity={product.quantity}
           AddedToCart={product.AddedToCart}
           EUR={this.state.EUR}
           PLN={this.state.PLN}

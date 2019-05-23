@@ -147,14 +147,14 @@ class Cart extends Component {
                
                 return (
                     <div key={item.id} className="item">
-                        <img className='cartPhoto' src={item.Photo} alt=""/>
+                        <img className='cartPhoto' src={item.photo} alt=""/>
                         
-                        <h1 className="itemName">{item.DeviceName}</h1>
-                        <div className="price">{item.PriceUsd} {this.props.currency}</div>
-                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
+                        <h1 className="itemName">{item.devicename}</h1>
+                        <div className="price">{item.priceusd} {this.props.currency}</div>
+                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                        <div className="totalPrice">{item.PriceUsd * item.Quantity} {this.props.currency}</div>
+                        <div className="totalPrice">{item.priceusd * item.quantity} {this.props.currency}</div>
                     </div>
                 )
             }
