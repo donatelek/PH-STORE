@@ -12,7 +12,7 @@ class Feedback extends Component {
         }
     }
     UNSAFE_componentWillMount(){
-        fetch('http://localhost:3005/feedback', {
+        fetch('https://ph-store-server.herokuapp.com/feedback', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
@@ -90,7 +90,7 @@ class Feedback extends Component {
         this.setState({
             feedbacks
         })
-        fetch('http://localhost:3005/addfeedback', {
+        fetch('https://ph-store-server.herokuapp.com/addfeedback', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -51,7 +51,7 @@ class App extends Component {
   }
 
   UNSAFE_componentWillMount(){
-    fetch('http://localhost:3005/products', {
+    fetch('https://ph-store-server.herokuapp.com/products', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
@@ -99,7 +99,7 @@ class App extends Component {
 
   }
   fetchingProducts=()=>{
-    fetch('http://localhost:3005/products', {
+    fetch('https://ph-store-server.herokuapp.com/products', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
       }).then(res => res.json()).then(res => {

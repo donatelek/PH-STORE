@@ -126,7 +126,7 @@ class Cart extends Component {
    paypalCheckout=()=>{
        const macc=this.Subtotal()
        console.log(macc)
-    fetch('http://localhost:3005/pay', {
+    fetch('https://ph-store-server.herokuapp.com/pay', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

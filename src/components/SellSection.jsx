@@ -59,7 +59,7 @@ class SellSection extends Component {
                     description: false
                 }
             })
-            fetch('http://localhost:3005/addproduct', {
+            fetch('https://ph-store-server.herokuapp.com/addproduct', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
