@@ -5,7 +5,7 @@ import math from 'mathjs'
 import './PhoneProperties.css';
 import {withRouter} from 'react-router-dom';
 import { browserHistory } from 'react-router';
-
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
 class PhoneProperties extends Component {
     state = {
@@ -34,6 +34,26 @@ class PhoneProperties extends Component {
             
         }
     }
+
+    handleActiveButton=()=>{
+        let idOfElement = this.props.location.pathname;
+        idOfElement=idOfElement.replace('/properties/','');
+        const finalId = Number(idOfElement)
+        console.log(finalId)
+        const Cart=this.props.Cart;
+        const product=Cart.find(item=>{
+            return item.id===finalId
+        })
+      
+        const indexOfProduct = Cart.indexOf(product)
+    console.log(indexOfProduct)
+       if(indexOfProduct===-1){
+          return false
+       }else{
+           return true
+       }
+    }
+      
 
 
     maniek = (currency) => {
@@ -99,6 +119,16 @@ class PhoneProperties extends Component {
             this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].Photo, this.props.Products[indexOfProduct].PriceUsd, this.props.Products[indexOfProduct].DeviceName, this.props.Products[indexOfProduct].Quantity)
         }
     }
+    aaa=(index)=>{
+        const Products=this.props.Products
+    const Product = Products[index]
+    const id = Product.id;
+    this.props.setIdOfProduct(id)
+        this.props.history.push(`/properties/${id}`)
+        window.scrollTo(0, 0)
+        
+
+    }
     
     render() {
         let indexOfElement = this.props.location.pathname;
@@ -131,6 +161,7 @@ class PhoneProperties extends Component {
                     <section className='phoneDetails'>
                     {/* <div>{this.props.Products}</div> */}
                         <div className='deviceName'>{this.props.Products[indexOfProduct].DeviceName}</div>
+                        <img src={this.props.Products[indexOfProduct].Photo} onClick={this.testt} alt=""/>
                         <div className='price'>Price: {this.maniek(this.props.currency)} {this.props.currency}</div>
                             <div className="seller">Seller: Marian</div>
                         {/* <div className='quantity'>item quantity</div> */}
@@ -138,7 +169,10 @@ class PhoneProperties extends Component {
                         <div className="userContact">Contact to seller: donatelek@gmail.com</div>
                         <div className="itemDescription">Description: <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti quibusdam voluptate ipsam error similique eum delectus quaerat, ab, commodi laudantium aliquam nobis, corrupti placeat expedita quae inventore recusandae corporis?</span></div>
                         <div className="shipping">Shipping: Worldwide</div>
-                        <button className="addToCart" onClick={this.buttonLoader}>Add to cart</button>
+                        <button className="addToCart" disabled={this.handleActiveButton()} onClick={()=>{
+                            this.buttonLoader() 
+                            this.handleActiveButton()
+                            }}>{this.handleActiveButton(this.props.id) ? 'In Cart' : 'Add to cart'}</button>
                         
                         {/* <button onClick={() => this.props.handleAddToCart(this.props.Products[this.props.idOfProduct].id, this.props.Products[this.props.idOfProduct].Photo, this.props.Products[this.props.idOfProduct].PriceUsd, this.props.Products[this.props.idOfProduct].DeviceName, this.props.Products[this.props.idOfProduct].Quantity)} disabled=
                             {this.props.Products[this.props.idOfProduct].AddedToCart ? true : false}
@@ -193,24 +227,31 @@ class PhoneProperties extends Component {
                 <section className='recommendedProducts'>
                 <h1 className='recommendedProductsTitle'>You may also like</h1>
                    <ul>
-                        <li><div className='deviceName'>{this.props.Products[this.props.shuffle[0]].DeviceName}</div>
-                       <img src={this.props.Products[this.props.shuffle[0]].Photo} /></li>
+                   
+                        <li onClick={()=>this.aaa(this.props.shuffle[0])}> 
+                        
+                           
+                                
+                                <div className='deviceName'>{this.props.Products[this.props.shuffle[0]].DeviceName}</div>
+                       <img src={this.props.Products[this.props.shuffle[0]].Photo} />
+                     
+                       </li>
                             
                             
                    
                    
-                       <li><div className='deviceName'>{this.props.Products[this.props.shuffle[1]].DeviceName}</div>
+                       <li onClick={()=>this.aaa(this.props.shuffle[1])}><div className='deviceName'>{this.props.Products[this.props.shuffle[1]].DeviceName}</div>
                         <img src={this.props.Products[this.props.shuffle[1]].Photo} /></li>
                             
 
                   
-                        <li> <div className='deviceName'>{this.props.Products[this.props.shuffle[2]].DeviceName}</div>
+                        <li onClick={()=>this.aaa(this.props.shuffle[2])}> <div className='deviceName'>{this.props.Products[this.props.shuffle[2]].DeviceName}</div>
                        <img src={this.props.Products[this.props.shuffle[2]].Photo} /></li>
                             
 
                    
                   
-                       <li><div className='deviceName'>{this.props.Products[this.props.shuffle[3]].DeviceName}</div>
+                       <li onClick={()=>this.aaa(this.props.shuffle[3])}><div className='deviceName'>{this.props.Products[this.props.shuffle[3]].DeviceName}</div>
                         <img src={this.props.Products[this.props.shuffle[3]].Photo} /></li>
                            
                         </ul>

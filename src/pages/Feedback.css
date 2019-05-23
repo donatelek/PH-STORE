@@ -3,7 +3,7 @@
     display: block;
     margin: 0 auto;
     /* background-color: green; */
-    width: 400px;
+    width: 500px;
     font-size: 17px;
 }
 
@@ -12,8 +12,10 @@
 .feedbackName input,
 .feedbackText textarea {
 
-    width: 400px;
+    width: 90%;
     margin: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
     padding: 6px;
     border: 0px;
     outline: 2px solid rgb(185, 128, 128);
@@ -30,6 +32,7 @@
     color: rgb(185, 128, 128);
     text-transform: uppercase;
     font-weight: 600;
+    margin-left: 20px;
     /* margin-bottom: 10px; */
     font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -66,6 +69,14 @@ h1.buyersFeedback {
 
 }
 
+div.feedback div.error {
+    font-size: 14px;
+    color: rgb(109, 22, 22);
+    position: relative;
+    top: -12px;
+    text-align: center;
+}
+
 div.feedback h1.feedbackTitle {
     text-align: center;
     margin-top: 150px;
@@ -77,4 +88,34 @@ div.feedback h1.feedbackTitle {
 
 .feedbackName input {
     height: 20px;
+}
+
+@media only screen and (max-width: 515px) {
+
+    .feedbackName,
+    .feedbackText {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+
+    .feedbackName,
+    .feedbackText {
+        width: 95%;
+    }
+
+    .feedbackName label,
+    .feedbackText label {
+        margin-left: 12px;
+    }
+
+    div.feedback h1.feedbackTitle {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .feedbackSubmit {
+        width: 200px;
+    }
 }

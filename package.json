@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.3.0",
     "fonoapi-nodejs": "^0.1.1",
+    "jquery": "^3.4.1",
     "mathjs": "^5.10.0",
     "react": "^16.8.1",
     "react-bootstrap": "^1.0.0-beta.5",

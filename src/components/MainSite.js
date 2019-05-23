@@ -24,9 +24,12 @@ fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
 const cartInState = [];
 
 
+// animacje oraz responsywnosc koszyka
+// Your password should be at least 8 characters,
 
 class App extends Component {
   state = {
+    showHamburger:false,
     cipsko: [],
     ble: 1,
     shuffle: [],
@@ -108,13 +111,21 @@ class App extends Component {
       }).catch(err => console.log(err))
   }
 
-
+  // setIdOfProductForRecommended=(index)=>{
+  //   const Products=this.state.Products1
+  //   const Product = Products[index]
+  //   const id = Product.id;
+  //   console.log(id)
+  //   this.setState({
+  //     idOfProduct:id
+  //   })
+  // }
   setIdOfProduct = (idOfProduct) => {
     let anArrayOfUniqueNumbers = [];
 
     let numberGenerator = function (arr) {
       if (arr.length >= 4) return;
-      let newNumber = Math.floor(Math.random() * 7 + 1);
+      let newNumber = Math.floor(Math.random() * 16 + 1);
       if (arr.indexOf(newNumber) < 0) {
         arr.push(newNumber);
       }
@@ -122,10 +133,18 @@ class App extends Component {
     };
 
     numberGenerator(anArrayOfUniqueNumbers);
-    this.setState({
-      idOfProduct,
-      shuffle: anArrayOfUniqueNumbers
-    })
+    if(idOfProduct){
+      this.setState({
+        idOfProduct,
+        shuffle: anArrayOfUniqueNumbers
+      })
+    }else{
+      this.setState({
+        
+        shuffle: anArrayOfUniqueNumbers
+      })
+    }
+   
   }
   setCurrencyNav = (currency) => {
     this.setState({
@@ -149,6 +168,19 @@ class App extends Component {
       Products1: currentProducts,
     })
   }
+
+  handleShowHamburger=()=>{
+    if(!this.state.showHamburger){
+      document.body.style.overflow = "hidden"
+    }else{
+      document.body.style.overflow = "visible"
+    }
+    
+    this.setState({
+      showHamburger:!this.state.showHamburger
+    })
+  }
+
   checkIfWeSearching = (boolean1) => {
 
     if (boolean1) {
@@ -262,7 +294,8 @@ class App extends Component {
             products1={this.state.Products1}
             products={this.state.Products}
             handleSearching={this.handleSearching}
-
+            handleShowHamburger={this.handleShowHamburger}
+            showHamburger={this.state.showHamburger}
           />
           < FirstSection
             handleCloseCart={this.handleCloseCart}
@@ -278,14 +311,14 @@ class App extends Component {
 
           <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} igrek={this.igrek} />)} />
 
-          {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} bogus={bogus} Products33={this.state.Products} tututu={this.state.tututu} />)} />}
+          {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} bogus={bogus} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
 
         {/* <GreetingSite/> */}
 
         <Route path='/welcome' render={(props) => (<GreetingSite {...props}  />)} />
 
         
-          {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency} bogus={this.bogus} checkIfWeSearching={this.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
+          {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency} bogus={this.bogus} checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
 
 
           <Route path='/sell' render={(props) => (<SellSection {...props} handleAddItem={this.handleAddItem} fetchingProducts={this.fetchingProducts} />)} />

@@ -3,6 +3,8 @@
     margin: 0 auto;
     margin-top: 150px;
     height: 800px;
+    /* background-color: red; */
+    position: relative;
 }
 
 .registerForm h1 {
@@ -22,6 +24,7 @@
     font-weight: 600;
     margin-bottom: 4px;
     font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: 12px;
 }
 
 
@@ -29,7 +32,7 @@
 .registerForm .password input,
 .registerForm .lastName input,
 .registerForm .firstName input {
-    width: 100%;
+    width: 90%;
     margin: 0;
     padding: 10px;
     border: 0px;
@@ -39,6 +42,8 @@
     font-size: 0.75em;
     background-color: transparent;
     margin-bottom: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .registerForm button.submitLogin {
@@ -70,4 +75,36 @@
     height: 30px;
     /* width: 100%; */
     /* background-color: pink; */
+}
+
+.registerForm div.firstName {
+    position: relative;
+    /* background-color: pink; */
+}
+
+.registerForm div.error {
+    color: rgb(109, 22, 22);
+    position: relative;
+    /* background-color: red; */
+    font-size: 14px;
+    /* margin-left: 50%; */
+    transform: translateX(-50%);
+    left: 50%;
+    top: -20px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 430px) {
+
+    .registerForm .login label,
+    .registerForm .password label,
+    .registerForm .lastName label,
+    .registerForm .firstName label {
+        margin-left: 9px;
+    }
+
+    .registerForm {
+        width: 95%;
+    }
+
 }

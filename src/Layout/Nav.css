@@ -46,7 +46,7 @@ nav ul li {
 
 }
 
-.menu>li:hover {
+nav .top-nav .menu>li:hover {
     border-bottom: 1px solid rgb(149, 57, 57);
 }
 
@@ -130,4 +130,103 @@ nav section.top-nav li .nav {
     border: 0;
     text-decoration: none;
     color: rgb(149, 57, 57);
+}
+
+.top-nav .hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+nav .hamburgerNav {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    background-color: rgb(202, 145, 145);
+    height: calc(100vh - 46px);
+    z-index: 931293;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 20px;
+    border: 3px solid rgb(122, 69, 69);
+    border-right: none;
+    z-index: 22;
+}
+
+nav .blur {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.575);
+    z-index: 11;
+}
+
+nav .hamburgerNav ul {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+nav .hamburgerNav ul li {
+    font-size: 30px;
+    /* background-color: #fff; */
+    width: 150px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
+
+nav .hamburgerNav ul li.currency {
+    color: rgb(39, 5, 5);
+}
+
+nav .hamburgerNav ul li.currency select {
+    color: rgb(90, 15, 15);
+    font-size: 22px;
+}
+
+nav .hamburgerNav ul li:first-of-type {
+    margin-top: 70px;
+}
+
+nav .hamburgerNav ul li .nav {
+    color: rgb(90, 15, 15);
+    text-decoration: none;
+}
+
+nav .hamburgerNav ul li:hover .nav {
+    color: rgb(161, 109, 109);
+}
+
+@media only screen and (max-width: 850px) {
+    .top-nav ul.menu {
+        display: none
+    }
+
+    .top-nav .hamburger {
+        display: block;
+        font-size: 30px;
+    }
+
+    nav .blur {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 435px) {
+    nav .hamburgerNav {
+        width: 88%;
+    }
+
+    nav .storeName img {
+        margin-top: 2px;
+        width: 150px;
+        margin-left: -10px;
+
+    }
 }

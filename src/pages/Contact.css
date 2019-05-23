@@ -65,3 +65,9 @@
     color: rgb(59, 27, 27);
     letter-spacing: 3px;
 }
+
+.contactForm div.error {
+    font-size: 14px;
+    color: rgb(109, 22, 22);
+    text-align: center;
+}

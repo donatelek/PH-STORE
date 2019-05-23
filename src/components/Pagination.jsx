@@ -35,14 +35,14 @@ class Pagination1 extends Component {
             })
             console.log(this.props.products)
         }
-        if (this.props.checkIfWeSearching !== this.state.checkIfWeSearching) {
-            if (this.props.checkIfWeSearching) {
+        if (this.props.checkIfWeSearchingBoolean !== this.state.checkIfWeSearching) {
+            if (this.props.checkIfWeSearchingBoolean) {
                 this.setState({
                     currentPage: 1
                 })
             }
             this.setState({
-                checkIfWeSearching: this.props.checkIfWeSearching,
+                checkIfWeSearching: this.props.checkIfWeSearchingBoolean,
 
             })
         }

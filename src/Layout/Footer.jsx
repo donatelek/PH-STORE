@@ -24,7 +24,7 @@ const Footer = () => {
 
             
 
-            {/* <div className="copyright">© 2019 PH-STORE</div> */}
+            <div className="copyright">© 2019 PH-STORE</div>
             </footer>
         </>
     );

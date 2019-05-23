@@ -92,8 +92,44 @@ const Nav = (props) => {
                         </select>
                     </li>
     </ul>
+    <div className="hamburger" style={{zIndex:'24'}}><i class="fas fa-bars" onClick={props.handleShowHamburger}></i></div>
+    {props.showHamburger&&<div className="blur" onClick={props.handleShowHamburger}></div>}
   </section>
-
+  {props.showHamburger?<div  className="hamburgerNav">
+    <ul class="menu">
+      <li><Link onClick={props.handleShowHamburger} className='nav' to='/'>Products</Link></li>
+      <li><Link onClick={props.handleShowHamburger} className="nav" to='/sell'>Sell</Link></li>
+      <li><Link onClick={props.handleShowHamburger} className='nav' to='/login'>Log In</Link></li>
+      <li><Link onClick={props.handleShowHamburger} className="nav" to='/register'>Register</Link></li>
+      <li><Link onClick={props.handleShowHamburger} className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
+                    <li className='currency'>
+                    Currency:
+                        <select name="currency" id="currency" onChange={handleChangeCurrency} >
+                         
+                            <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
+                            <option value={props.currencyToChoose[1]} >{props.currencyToChoose[1]}</option>
+                            <option value={props.currencyToChoose[2]}>{props.currencyToChoose[2]}</option>
+                            <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
+                        </select>
+                    </li>
+    </ul>
+    </div>:<div className="hamburgerNav" style={{display:'none'}}>
+    <ul class="menu">
+      <li><Link className='nav' to='/'>Products</Link></li>
+      <li><Link className="nav" to='/sell'>Sell</Link></li>
+      <li><Link className='nav' to='/login'>Log In</Link></li>
+      <li><Link className="nav" to='/register'>Register</Link></li>
+      <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
+                    <li className='currency'>
+                        <select name="currency" id="currency" onChange={handleChangeCurrency} >
+                            <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
+                            <option value={props.currencyToChoose[1]} >{props.currencyToChoose[1]}</option>
+                            <option value={props.currencyToChoose[2]}>{props.currencyToChoose[2]}</option>
+                            <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
+                        </select>
+                    </li>
+    </ul>
+    </div>}
         </nav>
     );
 }

@@ -1,11 +1,15 @@
 section.phoneProperty {
     /* background-color: green; */
-    margin: 40px 15% 0 15%;
+    margin: 40px 0 0 0;
     height: 700px;
     position: relative;
     background-color: white;
     border-radius: 50px;
     /* border: 3px solid rgb(98, 57, 57); */
+    margin-left: auto;
+    margin-right: auto;
+    width: 1300px;
+
     border: 5px solid rgb(185, 128, 128);
 }
 
@@ -20,7 +24,20 @@ section.phoneProperty .phoneImg img {
     top: 50%;
 }
 
+section.phoneProperty .phoneDetails img {
+    /* height: 300px; */
+    max-height: 250px;
+    max-width: 90%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    /* width: 90%; */
+    /* position: absolute; */
+    /* transform: translate(-50%, -50%); */
+    /* left: 50%; */
+    /* top: 50%; */
+    display: none;
 
+}
 
 section.phoneDetails {
     /* background-color: pink; */
@@ -138,6 +155,8 @@ section.recommendedProducts {
 section.recommendedProducts ul li img {
     max-height: 200px;
     max-width: 200px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 section.recommendedProducts h1.recommendedProductsTitle {
@@ -152,8 +171,20 @@ section.recommendedProducts ul {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-
+    height: 210px;
     list-style-type: none;
+    width: 95%;
+    padding: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+}
+
+section.recommendedProducts ul li {
+    width: 24.9%;
+    height: 90%;
+    /* background-color: red; */
+    cursor: pointer;
 }
 
 section.recommendedProducts ul li div.deviceName {
@@ -198,3 +229,107 @@ section.recommendedProducts .deviceName {
     font-size: 20px;
     
 } */
+
+@media only screen and (max-width: 1330px) {
+    section.phoneProperty {
+        width: 1000px;
+    }
+}
+
+@media only screen and (max-width: 1030px) {
+    section.phoneProperty {
+        width: 800px;
+        height: 650px;
+    }
+
+    section.recommendedProducts {
+        width: 750px;
+        height: 300px;
+    }
+
+    section.recommendedProducts ul li img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    section.phoneProperty {
+        height: 900px;
+        width: 95%;
+    }
+
+    section.phoneProperty .phoneImg img {
+        display: none;
+    }
+
+    section.phoneProperty .phoneDetails img {
+        display: block;
+    }
+
+    section.phoneDetails {
+        /* background-color: red; */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    section.recommendedProducts {
+        width: 90%;
+    }
+
+    /* section.recommendedProducts ul li img {
+        max-width: 100%;
+        max-height: 100%;
+    } */
+}
+
+@media only screen and (max-width: 680px) {
+    section.recommendedProducts ul li {
+        width: 49.999%;
+    }
+
+    section.recommendedProducts {
+        height: 500px;
+    }
+
+    section.recommendedProducts ul {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    section.phoneDetails .deviceName {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    section.phoneDetails .price {
+        margin-bottom: 10px;
+    }
+
+    section.phoneDetails .shipping {
+        margin-bottom: 20px;
+    }
+
+    section.phoneDetails .seller {
+        margin-bottom: 4px;
+    }
+
+    section.phoneDetails .condition {
+        margin-bottom: 4px;
+    }
+
+    section.phoneDetails .userContact {
+        margin-bottom: 4px;
+    }
+
+    section.phoneDetails .itemDescription {
+        margin-bottom: 4px;
+    }
+}

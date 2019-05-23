@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import "./Cart.css";
 import math from 'mathjs'
 import Img from 'react-image';
+import BitcoinPayment from './BitcoinPayment';
+
 class Cart extends Component {
     state = {
         ItemsAddedToCart: [],
         currency: 'USD',
         quantityUsd: 1,
         Quantity: [],
-        marjen: 10
+        marjen: 10,
+        
     }
     componentDidMount() {
         this.setState({
@@ -69,16 +72,21 @@ class Cart extends Component {
             
             if (this.state.currency === 'USD') {
                 price = price + item.PriceUsd * item.Quantity
+               
             }
             else if (this.state.currency === 'EUR') {
-                price = price + item.PriceUsd * item.Quantity * this.props.EUR;
+                price = price + item.PriceUsd * item.Quantity * this.props.EUR
+
+
             }
             else if (this.state.currency === 'PLN') {
-                price = price + item.PriceUsd * item.Quantity * this.props.PLN;
+                price = price + item.PriceUsd * item.Quantity * this.props.PLN
+         
 
             }
             else if (this.state.currency === 'BTC') {
                 price = price + item.PriceUsd * item.Quantity * this.props.BTC
+                
             }
             else {
                 alert('error')
@@ -115,7 +123,22 @@ class Cart extends Component {
         
        
     };
-  
+   paypalCheckout=()=>{
+       const macc=this.Subtotal()
+       console.log(macc)
+    fetch('http://localhost:3005/pay', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          price:macc,
+          currency:this.props.currency
+        })
+      }).then(res=>{
+          console.log(res.url)
+        //   this.props.history.push(res.url)
+        window.location = res.url;
+      })
+   }
 
     render() {
         const itemsInCart = this.state.ItemsAddedToCart.map((item,index) => {
@@ -250,7 +273,9 @@ class Cart extends Component {
                     </div>
                     {itemsInCart}
                 </section>
-                <div className='subtotalCart'>Subtotal: {this.Subtotal()} {this.props.currency}</div></>
+                <div className='subtotalCart'>Subtotal: {this.Subtotal()} {this.props.currency}</div>
+                <button className="paypal" onClick={this.paypalCheckout}>PAY VIA PAYPAL</button>
+                </>
         )
     }
 }

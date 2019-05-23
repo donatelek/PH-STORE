@@ -10,6 +10,7 @@ class SellSection extends Component {
         price: '',
        photoUrl:'',
        imgUrl:'',
+       
         description: '',
         submittedCorrectly:false,
         condition: 'new',
@@ -25,7 +26,7 @@ class SellSection extends Component {
     messages = {
         sell: 'Enter what you want to sell',
         email: 'Enter a valid e-mail address',
-        price: 'Enter your price',
+        price: 'Enter your product price',
         description: 'Enter your product description',
         submit:'Your item has been listed!'
     }
@@ -58,18 +59,6 @@ class SellSection extends Component {
                     description: false
                 }
             })
-           
-        } else {
-            this.setState({
-                errors: {
-                    sell: !validation.sell,
-                    email: !validation.email,
-                    price: !validation.price,
-                    description: !validation.description
-                }
-            })
-        }
-       
             fetch('http://localhost:3005/addproduct', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
@@ -92,8 +81,21 @@ class SellSection extends Component {
                       this.setState({
                           submittedCorrectly:false
                       })
-                  },2000)
+                  },4000)
               })
+           
+        } else {
+            this.setState({
+                errors: {
+                    sell: !validation.sell,
+                    email: !validation.email,
+                    price: !validation.price,
+                    description: !validation.description
+                }
+            })
+        }
+       
+           
         
         
 
@@ -144,7 +146,7 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label onChange={this.handleFromChange} htmlFor="name">What do you want to sell?</label>
                             <br/>
-                            {this.state.errors.sell && <span>{this.messages.sell}</span>}
+                            {this.state.errors.sell && <span className='error'>{this.messages.sell}</span>}
                            
                         </div>
                         <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false"/>
@@ -152,7 +154,7 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label htmlFor="name">Email</label>
                             <br/>
-                            {this.state.errors.email && <span>{this.messages.email}</span>}
+                            {this.state.errors.email && <span className='error'>{this.messages.email}</span>}
                             
 
                         </div>
@@ -160,7 +162,7 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label htmlFor="name">Price</label>
                             <br/>
-                            {this.state.errors.price && <span>{this.messages.price}</span>}
+                            {this.state.errors.price && <span className='error'>{this.messages.price}</span>}
                             
                         </div>
                         <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false"/>
@@ -183,7 +185,7 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label htmlFor="name">Description</label>
                             <br/>
-                            {this.state.errors.description && <span>{this.messages.description}</span>}
+                            {this.state.errors.description && <span className='error'>{this.messages.description}</span>}
                             
                         </div>
                         
@@ -197,8 +199,9 @@ class SellSection extends Component {
                         <br/>
                         <Img src={this.state.imgUrl}  className='uploadedImg'/>
                         <br/>
-                        {this.state.submittedCorrectly && <span>{this.messages.submit}</span>}
+                        {this.state.submittedCorrectly && <span className='error'>{this.messages.submit}</span>}
                         <br/>
+                        
                         <button type="submit" className='submitSell'>Submit</button>
 
                     </form>

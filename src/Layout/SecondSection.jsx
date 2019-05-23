@@ -16,7 +16,7 @@ const SecondSection = (props) => {
                 console.log(props.match.path.replace('/', ' '))
             }} className="wrapper">
                 {/* {products} */}
-                <Pagination checkIfWeSearching={props.checkIfWeSearching} products={props.products} currency={props.currency} bogus={props.bogus} pageid={props.match.params.id} path={props.match.path.replace('/', ' ')} />
+                <Pagination checkIfWeSearching={props.checkIfWeSearching} products={props.products} checkIfWeSearchingBoolean={props.checkIfWeSearchingBoolean} currency={props.currency} bogus={props.bogus} pageid={props.match.params.id} path={props.match.path.replace('/', ' ')} />
             </div>
 
         </section>

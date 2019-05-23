@@ -18,12 +18,15 @@ div.item {
     background-color: white;
     position: relative;
     z-index: 4;
+    display: flex;
+    background-color: red;
     /* top: 30px; */
     left: 0;
     width: 100%;
+    justify-content: flex-end;
     height: 75px;
 
-    padding: 25px 0;
+    /* padding: 25px 0; */
     border-bottom: black 1px solid;
 }
 
@@ -33,22 +36,23 @@ img.cartPhoto {
     /* margin-left: 150px; */
     /* margin-left: 10%; */
     top: 0;
+    left: 0;
     /* background-color: red; */
     height: 80px;
-    left: 40px;
-    /* background-color: white; */
+    /* left: 40px; */
+    background-color: white;
 
 }
 
 h1.itemName {
     position: relative;
     color: rgb(87, 39, 39);
-    top: -95px;
-    /* top: 0; */
+    /* top: -95px; */
+    top: 0;
     /* background-color: yellow; */
     width: 300px;
     left: 0;
-    margin-left: 26%;
+    /* margin-left: 26%; */
     /* left: 50%; */
     font-size: 26px;
     z-index: 5;
@@ -58,32 +62,32 @@ h1.itemName {
 section.cartSection div.price {
     position: relative;
     display: inline-block;
-    top: -155px;
+    /* top: -155px; */
     /* background-color: blue; */
     left: 0;
     color: rgb(87, 39, 39);
     font-size: 22px;
-    margin-left: 63.5%;
+    /* margin-left: 63.5%; */
 }
 
 section.cartSection div.quantity {
     position: relative;
     display: flex;
-    top: -187px;
+    /* top: -187px; */
     flex-wrap: wrap;
     align-items: center;
     /* left: 0; */
     /* margin-left: 1200px; */
     font-size: 15px;
     color: rgb(87, 39, 39);
-    margin-left: 75.25%;
+    /* margin-left: 75.25%; */
     width: 120px;
     justify-content: space-between;
 }
 
 div.totalPrice {
     position: relative;
-    top: -240px;
+    /* top: -240px; */
     left: 0;
     /* margin-left: 1400px; */
     font-size: 22px;
@@ -150,7 +154,7 @@ h1.cartTitle {
     /* background-color: green; */
     border-bottom: 1px solid grey;
     padding: 20px 0;
-    max-width: 1200px;
+    max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
     /* justify-content: space-between; */
@@ -170,4 +174,36 @@ h1.cartTitle {
 .cartItemsDescription .cartQuantity {
     margin-right: 124px;
 
+}
+
+@media only screen and (max-width: 1275px) {
+    .cartItemsDescription .cartProduct {
+        margin-right: 58%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    h1.itemName {
+        margin-left: 40px;
+        font-size: 13px;
+        top: -18px;
+    }
+
+    div.totalPrice {
+        top: -200px;
+        right: 20px;
+        left: unset;
+    }
+
+    section.cartSection div.price {
+        left: unset;
+        top: -100px;
+        right: 20px;
+    }
+
+    section.cartSection div.quantity {
+        left: unset;
+        right: 20px;
+        top: -140px;
+    }
 }

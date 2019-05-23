@@ -3,6 +3,7 @@ body {
     text-decoration: none;
     background-color: rgb(230, 213, 206);
     /* background-color: rgb(175, 157, 143); */
+    overflow-x: hidden;
 }
 
 #container {
@@ -158,7 +159,7 @@ footer {
 
 /* footer */
 footer {
-
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -171,6 +172,17 @@ footer {
     /* padding: 30px; */
     padding: 15px;
     letter-spacing: 2px;
+}
+
+footer .copyright {
+    position: absolute;
+    font-size: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin: 0;
+    z-index: 21221;
+    color: rgb(128, 79, 79);
 }
 
 footer ul.social {
@@ -356,4 +368,168 @@ div.terms h1.termsTitle {
     position: absolute;
     left: 10px;
     /* background-color: red; */
+}
+
+@media only screen and (max-width: 1250px) {
+    div.returns {
+        /* background-color: red; */
+        width: 90%;
+    }
+
+    div.terms {
+        /* background-color: red; */
+        width: 90%;
+    }
+
+    div.returns section {
+        font-size: 13px;
+    }
+
+    div.terms section {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .search .searchInput {
+        /* display: none; */
+
+    }
+
+    .search {
+        top: 105px;
+        left: 0;
+        margin-left: 50%;
+        transform: translateX(-68px);
+    }
+
+    .search .searchInput {
+        padding: 8px 50px;
+    }
+
+    .search .fa-search {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    .promotionSection {
+        /* background-color: blue; */
+        height: 1500px;
+
+
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    footer ul.rules {
+        flex-direction: column;
+        width: 300px;
+        /* background-color: red; */
+    }
+
+    footer ul.social {
+        flex-direction: column;
+        /* background-color: red; */
+        width: 300px;
+    }
+
+    footer ul.social li.language {
+        display: none;
+    }
+
+    footer ul.social li {
+        /* background-color: red; */
+
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    footer ul.rules li {
+        /* background-color: red; */
+
+        text-align: center;
+        margin-bottom: 10px;
+
+    }
+
+    footer {
+        /* background-color: red; */
+        height: 120px;
+    }
+
+    footer .copyright {}
+}
+
+@media only screen and (max-width: 500px) {
+    div.returns {
+        /* background-color: red; */
+        width: 92%;
+    }
+
+    div.terms {
+        /* background-color: red; */
+        width: 92%;
+    }
+
+    div.returns h1.returnsTitle {
+        font-size: 30px;
+        padding: 5px 0;
+    }
+
+    div.terms h1.termsTitle {
+        font-size: 30px;
+        padding: 5px 0;
+    }
+
+    div.returns h2 {
+        font-size: 20px;
+    }
+
+    div.terms h2 {
+        font-size: 20px;
+    }
+
+    div.returns section {
+        font-size: 13px;
+    }
+
+    div.terms section {
+        font-size: 13px;
+    }
+
+    footer ul.rules li {
+        font-size: 14px;
+        margin: 10px 0;
+        letter-spacing: 1px;
+    }
+
+    footer ul.social li {
+        font-size: 14px;
+        margin: 10px 0;
+        letter-spacing: 1px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .promotionSection {
+        /* background-color: blue; */
+        height: 2900px;
+
+
+    }
+
+    footer ul.rules li {
+        /* text-align: left; */
+        font-size: 13px;
+        /* background-color: pink; */
+
+    }
+
+    footer ul.social li {
+        font-size: 13px;
+        /* text-align: right; */
+        /* padding: 0; */
+
+    }
 }
