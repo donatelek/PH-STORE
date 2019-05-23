@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import math from 'mathjs'
 import Img from 'react-image';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import cartIcon from '../CartIcon.png';
+
 class Products extends Component {
     state = {}
 
