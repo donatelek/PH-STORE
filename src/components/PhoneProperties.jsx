@@ -147,7 +147,11 @@ class PhoneProperties extends Component {
         const indexOfProduct = Products.indexOf(product)
         console.log(indexOfProduct)
      console.log(this.props.Products[this.props.shuffle[0]].devicename)
-        
+     const userEmail=this.props.Products[indexOfProduct].email;
+     console.log(userEmail)
+     const i = userEmail.indexOf('@');
+     const d = userEmail.substring(0,i)
+     
         return (
 
             <div>
@@ -163,11 +167,11 @@ class PhoneProperties extends Component {
                         <div className='deviceName'>{this.props.Products[indexOfProduct].devicename}</div>
                         <img src={this.props.Products[indexOfProduct].photo} onClick={this.testt} alt=""/>
                         <div className='price'>Price: {this.maniek(this.props.currency)} {this.props.currency}</div>
-                            <div className="seller">Seller: Marian</div>
+                            <div className="seller">Seller: {d}</div>
                         {/* <div className='quantity'>item quantity</div> */}
-                        <div className="condition">Condition: New</div>
-                        <div className="userContact">Contact to seller: donatelek@gmail.com</div>
-                        <div className="itemDescription">Description: <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti quibusdam voluptate ipsam error similique eum delectus quaerat, ab, commodi laudantium aliquam nobis, corrupti placeat expedita quae inventore recusandae corporis?</span></div>
+                        <div className="condition">Condition: {this.props.Products[indexOfProduct].condition}</div>
+                        <div className="userContact">Contact to seller: {this.props.Products[indexOfProduct].email}</div>
+                        <div className="itemDescription">Description: <span>{this.props.Products[indexOfProduct].description}</span></div>
                         <div className="shipping">Shipping: Worldwide</div>
                         <button className="addToCart" disabled={this.handleActiveButton()} onClick={()=>{
                             this.buttonLoader() 
