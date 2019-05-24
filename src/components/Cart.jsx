@@ -71,21 +71,21 @@ class Cart extends Component {
         const items = this.state.ItemsAddedToCart.map(item => {
             
             if (this.state.currency === 'USD') {
-                price = price + item.PriceUsd * item.Quantity
+                price = price + item.priceusd * item.quantity
                
             }
             else if (this.state.currency === 'EUR') {
-                price = price + item.PriceUsd * item.Quantity * this.props.EUR
+                price = price + item.priceusd * item.quantity * this.props.EUR
 
 
             }
             else if (this.state.currency === 'PLN') {
-                price = price + item.PriceUsd * item.Quantity * this.props.PLN
+                price = price + item.priceusd * item.quantity * this.props.PLN
          
 
             }
             else if (this.state.currency === 'BTC') {
-                price = price + item.PriceUsd * item.Quantity * this.props.BTC
+                price = price + item.priceusd * item.quantity * this.props.BTC
                 
             }
             else {
@@ -133,10 +133,9 @@ class Cart extends Component {
           price:macc,
           currency:this.props.currency
         })
-      }).then(res=>{
-          console.log(res.url)
-        //   this.props.history.push(res.url)
-        window.location = res.url;
+      }).then(res=>res.json()).then(res=>{
+          console.log(res)
+          window.location.replace(res)
       })
    }
 
@@ -181,11 +180,11 @@ class Cart extends Component {
                         <img className='cartPhoto' src={item.Photo} alt=""/>
                         
                         <h1 className="itemName">{item.DeviceName}</h1>
-                        <div className="price">{math.multiply(item.PriceUsd, this.props.EUR).toFixed(2)} {this.props.currency}</div>
+                        <div className="price">{math.multiply(item.priceusd, this.props.EUR).toFixed(2)} {this.props.currency}</div>
                         <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.PriceUsd, this.props.EUR, item.Quantity).toFixed(2)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.EUR, item.Quantity).toFixed(2)} {this.props.currency}</div>
                     </div>
 
                 )
@@ -218,11 +217,11 @@ class Cart extends Component {
                         <img className='cartPhoto' src={item.Photo} alt=""/>
                         
                         <h1 className="itemName">{item.DeviceName}</h1>
-                        <div className="price">{math.multiply(item.PriceUsd, this.props.PLN).toFixed(2)} {this.props.currency}</div>
+                        <div className="price">{math.multiply(item.priceusd, this.props.PLN).toFixed(2)} {this.props.currency}</div>
                         <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.PriceUsd, this.props.PLN, item.Quantity).toFixed(2)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.PLN, item.Quantity).toFixed(2)} {this.props.currency}</div>
                     </div>
                 )
             }
@@ -251,11 +250,11 @@ class Cart extends Component {
                         <img className='cartPhoto' src={item.Photo} alt=""/>
                         
                         <h1 className="itemName">{item.DeviceName}</h1>
-                        <div className="price">{math.multiply(item.PriceUsd, this.props.BTC).toFixed(4)} {this.props.currency}</div>
+                        <div className="price">{math.multiply(item.priceusd, this.props.BTC).toFixed(4)} {this.props.currency}</div>
                         <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.PriceUsd, this.props.BTC, item.Quantity).toFixed(4)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.BTC, item.Quantity).toFixed(4)} {this.props.currency}</div>
                     </div>
                 )
             }

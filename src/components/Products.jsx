@@ -31,7 +31,7 @@ handleActiveButton=(id)=>{
             <>
                 {this.props.currency === 'USD' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
 
-                        <img className="devicePhoto" src={this.props.Photo} alt=""/>
+                        <img className="devicePhoto" src={this.props.photo} alt=""/>
 
                     <h1 className='deviceName'>{this.props.devicename}</h1>
                     <h2 className='devicePrice'>{this.props.priceusd + ' '+this.props.currency}</h2>
@@ -55,7 +55,7 @@ handleActiveButton=(id)=>{
                 </div >} */}
                 {this.props.currency === 'EUR' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
 
-<img className="devicePhoto" src={this.props.Photo} alt=""/>
+<img className="devicePhoto" src={this.props.photo} alt=""/>
 
 <h1 className='deviceName'>{this.props.devicename}</h1>
 <h2 className='devicePrice'>{Math.round(this.props.priceusd * this.props.EUR)} {this.props.currency}</h2>
@@ -76,7 +76,7 @@ handleActiveButton=(id)=>{
                 </div >} */}
                  {this.props.currency === 'PLN' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
 
-<img className="devicePhoto" src={this.props.Photo} alt=""/>
+<img className="devicePhoto" src={this.props.photo} alt=""/>
 
 <h1 className='deviceName'>{this.props.devicename}</h1>
 <h2 className="devicePrice">{Math.round(this.props.priceusd * this.props.PLN)} {this.props.currency}</h2>
@@ -96,7 +96,7 @@ handleActiveButton=(id)=>{
 
 {this.props.currency === 'BTC' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
 
-<img className="devicePhoto" src={this.props.Photo} alt=""/>
+<img className="devicePhoto" src={this.props.photo} alt=""/>
 
 <h1 className='deviceName'>{this.props.devicename}</h1>
 <h2 className="devicePrice">{math.round(this.props.priceusd * this.props.BTC, 4)} {this.props.currency}</h2>

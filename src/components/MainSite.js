@@ -83,7 +83,7 @@ class App extends Component {
 
   let numberGenerator = function (arr) {
     if (arr.length >= 4) return;
-    let newNumber = Math.floor(Math.random() * 8 + 1);
+    let newNumber = Math.floor(Math.random() * 5 + 1);
     if (arr.indexOf(newNumber) < 0) {
       arr.push(newNumber);
     }
@@ -122,10 +122,10 @@ class App extends Component {
   // }
   setIdOfProduct = (idOfProduct) => {
     let anArrayOfUniqueNumbers = [];
-
+console.log(idOfProduct)
     let numberGenerator = function (arr) {
       if (arr.length >= 4) return;
-      let newNumber = Math.floor(Math.random() * 16 + 1);
+      let newNumber = Math.floor(Math.random() * 5 + 1);
       if (arr.indexOf(newNumber) < 0) {
         arr.push(newNumber);
       }
@@ -133,6 +133,7 @@ class App extends Component {
     };
 
     numberGenerator(anArrayOfUniqueNumbers);
+    console.log(anArrayOfUniqueNumbers)
     if(idOfProduct){
       this.setState({
         idOfProduct,
@@ -260,10 +261,10 @@ class App extends Component {
           handleAddToCart={this.handleAddToCart}
           handleShowProperties={this.handleShowProperties}
           id={product.id}
-          Photo={product.photo}
+          photo={product.photo}
           devicename={product.devicename}
           priceusd={product.priceusd}
-          Quantity={product.quantity}
+          quantity={product.quantity}
           AddedToCart={product.AddedToCart}
           EUR={this.state.EUR}
           PLN={this.state.PLN}

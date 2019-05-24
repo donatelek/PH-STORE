@@ -27,9 +27,9 @@ class Search extends Component {
         };
 
         var newArray = obj.homes.filter(function (el) {
-            console.log(el.DeviceName)
-            console.log(el.DeviceName.toLowerCase())
-            return el.DeviceName.toLowerCase().includes(searchInput.toLowerCase());
+            console.log(el.devicename)
+            console.log(el.devicename.toLowerCase())
+            return el.devicename.toLowerCase().includes(searchInput.toLowerCase());
         });
         console.log(newArray)
         this.setState({

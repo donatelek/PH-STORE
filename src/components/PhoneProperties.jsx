@@ -146,7 +146,7 @@ class PhoneProperties extends Component {
         })
         const indexOfProduct = Products.indexOf(product)
         console.log(indexOfProduct)
-     
+     console.log(this.props.Products[this.props.shuffle[0]].devicename)
         
         return (
 
@@ -251,8 +251,10 @@ class PhoneProperties extends Component {
 
                    
                   
-                       <li onClick={()=>this.aaa(this.props.shuffle[3])}><div className='deviceName'>{this.props.Products[this.props.shuffle[3]].devicename}</div>
-                        <img src={this.props.Products[this.props.shuffle[3]].photo} /></li>
+                       <li onClick={()=>this.aaa(this.props.shuffle[3])}>
+                           <div className='deviceName'>{this.props.Products[this.props.shuffle[3]].devicename}</div>
+                        <img src={this.props.Products[this.props.shuffle[3]].photo} />
+                        </li>
                            
                         </ul>
                     
