@@ -15,7 +15,7 @@ class BitcoinPayment extends Component {
                 showSuccessPayment:false
                 
             })
-        },5000)
+        },3000)
     }
     render() { 
         return ( 

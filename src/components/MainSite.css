@@ -402,7 +402,8 @@ div.terms h1.termsTitle {
         top: 105px;
         left: 0;
         margin-left: 50%;
-        transform: translateX(-68px);
+        /* transform: translateX(-68px); */
+        transform: translateX(-70px);
     }
 
     .search .searchInput {

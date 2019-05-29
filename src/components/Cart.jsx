@@ -65,10 +65,11 @@ class Cart extends Component {
         
         if(close==='yes'){
             setTimeout(()=>{
+                document.body.style.overflow = "visible"
                 this.setState({
                     showBitcoinPayment:false
                 })
-            },5000)
+            },3000)
             
         }
     }
