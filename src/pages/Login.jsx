@@ -80,7 +80,7 @@ this.setState({
                     <div className='login'>
                         <label className='login' htmlFor="login">Email</label>
                         <br/>
-                        <input type="email" id='login' onChange={this.handleLoginChange} />
+                        <input type="email" id='login' onChange={this.handleLoginChange}  />
                         
                     </div>
                     <div className='password'>

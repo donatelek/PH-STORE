@@ -28,36 +28,11 @@ const Nav = (props) => {
     }
     return (
         <nav>
-            
-            {/* <ul>
-            <li className='logo'><img src={Logo} alt="" className='logo nav'/></li>
-                <li>Products</li>
-                <li onClick={props.handleOpenSell}><Link className="sell nav" to='/sell'>Sell</Link></li>
-                <li><Link className='Login nav' to='/login'>Log In</Link></li>
-                <li><Link className="register nav" to='/register'>Register</Link></li>
-                <li onClick={props.handleOpenCart}>
-                    <Link className="navCart" to='/cart'>{props.Cart.length} Cart</Link>
-                </li>
-                <li><span>{props.currency}</span>
-                    <div className="dropdown">
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[0]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[1]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[2]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[3]}</p>
-                    </div></li>
-            </ul>            */}
+           
 
 <section class="top-nav">
     <div>
     <Link className='storeName' to='/'><img src={Logo} alt="" /></Link>
-    {/* <img src={Logo} alt="" className='logo nav'/> */}
     </div>
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
@@ -69,20 +44,7 @@ const Nav = (props) => {
       <li><Link className='nav' to='/login'>Log In</Link></li>
       <li><Link className="nav" to='/register'>Register</Link></li>
       <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
-      {/* <li><span className='currencyChanger'>{props.currency}</span>
-                    <div className="dropdown">
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[0]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[1]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[2]}</p>
-
-                        <p onClick={handleChangeCurrency}
-                        >{props.currencyToChoose[3]}</p>
-                    </div></li> */}
+     
                     <li className='currency'>
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
@@ -107,9 +69,15 @@ const Nav = (props) => {
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
                          
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
-                            <option value={props.currencyToChoose[1]} >{props.currencyToChoose[1]}</option>
-                            <option value={props.currencyToChoose[2]}>{props.currencyToChoose[2]}</option>
-                            <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
+
+
+
+                            {props.currency==='EUR'?<option value={props.currencyToChoose[1]}  selected>{props.currencyToChoose[1]}</option>:<option value={props.currencyToChoose[1]}  >{props.currencyToChoose[1]}</option>}
+
+
+
+                            {props.currency==='PLN'?<option value={props.currencyToChoose[2]}  selected>{props.currencyToChoose[2]}</option>:<option value={props.currencyToChoose[2]}  >{props.currencyToChoose[2]}</option>}
+                            {props.currency==='BTC'?<option value={props.currencyToChoose[3]}  selected>{props.currencyToChoose[3]}</option>:<option value={props.currencyToChoose[3]}  >{props.currencyToChoose[3]}</option>}
                         </select>
                     </li>
     </ul>

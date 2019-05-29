@@ -1,0 +1,88 @@
+div.btcPayment {
+    position: fixed;
+    z-index: 9999999999999999999;
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    letter-spacing: 2px;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    background-color: rgb(146, 104, 104);
+    border-radius: 50px;
+    border: 5px solid rgb(95, 16, 16);
+    text-align: center;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+div.btcPayment button.cancelBTC,
+div.btcPayment button.sentBTC {
+    width: 200px;
+    height: 40px;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(199, 199, 199));
+    border: none;
+    border-radius: 50px;
+    border: 3px solid rgb(93, 45, 45);
+    outline: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.30), 0 5px 8px rgba(0, 0, 0, 0.22);
+}
+
+div.btcPayment button.cancelBTC {
+    margin-right: 50px;
+}
+
+div.btcPayment button.cancelBTC:hover {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(212, 182, 182));
+}
+
+div.btcPayment button.sentBTC:hover {
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(185, 211, 177));
+}
+
+@media only screen and (max-width: 830px) {
+    div.btcPayment {
+        width: 98%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    div.btcPayment {
+        height: 400px;
+        letter-spacing: 1px;
+    }
+
+    div.btcPayment button.cancelBTC,
+    div.btcPayment button.sentBTC {
+        width: 140px;
+        height: 40px;
+        margin: 0;
+
+    }
+
+    div.btcPayment button.cancelBTC {
+        margin-right: 10px;
+    }
+
+    div.btcPayment h3 {
+        font-size: 15px;
+    }
+
+    div.btcPayment h3.btcAddress {
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+
+    div.btcPayment h2 {
+        font-size: 17px;
+    }
+
+    div.btcPayment h1 {
+        font-size: 25px;
+    }
+
+    div.btcPayment h4 {
+        font-size: 14px;
+    }
+}

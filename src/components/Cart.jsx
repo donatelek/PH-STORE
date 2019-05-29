@@ -11,11 +11,32 @@ class Cart extends Component {
         quantityUsd: 1,
         Quantity: [],
         marjen: 10,
-        
+        showBitcoinPayment:false,
+        showSuccessPayment:false
     }
+
+    UNSAFE_componentWillMount(){
+        
+            
+           
+      }
+
     componentDidMount() {
+       
+        
+
+        const cart =this.props.Cart
+        let clonedCart = cart.map(item=>({...item}))
+        const quantityToOne=clonedCart.map(i=>{
+            i.quantity=1
+        })
+        // const ee = cart.map(car=>{
+        //     car.quantity=1
+            
+        // })
+        
         this.setState({
-            ItemsAddedToCart: this.props.Cart,
+            ItemsAddedToCart: clonedCart,
         })
     }
     componentDidUpdate() {
@@ -27,42 +48,162 @@ class Cart extends Component {
         }
 
     }
+    
+    handleShowBitcoinPayment=(close)=>{
+        if(close!=='yes'){
+            this.setState({
+                showBitcoinPayment:!this.state.showBitcoinPayment
+            })
+            if(this.state.showBitcoinPayment===false){
+                
+                    document.body.style.overflow = "hidden"
+                 
+            } else{
+                document.body.style.overflow = "visible"
+              }
+        }
+        
+        if(close==='yes'){
+            setTimeout(()=>{
+                this.setState({
+                    showBitcoinPayment:false
+                })
+            },5000)
+            
+        }
+    }
     marjen = () => {
         this.setState({
             marjen: this.state.marjen + 1
         })
     }
     handleIncrementQuantity = (id) => {
-        let cart = this.state.ItemsAddedToCart;
-        const sp = cart.find(item => {
-            return item.id === id
-        });
-        const index = cart.indexOf(sp);
-        const product = cart[index];
-        const numberQuantity=Number(product.Quantity)
-      
+    //     let cart = this.state.ItemsAddedToCart;
+    //     const sp = cart.find(item => {
+    //         return item.id === id
+    //     });
+        
+    //     const index = cart.indexOf(sp);
+    //     console.log(index)
+    //     const product = cart[index];
        
-        product.Quantity = numberQuantity + 1;
+    //     const numberQuantity=Number(product.quantity)
+        
+       
+        
+    //     const maxQuantity = this.props.Products
+    //     console.log(maxQuantity)
+    //     const cc = maxQuantity.find(item => {
+    //         return item.id === id
+    //     });
+    //         console.log(cc)
+    //     const indexx = maxQuantity.indexOf(cc);
+    //     console.log(indexx)
+    //     const ole = maxQuantity[indexx].quantity
+    //     console.log(ole)
+    //     if(product.quantity<ole){
+    //     product.quantity = numberQuantity + 1;
+    //     this.setState({
+    //         ItemsAddedToCart: cart
+    //     })
+    // }
+
+    let cart = this.state.ItemsAddedToCart;
+    let qq = this.props.Cart;
+  
+    let clonedItemsAddedToCart = cart.map(item=>({...item}))
+    let clonedCart = qq.map(item=>({...item}))
+    let products = this.props.Products;
+    const sp = products.find(item => {
+        return item.id === id
+    });
+    console.log(sp)
+    const index = products.indexOf(sp);
+   console.log(index)
+    clonedItemsAddedToCart.map(i=>{
+        if(i.id===id){
+            console.log(i.quantity)
+            console.log(products[index].quantity)
+            if(i.quantity <products[index].quantity){
+                const numberQuantity=Number(i.quantity);
+                i.quantity = numberQuantity + 1;
+            }
+        }
+    })
+   clonedCart.map(i=>{
+        if(i.id===id){  
+            if(i.quantity <products[index].quantity){
+                const numberQuantityy=Number(i.quantity);
+                i.quantity = numberQuantityy + 1;
+            }
+            
+            
+        }
+    })
+
+    
+   
+   
+   this.props.updatingCart(clonedCart)
+   
+     
+       
         this.setState({
-            ItemsAddedToCart: cart
+            ItemsAddedToCart: clonedItemsAddedToCart
         })
+
+
     }
 
     handleDecrementQuantity = (id) => {
-
+      console.log(this.props.Products)
+// tu sie zmienia tylko itemsaddedtocart
         let cart = this.state.ItemsAddedToCart;
-        const sp = cart.find(item => {
+        let qq = this.props.Cart;
+      
+        let clonedItemsAddedToCart = cart.map(item=>({...item}))
+        let clonedCart = qq.map(item=>({...item}))
+     
+     let products = this.props.Products;
+        const sp = products.find(item => {
             return item.id === id
         });
+        
         const index = cart.indexOf(sp);
-        const product = cart[index];
-        if (product.Quantity > 1) {
-            product.Quantity = product.Quantity - 1;
+       
+        // const product = cart[index];
 
-            this.setState({
-                ItemsAddedToCart: cart
-            })
+
+
+
+        clonedItemsAddedToCart.map(i=>{
+            if(i.id===id){
+                if(i.quantity >1){{
+                    i.quantity = i.quantity - 1;
+                }
+            }
         }
+        })
+       clonedCart.map(i=>{
+            if(i.id===id){
+                if(i.quantity >1){
+                    i.quantity = i.quantity - 1;
+                }
+                
+            }
+        })
+    
+        
+       
+     
+       this.props.updatingCart(clonedCart)
+       
+         
+           
+            this.setState({
+                ItemsAddedToCart: clonedItemsAddedToCart
+            })
+      
     }
     Subtotal = () => {
         let price = 0;
@@ -108,7 +249,7 @@ class Cart extends Component {
         })
         const index = cart.indexOf(sp);
         const product = cart[index];
-       
+        cart.splice(index,1)
         this.setState({
             ItemsAddedToCart: cart
         })
@@ -140,6 +281,7 @@ class Cart extends Component {
    }
 
     render() {
+        
         const itemsInCart = this.state.ItemsAddedToCart.map((item,index) => {
           
             if (this.state.currency === 'USD') {
@@ -150,7 +292,10 @@ class Cart extends Component {
                         
                         <h1 className="itemName">{item.devicename}</h1>
                         <div className="price">{item.priceusd} {this.props.currency}</div>
-                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.quantity}</div>
+                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>
+                        {item.quantity}
+                        
+                        </div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
                         <div className="totalPrice">{item.priceusd * item.quantity} {this.props.currency}</div>
@@ -177,14 +322,14 @@ class Cart extends Component {
 
                     // </div>
                     <div key={item.id} className="item">
-                        <img className='cartPhoto' src={item.Photo} alt=""/>
+                        <img className='cartPhoto' src={item.photo} alt=""/>
                         
-                        <h1 className="itemName">{item.DeviceName}</h1>
+                        <h1 className="itemName">{item.devicename}</h1>
                         <div className="price">{math.multiply(item.priceusd, this.props.EUR).toFixed(2)} {this.props.currency}</div>
-                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
+                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.EUR, item.Quantity).toFixed(2)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.EUR, item.quantity).toFixed(2)} {this.props.currency}</div>
                     </div>
 
                 )
@@ -214,14 +359,14 @@ class Cart extends Component {
                     // </div>
 
 <div key={item.id} className="item">
-                        <img className='cartPhoto' src={item.Photo} alt=""/>
+                        <img className='cartPhoto' src={item.photo} alt=""/>
                         
-                        <h1 className="itemName">{item.DeviceName}</h1>
+                        <h1 className="itemName">{item.devicename}</h1>
                         <div className="price">{math.multiply(item.priceusd, this.props.PLN).toFixed(2)} {this.props.currency}</div>
-                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
+                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.PLN, item.Quantity).toFixed(2)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.PLN, item.quantity).toFixed(2)} {this.props.currency}</div>
                     </div>
                 )
             }
@@ -247,14 +392,14 @@ class Cart extends Component {
 
                     // </div>
                     <div key={item.id} className="item">
-                        <img className='cartPhoto' src={item.Photo} alt=""/>
+                        <img className='cartPhoto' src={item.photo} alt=""/>
                         
-                        <h1 className="itemName">{item.DeviceName}</h1>
+                        <h1 className="itemName">{item.devicename}</h1>
                         <div className="price">{math.multiply(item.priceusd, this.props.BTC).toFixed(4)} {this.props.currency}</div>
-                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.Quantity}</div>
+                        <div className="quantity"> <span className='decrementQuantity' onClick={() => this.handleDecrementQuantity(item.id)}>-</span><div className='numberOfItems'>{item.quantity}</div>
                             <span className='incrementQuantity' onClick={() => this.handleIncrementQuantity(item.id)}>+</span><div className='removeItem' onClick={() => this.removeItem(item.id)}>Remove</div></div>
 
-                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.BTC, item.Quantity).toFixed(4)} {this.props.currency}</div>
+                            <div className="totalPrice">{math.multiply(item.priceusd, this.props.BTC, item.quantity).toFixed(4)} {this.props.currency}</div>
                     </div>
                 )
             }
@@ -272,8 +417,15 @@ class Cart extends Component {
                     </div>
                     {itemsInCart}
                 </section>
-                <div className='subtotalCart'>Subtotal: {this.Subtotal()} {this.props.currency}</div>
-                <button className="paypal" onClick={this.paypalCheckout}>PAY VIA PAYPAL</button>
+                <section className="checkout">
+                <div className="discount">Discount: <span>-0 {this.props.currency}</span></div>
+                <div className="couponCode">Enter Promo Code: <input type="text"/></div>
+                <div className="shipping">Shipping: <span>FREE</span></div>
+                <div className='subtotalCart'>Subtotal: <span>{this.Subtotal()} {this.props.currency}</span></div>
+                {this.props.currency!=='BTC'&& this.state.ItemsAddedToCart.length?<button className="paypal" onClick={this.paypalCheckout}><span className="buy">Buy now with</span> <span className="logo">Pay</span><span className="logo2">Pal</span></button>:null}
+                {this.props.currency==='BTC'&& this.state.ItemsAddedToCart.length?<button className="btc" onClick={this.handleShowBitcoinPayment}>Pay with Bitcoin <i class="fab fa-bitcoin"></i></button>:null}
+                </section>
+                {this.state.showBitcoinPayment&&<BitcoinPayment handleShowBitcoinPayment={this.handleShowBitcoinPayment} Subtotal={this.Subtotal}   />}
                 </>
         )
     }

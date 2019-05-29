@@ -15,7 +15,7 @@ class SellSection extends Component {
         submittedCorrectly:false,
         condition: 'new',
         photo: 'oneplus6.png',
-        Quantity: 1,
+        quantity: 1,
         errors: {
             sell: false,
             email: false,
@@ -32,7 +32,7 @@ class SellSection extends Component {
     }
     handleAddItem = (props) => {
 
-        props.handleAddItem(this.state.sell, this.state.photoUrl, this.state.price, this.state.Quantity)
+        props.handleAddItem(this.state.sell, this.state.photoUrl, this.state.price, this.state.quantity)
     }
 
     handleFromChange = (e) => {
@@ -68,15 +68,23 @@ class SellSection extends Component {
                     condition:this.state.condition,
                     priceusd:this.state.price,
                     description:this.state.description,
-                    quantity:this.state.Quantity,
+                    quantity:this.state.quantity,
                     photo:this.state.imgUrl
                 })
               }).then(res=>res.json()).then(res=>{
                   console.log(res)
                   this.props.fetchingProducts()
                   this.setState({
-                    submittedCorrectly:true
+                    submittedCorrectly:true,
+                    sell:'',
+                    email:'',
+                    price:null,
+                    quantity:null,
+                    condition:'new',
+                    description:'',
+                    imgUrl:''
                   })
+                  
                   setTimeout(()=>{
                       this.setState({
                           submittedCorrectly:false
@@ -165,7 +173,13 @@ class SellSection extends Component {
                             {this.state.errors.price && <span className='error'>{this.messages.price}</span>}
                             
                         </div>
+                        
                         <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false"/>
+                        
+                        <div className="wrap-label">
+                            <label htmlFor="name">Quantity</label>
+                        </div>
+                        <input onChange={this.handleFromChange} type="quantity" id="quantity" value={this.state.quantity} spellcheck="false"/>
                         <div className="wrap-label">
                             <label htmlFor="condition">Condition</label>
                             </div>

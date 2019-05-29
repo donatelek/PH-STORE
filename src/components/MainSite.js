@@ -24,7 +24,14 @@ fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
 const cartInState = [];
 
 
-// animacje oraz responsywnosc koszyka
+
+// animacje
+// jak scrolluje to platnosc btc sie nie rusza
+// dokonczyc z quantity w koszyku cos jest nie tak po wejsciu w koszyk quantity sie zmienia w fetchowanych produktach jak odswieze w carcie to moge zmieniac tak jak powinno byc
+
+
+
+
 // Your password should be at least 8 characters,
 
 class App extends Component {
@@ -47,14 +54,16 @@ class App extends Component {
     Products1: [],
     Products: [],
     loadPage:false,
-    searchedProducts:[]
+    searchedProducts:[],
   }
 
   UNSAFE_componentWillMount(){
+   
     fetch('https://ph-store-server.herokuapp.com/products', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
+   
           this.setState({
             Products:res,
             Products1:res,
@@ -62,10 +71,16 @@ class App extends Component {
           })
           
         }).catch(err => console.log(err))
+        if(localStorage.length!==0){
+          const datas = JSON.parse(localStorage["Cart"]); 
+          if(datas.length){
+            this.setState({
+              Cart:datas
+            })
+          }
+        }
   }
   componentDidMount() {
-    
-   
     fetch('https://openexchangerates.org/api/latest.json?app_id=acd7ca6ba434434685f7f05df216b290')
       .then(res => res.json())
       .then(res => {
@@ -77,8 +92,6 @@ class App extends Component {
         )
       }).catch(err => alert(err))
   
-
-
     let anArrayOfUniqueNumbers = [];
 
   let numberGenerator = function (arr) {
@@ -98,6 +111,13 @@ class App extends Component {
     
 
   }
+
+  updatingCart=(update)=>{
+    this.setState({
+      Cart:update
+    })
+  }
+
   fetchingProducts=()=>{
     fetch('https://ph-store-server.herokuapp.com/products', {
           method: 'GET',
@@ -111,18 +131,9 @@ class App extends Component {
       }).catch(err => console.log(err))
   }
 
-  // setIdOfProductForRecommended=(index)=>{
-  //   const Products=this.state.Products1
-  //   const Product = Products[index]
-  //   const id = Product.id;
-  //   console.log(id)
-  //   this.setState({
-  //     idOfProduct:id
-  //   })
-  // }
+
   setIdOfProduct = (idOfProduct) => {
     let anArrayOfUniqueNumbers = [];
-console.log(idOfProduct)
     let numberGenerator = function (arr) {
       if (arr.length >= 4) return;
       let newNumber = Math.floor(Math.random() * 5 + 1);
@@ -133,7 +144,6 @@ console.log(idOfProduct)
     };
 
     numberGenerator(anArrayOfUniqueNumbers);
-    console.log(anArrayOfUniqueNumbers)
     if(idOfProduct){
       this.setState({
         idOfProduct,
@@ -141,7 +151,6 @@ console.log(idOfProduct)
       })
     }else{
       this.setState({
-        
         shuffle: anArrayOfUniqueNumbers
       })
     }
@@ -154,7 +163,6 @@ console.log(idOfProduct)
   }
 
   handleAddItem = (devicename, photo, priceusd, quantity) => {
-
     const currentProducts = this.state.Products
     currentProducts.push({
       id: this.state.Products.length,
@@ -170,6 +178,8 @@ console.log(idOfProduct)
     })
   }
 
+
+
   handleShowHamburger=()=>{
     if(!this.state.showHamburger){
       document.body.style.overflow = "hidden"
@@ -183,7 +193,6 @@ console.log(idOfProduct)
   }
 
   checkIfWeSearching = (boolean1) => {
-
     if (boolean1) {
       this.setState({
         checkIfWeSearching: true
@@ -197,63 +206,45 @@ console.log(idOfProduct)
   }
   handleAddToCart = (id,index) => {
     let products = this.state.Products;
-    
     const product = products.find(item => {
       return item.id === id
     })
-  
     const indexOfProduct = products.indexOf(product)
- 
-    
       const Cart = this.state.Cart;
       Cart.push(product)
     this.setState({
       Cart
     })
-   
-    
-    
-   
-
+    const saveStorage= JSON.stringify(Cart)
+    localStorage.setItem('Cart',saveStorage)
   }
 
   handleSearching = (Products) => {
-   
     this.setState({
       Products
     })
   }
 
 
-  bogus = (ble) => {
-    this.setState({
-      ble
-    })
-   
-  }
+ 
 
 
   igrek = (ee,index) => {
-   
     const products = this.state.Products1
     const cart = this.state.Cart
     cart.splice(index,1)
   
-    products[index].AddedToCart = false
+    // products[index].AddedToCart = false
     
     this.setState({
       Cart:cart,
       Products: products
     })
+    const saveStorage= JSON.stringify(cart)
+     localStorage.setItem('Cart',saveStorage)
   }
   render() {
-
-    const bogus = (ble) => {
-      return ble
-    }
-    
     const products = this.state.Products.map((product,index) => {
-      
       
       return (
         <Products
@@ -275,9 +266,6 @@ console.log(idOfProduct)
         />
       )
     })
-
-
-
 
     return (
       <Router>
@@ -310,16 +298,15 @@ console.log(idOfProduct)
           <Route path='/login' component={Login} />
           <Route path='/feedback' component={Feedback} />
 
-          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} igrek={this.igrek} />)} />
+          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek}  updatingCart={this. updatingCart}/>)} />
 
-          {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} bogus={bogus} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
+          {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
 
-        {/* <GreetingSite/> */}
 
         <Route path='/welcome' render={(props) => (<GreetingSite {...props}  />)} />
 
         
-          {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency} bogus={this.bogus} checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
+          {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency}  checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
 
 
           <Route path='/sell' render={(props) => (<SellSection {...props} handleAddItem={this.handleAddItem} fetchingProducts={this.fetchingProducts} />)} />

@@ -151,13 +151,15 @@ class Contact extends Component {
             <div className='contactEmail'>
             {/* <input type ="text" name ="user_name" /> */}
             <label>Email</label> 
+            <br/>
             <input type="email" name ="user_email" onChange={this.handleNameChange} value={this.state.name} />
             {this.state.errors.name&&<div className="error">{this.messages.name}</div>}
             </div> 
             <div className='contactMessage'>
             <label>Message</label> 
+            <br/>
             <textarea  id="feedback-entry"
-          name="feedback-entry" onChange={this.handleChange} placeholder="Enter your message here" required value={this.state.feedback}> </textarea> 
+          name="feedback-entry" onChange={this.handleChange}  required value={this.state.feedback}> </textarea> 
           {this.state.errors.feedback&&<div className="error">{this.messages.feedback}</div>}
             </div> 
             {this.state.formEmailSent&&<div className="error">Message has been sent!</div>}

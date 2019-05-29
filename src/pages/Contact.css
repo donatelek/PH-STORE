@@ -2,7 +2,7 @@
     display: block;
     margin: 0 auto;
     /* background-color: green; */
-    width: 400px;
+    width: 500px;
     margin-top: 150px;
     height: 800px;
 }
@@ -12,8 +12,11 @@
 .contactForm .contactName input,
 .contactForm .contactEmail input,
 .contactForm .contactMessage textarea {
-    width: 400px;
     margin: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+
     padding: 6px;
     border: 0px;
     outline: 2px solid rgb(185, 128, 128);
@@ -25,6 +28,7 @@
 
 
 .contactForm label {
+    margin-left: 20px;
     font-size: 0.625em;
     color: rgb(185, 128, 128);
     text-transform: uppercase;
@@ -41,7 +45,7 @@
     display: block;
     width: 250px;
     padding: 12px 0;
-    background: rgb(87, 39, 39);
+    background: rgb(139, 66, 66);
     color: rgb(255, 255, 255);
     border: 0;
     letter-spacing: 1px;
@@ -49,9 +53,19 @@
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    /* margin-right: auto; */
     /* transform: translateX(-50%); */
+    border-radius: 50px;
+    border: 2px solid rgb(78, 17, 17);
+    transition: box-shadow .3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    outline: none;
+}
+
+.contactSubmit:hover {
+    box-shadow: none;
 }
 
 .contactMessage textarea {
@@ -70,4 +84,35 @@
     font-size: 14px;
     color: rgb(109, 22, 22);
     text-align: center;
+}
+
+@media only screen and (max-width: 515px) {
+
+    .contactForm {
+        width: 400px;
+    }
+
+    /* .contactForm {
+        width: 100vw;
+    } */
+}
+
+@media only screen and (max-width: 415px) {
+
+    .contactForm {
+        width: 95%;
+    }
+
+    .contactForm label {
+        margin-left: 12px;
+    }
+
+    .contactForm h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .contactSubmit {
+        width: 200px;
+    }
 }
