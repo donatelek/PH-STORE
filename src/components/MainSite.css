@@ -395,15 +395,18 @@ div.terms h1.termsTitle {
 @media only screen and (max-width: 1200px) {
     .search .searchInput {
         /* display: none; */
+        /* background-color: red; */
+        transform: translateX(-50%);
 
     }
 
     .search {
-        top: 105px;
+        top: 95px;
         left: 0;
         margin-left: 50%;
         /* transform: translateX(-68px); */
-        transform: translateX(-70px);
+        /* transform: translateX(-70px); */
+        /* background-color: red; */
     }
 
     .search .searchInput {
@@ -412,6 +415,10 @@ div.terms h1.termsTitle {
 
     .search .fa-search {
         font-size: 22px;
+        margin-right: -20px;
+        left: -125px;
+        /* vertical-align: 50px; */
+
     }
 }
 
