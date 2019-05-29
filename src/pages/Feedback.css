@@ -5,6 +5,7 @@
     /* background-color: green; */
     width: 500px;
     font-size: 17px;
+    overflow-x: hidden;
 }
 
 
@@ -103,6 +104,10 @@ div.feedback h1.feedbackTitle {
     .feedbackText {
         width: 400px;
     }
+
+    div.feedback h1.feedbackTitle {
+        margin-top: 50px;
+    }
 }
 
 @media only screen and (max-width: 415px) {
@@ -120,6 +125,7 @@ div.feedback h1.feedbackTitle {
     div.feedback h1.feedbackTitle {
         font-size: 25px;
         margin-bottom: 25px;
+
     }
 
     .feedbackSubmit {

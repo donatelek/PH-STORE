@@ -5,6 +5,12 @@
     height: 800px;
     /* background-color: red; */
     position: relative;
+    overflow-x: hidden;
+}
+
+.registerForm button.returnToStore .return {
+    text-decoration: none;
+    color: rgb(42, 5, 5);
 }
 
 .registerForm h1 {
@@ -94,6 +100,13 @@
     text-align: center;
 }
 
+@media only screen and (max-width: 515px) {
+    .registerForm {
+        height: 550px;
+        margin-top: 50px;
+    }
+}
+
 @media only screen and (max-width: 430px) {
 
     .registerForm .login label,
@@ -105,6 +118,7 @@
 
     .registerForm {
         width: 95%;
+
     }
 
 }

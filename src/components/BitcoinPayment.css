@@ -55,9 +55,10 @@ div.btcPayment button.sentBTC:hover {
 
     div.btcPayment button.cancelBTC,
     div.btcPayment button.sentBTC {
-        width: 140px;
+        width: 150px;
         height: 40px;
         margin: 0;
+        letter-spacing: 0px;
 
     }
 

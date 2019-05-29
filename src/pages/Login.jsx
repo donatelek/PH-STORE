@@ -89,7 +89,7 @@ this.setState({
                         <input type="password" id='password' onChange={this.handlePasswordChange}/>
                     </div>
                     <button className='submitLogin' onClick={this.handleSubmit}>login</button>
-                    <button className='returnToStore'><Link to='/'>Return to Store</Link></button>
+                    <button className='returnToStore'><Link className='return' to='/'>Return to Store</Link></button>
                 </div>
 
             </>

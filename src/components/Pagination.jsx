@@ -45,6 +45,7 @@ class Pagination1 extends Component {
 
 
     handleClick=(event)=> {
+        window.scrollTo(0, 0)
         this.setState({
             currentPage: Number(event.target.id)
         })

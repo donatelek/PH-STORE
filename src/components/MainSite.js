@@ -26,12 +26,15 @@ const cartInState = [];
 
 
 // animacje
-// jak scrolluje to platnosc btc sie nie rusza
-// dokonczyc z quantity w koszyku cos jest nie tak po wejsciu w koszyk quantity sie zmienia w fetchowanych produktach jak odswieze w carcie to moge zmieniac tak jak powinno byc
 
 
 
 
+// cos jest nie tak z search fieldem na mobilce
+// zrobić ladowanie na niecala sekunde z feedback bo nie laduja sie komentarze i nie daje na gore strony
+// contact nie daje na gore strony na mobilce
+
+                                                           
 // Your password should be at least 8 characters,
 
 class App extends Component {

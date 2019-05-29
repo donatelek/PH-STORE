@@ -145,7 +145,7 @@ class SellSection extends Component {
     }
     render() {
         return (
-            <section className='sellItem'>
+            <section className='sellItem' style={{overflowX:'hidden'}}>
 
 
                 <div className="wrap center">

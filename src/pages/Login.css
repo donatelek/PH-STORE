@@ -5,6 +5,12 @@
     margin: 0 auto;
     margin-top: 150px;
     position: relative;
+    overflow-x: hidden;
+}
+
+.loginForm button.returnToStore .return {
+    text-decoration: none;
+    color: rgb(42, 5, 5);
 }
 
 .loginForm .login label,
@@ -91,6 +97,13 @@
     /* background-color: pink; */
 }
 
+@media only screen and (max-width: 515px) {
+    .loginForm {
+        height: 450px;
+        margin-top: 50px;
+    }
+}
+
 @media only screen and (max-width: 430px) {
 
     .loginForm .login label,
@@ -100,5 +113,6 @@
 
     .loginForm {
         width: 95%;
+
     }
 }

@@ -124,7 +124,7 @@ this.setState({
                     {this.state.errors.password&& <div className='error'>{this.messages.password}</div>}
                 </div>
                 <button className='submitLogin' onClick={this.handleSubmit} >CREATE</button>
-                <button className='returnToStore'><Link to='/'>Return to Store</Link></button>
+                <button className='returnToStore'><Link className='return' to='/'>Return to Store</Link></button>
             </div>
         );
     }
