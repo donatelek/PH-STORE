@@ -77,11 +77,9 @@ class App extends Component {
           })
           
         }).catch(err => console.log(err))
-        console.log(localStorage.length)
-        console.log(localStorage.Cart)
-        console.log(localStorage.currentUser.length)
+       
         if(localStorage.Cart){
-          console.log(localStorage.length)
+          
           const datas = JSON.parse(localStorage["Cart"]); 
           if(datas.length){
             this.setState({
