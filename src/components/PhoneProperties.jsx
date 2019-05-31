@@ -16,6 +16,7 @@ class PhoneProperties extends Component {
  
     componentDidMount() {
         // this.props.history.push('/')
+        window.scrollTo(0, 0)
         let indexOfElement = this.props.location.pathname;
         indexOfElement =  indexOfElement.replace('/properties/','')
         if(!this.props.idOfProduct){

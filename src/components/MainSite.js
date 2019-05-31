@@ -25,16 +25,19 @@ const cartInState = [];
 
 
 
-// animacje
+// portfolio
+// dodac strone 404
+// dodac lekkie animacje jesli chodzi o scrollowanie
 
 
-
-
-// cos jest nie tak z search fieldem na mobilce
-// zrobić ladowanie na niecala sekunde z feedback bo nie laduja sie komentarze i nie daje na gore strony
-// contact nie daje na gore strony na mobilce
-
-                                                           
+// edm
+// psuje sie obrazek po wysunieciu klawiatury w telefonie chodzi pewnie o overflow caly background (obrazek i gradient)
+// introduction na telefonie ma byc na srodku ekranu mniej wiecej
+// zmienic obrazki zasłoniete na zwykle -2pkt i obrazek myszki kliknietej?
+// dodac strone 404
+// wyglad soundów zrobić
+// anonymous na stronie glownej na mobilcec jest za duzo white space miedzy login jak powieksze height duzo to jeszcze wiecej
+// contact moze troche zmniejszyc wszystko bo jest tak jakos duze na mobilce           
 // Your password should be at least 8 characters,
 
 class App extends Component {
@@ -66,7 +69,7 @@ class App extends Component {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         }).then(res => res.json()).then(res => {
-   
+          console.log(res)
           this.setState({
             Products:res,
             Products1:res,
@@ -74,7 +77,11 @@ class App extends Component {
           })
           
         }).catch(err => console.log(err))
-        if(localStorage.length!==0){
+        console.log(localStorage.length)
+        console.log(localStorage.Cart)
+        console.log(localStorage.currentUser.length)
+        if(localStorage.Cart){
+          console.log(localStorage.length)
           const datas = JSON.parse(localStorage["Cart"]); 
           if(datas.length){
             this.setState({
@@ -98,15 +105,19 @@ class App extends Component {
     let anArrayOfUniqueNumbers = [];
 
   let numberGenerator = function (arr) {
+    console.log(arr)
     if (arr.length >= 4) return;
     let newNumber = Math.floor(Math.random() * 5 + 1);
+    console.log(arr)
     if (arr.indexOf(newNumber) < 0) {
+      console.log(arr)
       arr.push(newNumber);
     }
     numberGenerator(arr);
   };
 
   numberGenerator(anArrayOfUniqueNumbers);
+  console.log(anArrayOfUniqueNumbers)
   this.setState({
     shuffle: anArrayOfUniqueNumbers
   })
