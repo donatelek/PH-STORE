@@ -37,7 +37,7 @@ const cartInState = [];
 // dodac strone 404
 // wyglad soundów zrobić
 // anonymous na stronie glownej na mobilcec jest za duzo white space miedzy login jak powieksze height duzo to jeszcze wiecej
-// contact moze troche zmniejszyc wszystko bo jest tak jakos duze na mobilce           
+// contact moze troche zmniejszyc wszystko bo jest tak jakos duze na mobilce          jak zrobie register z pustymi polami to przejdzie// zrobic ochrone przed tym i przed ta sama nazwa
 // Your password should be at least 8 characters,
 
 class App extends Component {
