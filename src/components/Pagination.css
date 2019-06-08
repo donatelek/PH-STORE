@@ -5,6 +5,11 @@ div.pagination {
 
 }
 
+.promotionSection {
+    /* background-color: green; */
+    min-height: 400px;
+}
+
 .promotionSection .wrapper {
 
     z-index: 2;

@@ -264,8 +264,8 @@ section.recommendedProducts .deviceName {
 
 @media only screen and (max-width: 830px) {
     section.phoneProperty {
-        height: 900px;
-        width: 95%;
+        min-height: 730px;
+        width: 87%;
     }
 
     section.phoneProperty .phoneImg img {
@@ -320,9 +320,21 @@ section.recommendedProducts .deviceName {
         margin-top: 20px;
         margin-bottom: 10px;
     }
+
+    section.phoneProperty {
+        min-height: 680px;
+    }
 }
 
 @media only screen and (max-width: 430px) {
+    section.phoneProperty {
+        min-height: 400px;
+    }
+
+    section.phoneDetails {
+        min-height: 400px;
+    }
+
     section.phoneDetails .price {
         margin-bottom: 10px;
     }

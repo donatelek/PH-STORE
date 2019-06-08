@@ -36,7 +36,8 @@ body {
 
 .promotionSection {
     /* background-color: blue; */
-    height: 1300px;
+    /* height: 500px; */
+    min-height: 500px;
 
 
 }

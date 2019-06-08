@@ -5,10 +5,12 @@
     width: 900px;
     margin-left: auto;
     margin-right: auto;
-    height: 1300px;
+    /* max-height: 1300px; */
+    min-height: 1100px;
+    /* height: 1300px; */
     margin-top: 100px;
     text-align: center;
-    border: 5px solid rgb(185, 128, 128);
+    border: 5px solid rgb(187, 141, 141);
     border-radius: 50px;
 }
 
@@ -117,7 +119,8 @@ input[type="number"] {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 600;
-    margin-top: 10px;
+    margin-bottom: 50px;
+    /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
     /* transform: translateX(-50%); */
@@ -145,6 +148,10 @@ input#quantity {
 }
 
 @media only screen and (max-width: 500px) {
+    .sellItem {
+        min-height: 1000px;
+    }
+
     .sellItem textarea {
         width: 92%;
     }

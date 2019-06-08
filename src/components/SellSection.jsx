@@ -78,8 +78,8 @@ class SellSection extends Component {
                     submittedCorrectly:true,
                     sell:'',
                     email:'',
-                    price:null,
-                    quantity:null,
+                    price:'',
+                    quantity:1,
                     condition:'new',
                     description:'',
                     imgUrl:''
@@ -209,7 +209,7 @@ class SellSection extends Component {
                        <label htmlFor="">Image Url</label>
                        
                        </div>
-                        <input type="text" onChange={this.test} spellcheck="false"/>
+                        <input type="text" onChange={this.test} value={this.state.imgUrl} spellcheck="false"/>
                         <br/>
                         <Img src={this.state.imgUrl}  className='uploadedImg'/>
                         <br/>

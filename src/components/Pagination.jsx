@@ -19,6 +19,7 @@ class Pagination1 extends Component {
         // this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
+        
         this.setState({
             todos: this.props.products
 

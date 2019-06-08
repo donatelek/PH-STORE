@@ -132,7 +132,7 @@ class PhoneProperties extends Component {
      
         return (
 
-            <div>
+            <div style={{overflowX:'hidden'}}>
                <div>
                 <section className="phoneProperty">
                     <section className="phoneImg">

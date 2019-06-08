@@ -23,7 +23,8 @@ import {withRouter} from 'react-router-dom';
 fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
 const cartInState = [];
 
-
+// store
+// cos wymyslic z phone properties z opisami i wielkosciami szczonek
 
 // portfolio
 // dodac strone 404
@@ -31,13 +32,9 @@ const cartInState = [];
 
 
 // edm
-// psuje sie obrazek po wysunieciu klawiatury w telefonie chodzi pewnie o overflow caly background (obrazek i gradient)
-// introduction na telefonie ma byc na srodku ekranu mniej wiecej
+
 // zmienic obrazki zasłoniete na zwykle -2pkt i obrazek myszki kliknietej?
-// dodac strone 404
-// wyglad soundów zrobić
-// anonymous na stronie glownej na mobilcec jest za duzo white space miedzy login jak powieksze height duzo to jeszcze wiecej
-// contact moze troche zmniejszyc wszystko bo jest tak jakos duze na mobilce          jak zrobie register z pustymi polami to przejdzie// zrobic ochrone przed tym i przed ta sama nazwa
+// dodac odpowiedz do passworda z backednu przy logowaniu zej est zle haslo
 // Your password should be at least 8 characters,
 
 class App extends Component {
@@ -105,7 +102,7 @@ class App extends Component {
   let numberGenerator = function (arr) {
     console.log(arr)
     if (arr.length >= 4) return;
-    let newNumber = Math.floor(Math.random() * 5 + 1);
+    let newNumber = Math.floor(Math.random() * this.state.Products1.length + 1);
     console.log(arr)
     if (arr.indexOf(newNumber) < 0) {
       console.log(arr)

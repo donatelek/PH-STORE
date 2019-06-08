@@ -2,7 +2,7 @@ import React from 'react';
 import Pagination from '../components/Pagination'
 import Search from '../components/Search';
 const SecondSection = (props) => {
-    
+   
     return (
         <section className='promotionSection'>
             <div className="nav search">
