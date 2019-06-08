@@ -99,7 +99,7 @@ class App extends Component {
   
     let anArrayOfUniqueNumbers = [];
 
-  let numberGenerator = function (arr) {
+  let numberGenerator = (arr) => {
     console.log(arr)
     if (arr.length >= 4) return;
     let newNumber = Math.floor(Math.random() * this.state.Products1.length + 1);
