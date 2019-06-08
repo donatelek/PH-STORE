@@ -102,7 +102,7 @@ class App extends Component {
   let numberGenerator = (arr) => {
     console.log(arr)
     if (arr.length >= 4) return;
-    let newNumber = Math.floor(Math.random() * this.state.Products1.length + 1);
+    let newNumber = Math.floor(Math.random() * 4 + 1);
     console.log(arr)
     if (arr.indexOf(newNumber) < 0) {
       console.log(arr)
