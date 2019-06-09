@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Feedback.css'
+import '../Styles/Feedback.css'
 class Feedback extends Component {
     state = {
         name: '',

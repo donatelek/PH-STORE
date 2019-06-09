@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './BitcoinPayment.css';
+import '../Styles/BitcoinPayment.css';
 
 class BitcoinPayment extends Component {
     state = { 
         showSuccessPayment:false,
      }
     handleShowSuccessPayment=()=>{
-        console.log('33333333')
+        
         this.setState({
             showSuccessPayment:true
         })

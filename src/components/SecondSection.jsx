@@ -1,6 +1,6 @@
 import React from 'react';
-import Pagination from '../components/Pagination'
-import Search from '../components/Search';
+import Pagination from './Pagination'
+import Search from './Search';
 const SecondSection = (props) => {
    
     return (

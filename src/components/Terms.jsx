@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../components/MainSite.css';
+import '../Styles/MainSite.css';
 
 
 class Terms extends Component {

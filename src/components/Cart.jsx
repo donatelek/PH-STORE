@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import "./Cart.css";
+import "../Styles/Cart.css";
 import math from 'mathjs'
-import Img from 'react-image';
+
 import BitcoinPayment from './BitcoinPayment';
 
 class Cart extends Component {
@@ -10,7 +10,7 @@ class Cart extends Component {
         currency: 'USD',
         quantityUsd: 1,
         Quantity: [],
-        marjen: 10,
+        
         showBitcoinPayment:false,
         showSuccessPayment:false
     }
@@ -73,11 +73,7 @@ class Cart extends Component {
             
         }
     }
-    marjen = () => {
-        this.setState({
-            marjen: this.state.marjen + 1
-        })
-    }
+    
     handleIncrementQuantity = (id) => {
     //     let cart = this.state.ItemsAddedToCart;
     //     const sp = cart.find(item => {

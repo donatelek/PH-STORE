@@ -1,54 +1,36 @@
 import React, { Component } from 'react';
-import fonoapi from 'fonoapi-nodejs';
-import './MainSite.css';
+
+import '../Styles/MainSite.css'
 import PhoneProperties from './PhoneProperties.jsx';
 import Cart from './Cart.jsx';
 import SellSection from './SellSection.jsx'
-import Pagination from './Pagination.jsx'
-import FirstSection from '../Layout/FirstSection.jsx';
-import SecondSection from '../Layout/SecondSection.jsx';
-import Nav from '../Layout/Nav.jsx';
-import Footer from '../Layout/Footer.jsx';
+
+import SecondSection from './SecondSection.jsx';
+import Nav from './Nav.jsx';
+import Footer from './Footer.jsx';
 import Products from './Products.jsx';
-import Contact from '../pages/Contact.jsx';
-import Login from '../pages/Login.jsx';
-import Register from '../pages/Register.jsx';
-import Returns from '../pages/Returns.jsx';
-import Terms from '../pages/Terms.jsx';
-import Feedback from '../pages/Feedback.jsx';
+import Contact from './Contact.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import Returns from './Returns.jsx';
+import Terms from './Terms.jsx';
+import Feedback from './Feedback.jsx';
 import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom';
-import GreetingSite from './GreetingSite.jsx';
-import { isBoolean } from 'util';
-import {withRouter} from 'react-router-dom';
-fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
-const cartInState = [];
-
-// store
-// cos wymyslic z phone properties z opisami i wielkosciami szczonek
-
-// portfolio
-// dodac strone 404
-// dodac lekkie animacje jesli chodzi o scrollowanie
 
 
-// edm
 
-// zmienic obrazki zasłoniete na zwykle -2pkt i obrazek myszki kliknietej?
-// dodac odpowiedz do passworda z backednu przy logowaniu zej est zle haslo
-// Your password should be at least 8 characters,
 
 class App extends Component {
   state = {
     showHamburger:false,
-    cipsko: [],
-    ble: 1,
+    
     shuffle: [],
-    item: [],
+   
     idOfProduct: null,
     Cart: [],
     currency: 'USD',
     currencyToChoose: ['USD', 'EUR', 'PLN', 'BTC'],
-    propertiesFromApi1: [],
+    
     USD: 1,
     EUR: null,
     PLN: null,
@@ -57,7 +39,7 @@ class App extends Component {
     Products1: [],
     Products: [],
     loadPage:false,
-    searchedProducts:[],
+    
   }
 
   UNSAFE_componentWillMount(){
@@ -295,10 +277,7 @@ class App extends Component {
             handleShowHamburger={this.handleShowHamburger}
             showHamburger={this.state.showHamburger}
           />
-          < FirstSection
-            handleCloseCart={this.handleCloseCart}
-            ble={this.state.ble}
-          />
+         
 
           <Route path='/delivery-returns' component={Returns} />
           <Route path='/terms-and-conditions' component={Terms} />
@@ -312,7 +291,7 @@ class App extends Component {
           {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
 
 
-        <Route path='/welcome' render={(props) => (<GreetingSite {...props}  />)} />
+       
 
         
           {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency}  checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}

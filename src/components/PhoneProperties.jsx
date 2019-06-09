@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fonoapi from 'fonoapi-nodejs';
 import math from 'mathjs'
-import './PhoneProperties.css';
+import '../Styles/PhoneProperties.css';
 import {withRouter} from 'react-router-dom';
 fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
 class PhoneProperties extends Component {
@@ -10,7 +10,7 @@ class PhoneProperties extends Component {
         buttonActive: false,
         showOptionsButton: false,
         propertiesFromApi: this.props.propertiesFromApi,
-        buraczek:[],
+       
         indexOfElement:this.props.location.pathname.replace('/properties/','')
     }
  

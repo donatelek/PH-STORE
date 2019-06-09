@@ -1,28 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import Search from '../components/Search';
-import './Nav.css';
-import Logo from '../LOGO1.png'
+
+import '../Styles/Nav.css';
+import Logo from '../Img/LOGO1.png'
 const Nav = (props) => {
 
 
     const handleChangeCurrency = (e) => {
-        console.log('11')
-        console.log(e.target.value)
-        // console.log(e.currentTarget.textContent)
-        // const value = e.currentTarget.textContent
-        // console.log(value)
+       
         props.setCurrencyNav(e.target.value)
-        // console.log(e)
-
-        // const mainArray = props.currencyToChoose
-        // mainArray.push(props.currency)
-        // const index = mainArray.indexOf(value)
-        // console.log(index)
-        // if (index !== -1) {
-        //     mainArray.splice(index, 1);
-        // }
-
+       
 
 
     }

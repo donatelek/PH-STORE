@@ -1,6 +1,6 @@
 import Pagination from "react-js-pagination";
 import React, { Component } from 'react';
-import './Pagination.css'
+import '../Styles/Pagination.css'
 
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ class Pagination1 extends Component {
             currentPage: 1,
             todosPerPage: 6,
             currency: 'USD',
-            bums: '',
+            
             checkIfWeSearching: false
 
         };

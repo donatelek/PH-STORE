@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './SellSection.css';
+import '../Styles/SellSection.css';
 import Img from 'react-image';
 
 class SellSection extends Component {
     state = {
-        marwa: '',
+        
         sell: '',
         email: '',
         price: '',
