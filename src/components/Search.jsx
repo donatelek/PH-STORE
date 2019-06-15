@@ -1,18 +1,17 @@
 import React, {
     Component
 } from 'react';
+
 class Search extends Component {
     state = {
         searchInput: '',
         products: '',
         filteredProducts: []
     }
+
     componentDidMount() {
- 
         this.props.handleSearching(this.props.products1)
-
     }
-
 
     handleSearchInput = (e) => {
         const searchInput = e.target.value;
@@ -20,24 +19,18 @@ class Search extends Component {
         this.setState({
             searchInput
         })
-
-
         var obj = {
             'homes': this.props.products1
         };
-
         var newArray = obj.homes.filter(function (el) {
-            console.log(el.devicename)
-            console.log(el.devicename.toLowerCase())
             return el.devicename.toLowerCase().includes(searchInput.toLowerCase());
         });
-        console.log(newArray)
         this.setState({
             filteredProducts: newArray
         })
         this.props.handleSearching(newArray)
-
     }
+    
     render() {
         return (
             <>

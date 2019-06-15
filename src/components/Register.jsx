@@ -18,27 +18,32 @@ class Register extends Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
+
     messages={
         firstName:'Do not leave this place blank',
         lastName:'Do not leave this place blank',
         email:'write your proper email address',
         password:'password must be at least 6 letters long'
     }
+
     handleEmail=(e)=>{
         this.setState({
             email:e.target.value
         })
     }
+
     handlePassword=(e)=>{
         this.setState({
             password:e.target.value
         })
     }
+
     handleFirstName=(e)=>{
         this.setState({
             firstName:e.target.value
         })
     }
+
     handleLastName=(e)=>{
 this.setState({
     lastName:e.target.value
@@ -49,31 +54,26 @@ this.setState({
         e.preventDefault();
         const validation = this.formValidation()
         if (validation.correct) {
-          
-           
             this.setState({
                 errors: {
                     firstName: false,
                     lastName: false,
                     email: false,
-                    
                     password: false
                 }
             })
-           
         } else {
             this.setState({
                 errors: {
                     firstName: !validation.firstName,
                     lastName: !validation.lastName,
                     email: !validation.email,
-                    
                     password: !validation.password
                 }
             })
         }
-
     }
+
     formValidation() {
         let firstName = false;
         let email = false;
@@ -97,9 +97,8 @@ this.setState({
         }
         return ({ firstName, email, lastName, password, correct })
     }
+
     render() {
-
-
         return (
             <div className='registerForm'>
                 <h1>SIGN IN</h1>

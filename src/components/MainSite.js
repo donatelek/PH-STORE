@@ -23,14 +23,11 @@ import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-do
 class App extends Component {
   state = {
     showHamburger:false,
-    
     shuffle: [],
-   
     idOfProduct: null,
     Cart: [],
     currency: 'USD',
     currencyToChoose: ['USD', 'EUR', 'PLN', 'BTC'],
-    
     USD: 1,
     EUR: null,
     PLN: null,
@@ -39,11 +36,9 @@ class App extends Component {
     Products1: [],
     Products: [],
     loadPage:false,
-    
   }
 
   UNSAFE_componentWillMount(){
-   
     fetch('https://ph-store-server.herokuapp.com/products', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -54,11 +49,8 @@ class App extends Component {
             Products1:res,
             loadPage:true
           })
-          
         }).catch(err => console.log(err))
-       
         if(localStorage.Cart){
-          
           const datas = JSON.parse(localStorage["Cart"]); 
           if(datas.length){
             this.setState({
@@ -78,29 +70,20 @@ class App extends Component {
         })
         )
       }).catch(err => alert(err))
-  
     let anArrayOfUniqueNumbers = [];
-
   let numberGenerator = (arr) => {
-    console.log(arr)
     if (arr.length >= 4) return;
     let newNumber = Math.floor(Math.random() * 4 + 1);
-    console.log(arr)
     if (arr.indexOf(newNumber) < 0) {
-      console.log(arr)
       arr.push(newNumber);
     }
     numberGenerator(arr);
   };
 
   numberGenerator(anArrayOfUniqueNumbers);
-  console.log(anArrayOfUniqueNumbers)
   this.setState({
     shuffle: anArrayOfUniqueNumbers
   })
-
-    
-
   }
 
   updatingCart=(update)=>{
@@ -133,7 +116,6 @@ class App extends Component {
       }
       numberGenerator(arr);
     };
-
     numberGenerator(anArrayOfUniqueNumbers);
     if(idOfProduct){
       this.setState({
@@ -145,8 +127,8 @@ class App extends Component {
         shuffle: anArrayOfUniqueNumbers
       })
     }
-   
   }
+
   setCurrencyNav = (currency) => {
     this.setState({
       currency
@@ -169,15 +151,12 @@ class App extends Component {
     })
   }
 
-
-
   handleShowHamburger=()=>{
     if(!this.state.showHamburger){
       document.body.style.overflow = "hidden"
     }else{
       document.body.style.overflow = "visible"
     }
-    
     this.setState({
       showHamburger:!this.state.showHamburger
     })
@@ -193,14 +172,13 @@ class App extends Component {
         checkIfWeSearching: false
       })
     }
-
   }
+
   handleAddToCart = (id,index) => {
     let products = this.state.Products;
     const product = products.find(item => {
       return item.id === id
     })
-    const indexOfProduct = products.indexOf(product)
       const Cart = this.state.Cart;
       Cart.push(product)
     this.setState({
@@ -216,17 +194,10 @@ class App extends Component {
     })
   }
 
-
- 
-
-
   igrek = (ee,index) => {
     const products = this.state.Products1
     const cart = this.state.Cart
     cart.splice(index,1)
-  
-    // products[index].AddedToCart = false
-    
     this.setState({
       Cart:cart,
       Products: products
@@ -234,9 +205,9 @@ class App extends Component {
     const saveStorage= JSON.stringify(cart)
      localStorage.setItem('Cart',saveStorage)
   }
+
   render() {
     const products = this.state.Products.map((product,index) => {
-      
       return (
         <Products
           currency={this.state.currency}
@@ -260,9 +231,7 @@ class App extends Component {
 
     return (
       <Router>
-
         <div id="container" >
-       
           <Nav
             checkIfWeSearching={this.checkIfWeSearching}
             setCurrencyNav={this.setCurrencyNav}
@@ -277,32 +246,18 @@ class App extends Component {
             handleShowHamburger={this.handleShowHamburger}
             showHamburger={this.state.showHamburger}
           />
-         
-
           <Route path='/delivery-returns' component={Returns} />
           <Route path='/terms-and-conditions' component={Terms} />
           <Route path='/contact' component={Contact} />
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/feedback' component={Feedback} />
-
-          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek}  updatingCart={this. updatingCart}/>)} />
-
+          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek} Products1={this.state.Products1} updatingCart={this. updatingCart}/>)} />
           {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
-
-
-       
-
-        
           {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency}  checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
-
-
           <Route path='/sell' render={(props) => (<SellSection {...props} handleAddItem={this.handleAddItem} fetchingProducts={this.fetchingProducts} />)} />
-
-         
-            <Footer />
-          
-        </div >
+            <Footer/>
+        </div>
       </Router>
     );
   }

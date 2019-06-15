@@ -4,13 +4,11 @@ import Img from 'react-image';
 
 class SellSection extends Component {
     state = {
-        
         sell: '',
         email: '',
         price: '',
        photoUrl:'',
        imgUrl:'',
-       
         description: '',
         submittedCorrectly:false,
         condition: 'new',
@@ -23,6 +21,7 @@ class SellSection extends Component {
             description: false
         }
     }
+
     messages = {
         sell: 'Enter what you want to sell',
         email: 'Enter a valid e-mail address',
@@ -30,16 +29,14 @@ class SellSection extends Component {
         description: 'Enter your product description',
         submit:'Your item has been listed!'
     }
-    handleAddItem = (props) => {
 
+    handleAddItem = (props) => {
         props.handleAddItem(this.state.sell, this.state.photoUrl, this.state.price, this.state.quantity)
     }
 
     handleFromChange = (e) => {
         const targetId = e.target.id;
         const targetValue = e.target.value;
-
-
         this.setState({
             [targetId]: targetValue
         })
@@ -49,7 +46,6 @@ class SellSection extends Component {
         e.preventDefault();
         const validation = this.formValidation()
         if (validation.correct) {
-            console.log(this.props)
             this.handleAddItem(this.props)
             this.setState({
                 errors: {
@@ -72,7 +68,6 @@ class SellSection extends Component {
                     photo:this.state.imgUrl
                 })
               }).then(res=>res.json()).then(res=>{
-                  console.log(res)
                   this.props.fetchingProducts()
                   this.setState({
                     submittedCorrectly:true,
@@ -84,14 +79,12 @@ class SellSection extends Component {
                     description:'',
                     imgUrl:''
                   })
-                  
                   setTimeout(()=>{
                       this.setState({
                           submittedCorrectly:false
                       })
                   },4000)
               })
-           
         } else {
             this.setState({
                 errors: {
@@ -102,15 +95,8 @@ class SellSection extends Component {
                 }
             })
         }
-       
-           
-        
-        
-
-
-    
-
     }
+
     formValidation() {
         let sell = false;
         let email = false;
@@ -134,20 +120,16 @@ class SellSection extends Component {
         }
         return ({ sell, email, price, description, correct })
     }
-    test = (e) => {
-        
-   
 
+    test = (e) => {
         this.setState({
-           
             imgUrl:e.target.value
         })  
     }
+
     render() {
         return (
             <section className='sellItem' style={{overflowX:'hidden'}}>
-
-
                 <div className="wrap center">
                     <form onSubmit={this.handleSubmit} >
                     <h1>Sell Your Item</h1>
@@ -155,27 +137,20 @@ class SellSection extends Component {
                             <label onChange={this.handleFromChange} htmlFor="name">What do you want to sell?</label>
                             <br/>
                             {this.state.errors.sell && <span className='error'>{this.messages.sell}</span>}
-                           
                         </div>
                         <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false"/>
-
                         <div className="wrap-label">
                             <label htmlFor="name">Email</label>
                             <br/>
                             {this.state.errors.email && <span className='error'>{this.messages.email}</span>}
-                            
-
                         </div>
                         <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellcheck="false"/>
                         <div className="wrap-label">
                             <label htmlFor="name">Price</label>
                             <br/>
                             {this.state.errors.price && <span className='error'>{this.messages.price}</span>}
-                            
                         </div>
-                        
                         <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false"/>
-                        
                         <div className="wrap-label">
                             <label htmlFor="name">Quantity</label>
                         </div>
@@ -183,31 +158,19 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label htmlFor="condition">Condition</label>
                             </div>
-                            
                             <select onChange={this.handleFromChange} name="condition" id="condition">
-
                                 <option value="new">New</option>
                                 <option value="used">Used</option>
                                 <option value="damaged">Damaged</option>
                             </select>
-
-                            
-                        
-
-                        
-                        
                         <div className="wrap-label">
                             <label htmlFor="name">Description</label>
                             <br/>
                             {this.state.errors.description && <span className='error'>{this.messages.description}</span>}
-                            
                         </div>
-                        
                         <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellcheck="false"/>
-                        {/* <br /> */}
                        <div className="wrap-label">
                        <label htmlFor="">Image Url</label>
-                       
                        </div>
                         <input type="text" onChange={this.test} value={this.state.imgUrl} spellcheck="false"/>
                         <br/>
@@ -215,14 +178,9 @@ class SellSection extends Component {
                         <br/>
                         {this.state.submittedCorrectly && <span className='error'>{this.messages.submit}</span>}
                         <br/>
-                        
                         <button type="submit" className='submitSell'>Submit</button>
-
                     </form>
                 </div>
-                {/* <div onClick={this.handleSendImage}>CLIKAM</div> */}
-
-                
             </section >
         );
     }

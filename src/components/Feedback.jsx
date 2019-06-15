@@ -11,6 +11,7 @@ class Feedback extends Component {
             feedback:false
         }
     }
+
     UNSAFE_componentWillMount(){
         fetch('https://ph-store-server.herokuapp.com/feedback', {
             method: 'GET',
@@ -21,19 +22,18 @@ class Feedback extends Component {
             })
         }).catch(err => console.log(err))
     }
-    componentDidMount() {
-       
-        window.scrollTo(0, 0)
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
     }
+
     messages={
         name:'Enter your name',
         feedback:'Enter your feedback'
     }
+
     handleInputChange = (e) => {
         let value = e.target.value;
-        let name;
-        let comment;
         if (e.target.name === 'name') {
             this.setState({
                 name: value
@@ -44,23 +44,18 @@ class Feedback extends Component {
                 feedback: value
             })
         }
-        // this.setState({
-        //     feedbacks: this.state.feedbacks.push({ name, comment })
-        // })
     }
+
     formValidation() {
-       
         let name = false;
         let feedback = false;
         let correct = false
-        
         if (this.state.name.length >0) {
             name = true;
         }
        if(this.state.feedback.length >0){
            feedback = true;
        }
-        
         if (feedback && name) {
             correct = true
         }
@@ -68,20 +63,13 @@ class Feedback extends Component {
     }
 
     handleFeedbackSubmit = (e) => {
-
-
-        
             e.preventDefault();
             const validation = this.formValidation()
             if (validation.correct) {
-                
-               
                 this.setState({
                     errors: {
                         name: false,
                         feedback: false,
-                        
-                        
                     }
                 })
                 const feedbacks = this.state.feedbacks
@@ -109,32 +97,15 @@ this.setState({
     feedbackSent:false
 })
           },4000)
-      })
-               
+      })  
             } else {
                 this.setState({
                     errors: {
                         name: !validation.name,
                         feedback: !validation.feedback,
-                       
-                        
                     }
                 })
             }
-    
-        
-
-
-
-
-
-
-
-
-
-
-
-        
     }
     render() {
         const feedbacks = this.state.feedbacks.map(feedback => {
@@ -142,11 +113,11 @@ this.setState({
                 <>
                     <h1 className='userFeedbackName'>{feedback.name}</h1>
                     {feedback.feedback&&<article className='userFeedback'>{feedback.feedback}</article>}
-                    {feedback.comment&&<article className='userFeedback'>{feedback.comment}</article>}
-                    
+                    {feedback.comment&&<article className='userFeedback'>{feedback.comment}</article>}  
                 </>
             )
         })
+
         return (
             <div className='feedback'>
                 <h1 className='feedbackTitle'>Submit your feedback</h1>
@@ -165,7 +136,6 @@ this.setState({
                 <div className="otherFeedbacks">
                     <h1 className='buyersFeedback'>Buyers feedback</h1>
                     {feedbacks}
-
                 </div>
             </div>
         );

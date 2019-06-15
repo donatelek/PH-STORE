@@ -5,18 +5,12 @@ import '../Styles/Nav.css';
 import Logo from '../Img/LOGO1.png'
 const Nav = (props) => {
 
-
     const handleChangeCurrency = (e) => {
-       
         props.setCurrencyNav(e.target.value)
-       
-
-
     }
+
     return (
         <nav>
-           
-
 <section class="top-nav">
     <div>
     <Link className='storeName' to='/'><img src={Logo} alt="" /></Link>
@@ -31,7 +25,6 @@ const Nav = (props) => {
       <li><Link className='nav' to='/login'>Log In</Link></li>
       <li><Link className="nav" to='/register'>Register</Link></li>
       <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
-     
                     <li className='currency'>
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
@@ -54,15 +47,8 @@ const Nav = (props) => {
                     <li className='currency'>
                     Currency:
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
-                         
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
-
-
-
                             {props.currency==='EUR'?<option value={props.currencyToChoose[1]}  selected>{props.currencyToChoose[1]}</option>:<option value={props.currencyToChoose[1]}  >{props.currencyToChoose[1]}</option>}
-
-
-
                             {props.currency==='PLN'?<option value={props.currencyToChoose[2]}  selected>{props.currencyToChoose[2]}</option>:<option value={props.currencyToChoose[2]}  >{props.currencyToChoose[2]}</option>}
                             {props.currency==='BTC'?<option value={props.currencyToChoose[3]}  selected>{props.currencyToChoose[3]}</option>:<option value={props.currencyToChoose[3]}  >{props.currencyToChoose[3]}</option>}
                         </select>

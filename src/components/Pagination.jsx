@@ -1,30 +1,24 @@
-import Pagination from "react-js-pagination";
 import React, { Component } from 'react';
 import '../Styles/Pagination.css'
 
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-
 class Pagination1 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+        state = {
             todos: [],
             currentPage: 1,
             todosPerPage: 6,
             currency: 'USD',
-            
             checkIfWeSearching: false
-
         };
-        // this.handleClick = this.handleClick.bind(this);
-    }
+
     componentDidMount() {
-        
+        window.addEventListener('resize',()=>{
+            this.mainPageSizeDependOnItems()
+        })
         this.setState({
             todos: this.props.products
-
         })
     }
+
     componentDidUpdate() {
         if (this.props.currency !== this.state.currency || this.props.products !== this.state.todos) {
             this.setState({
@@ -44,17 +38,101 @@ class Pagination1 extends Component {
         }
     }
 
+    mainPageSizeDependOnItems=()=>{
+        const currentPage=this.state.currentPage
+        const todosPerPage=this.state.todosPerPage
+        const todos=this.state.todos.length
+        const pageesNumber = Math.ceil(todos/todosPerPage)
+        const modulo= todos % todosPerPage
+        const promotionSection= document.getElementById('promotionSection');
+        if(currentPage===pageesNumber&&modulo===1||modulo===2){
+            if(window.innerWidth<911&&window.innerWidth>500){
+             promotionSection.style.height = '750px';
+         }
+            else if(window.innerWidth<501&&modulo===1){
+             promotionSection.style.height = '750px';
+         }
+            else if(window.innerWidth<501&&modulo===2){
+             promotionSection.style.height = '1250px';
+         }
+         else if(window.innerWidth>910){
+           promotionSection.style.height ='unset';
+        }
+        }   else if(currentPage===pageesNumber&&modulo===3||modulo===4){
+            if(window.innerWidth<910&&window.innerWidth>500){
+             promotionSection.style.height = '1250px';
+            }else if(window.innerWidth<501&&modulo===3){
+             
+             promotionSection.style.height = '1700px';
+         }
+         else if(window.innerWidth<501&&modulo===4){
+             promotionSection.style.height = '2200px';
+         }
+         else if(window.innerWidth>910){
+           promotionSection.style.height ='unset';
+        }
+     }
+            else if(currentPage===pageesNumber&&window.innerWidth<501&&modulo===5){
+         promotionSection.style.height = '2700px';
+     }
+            else if(currentPage!==pageesNumber&&window.innerWidth<501){
+        promotionSection.style.height = '3000px';
+     }else if(currentPage!==pageesNumber&&window.innerWidth<911){
+        promotionSection.style.height = '1550px';
+     }else if(window.innerWidth>910){
+       promotionSection.style.height ='unset';
+    }
+
+    }
 
     handleClick=(event)=> {
         window.scrollTo(0, 0)
         this.setState({
             currentPage: Number(event.target.id)
         })
+       
+        const currentPage=Number(event.target.id)
+        const todosPerPage=this.state.todosPerPage
+        const todos=this.state.todos.length
+        const pageesNumber = Math.ceil(todos/todosPerPage)
+        const modulo= todos % todosPerPage
+        const promotionSection= document.getElementById('promotionSection');
+ 
+        if(currentPage===pageesNumber&&modulo===1||modulo===2){
+            if(window.innerWidth<911&&window.innerWidth>500){
+             promotionSection.style.height = '750px';
+         }
+            else if(window.innerWidth<501&&modulo===1){
+             promotionSection.style.height = '750px';
+         }
+            else if(window.innerWidth<501&&modulo===2){
+             promotionSection.style.height = '1250px';
+         }
+        }   else if(currentPage===pageesNumber&&modulo===3||modulo===4){
+            if(window.innerWidth<910&&window.innerWidth>500){
+             promotionSection.style.height = '1250px';
+            }else if(window.innerWidth<501&&modulo===3){
+             
+             promotionSection.style.height = '1700px';
+         }
+         else if(window.innerWidth<501&&modulo===4){
+             promotionSection.style.height = '2200px';
+         }
+     }
+            else if(currentPage===pageesNumber&&window.innerWidth<501&&modulo===5){
+         promotionSection.style.height = '2700px';
+     }
+            else if(currentPage!==pageesNumber&&window.innerWidth<501){
+        promotionSection.style.height = '3000px';
+     }else if(currentPage!==pageesNumber&&window.innerWidth<911){
+        promotionSection.style.height = '1550px';
+     }else if(window.innerWidth>910){
+       promotionSection.style.height ='unset';
+    }
     }
 
 
     render() {
-
         const { todos, currentPage, todosPerPage } = this.state;
         const indexOfLastTodo = currentPage * todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
@@ -80,7 +158,7 @@ class Pagination1 extends Component {
         return (
             <div className="pagination">
                 <li className='pagiNation'>{renderTodos}</li>
-                <li className='siteList'>{renderPageNumbers}</li>
+                <li className='siteList' >{renderPageNumbers}</li>
             </div>
         );
     }

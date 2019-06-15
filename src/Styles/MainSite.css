@@ -1,61 +1,26 @@
+* {
+    list-style-type: none;
+}
+
 body {
     font-family: 'Rakkas', cursive;
     text-decoration: none;
     background-color: rgb(230, 213, 206);
-    /* background-color: rgb(175, 157, 143); */
     overflow-x: hidden;
 }
 
-
-
 #container {
-    /* display: flex; */
     box-sizing: border-box;
-
-    /* background: #edeff1; */
-    /* background-image: url('/shopping_app/321.png');
-    background: url('/shopping_app/img/huaweimate10lite.png'); */
-    /* position: relative;
-    top: 0;
-    left: 0; */
-
-}
-
-
-
-
-
-
-
-.titleSection {
-
-    /* background-color: red; */
-    /* height: 22%; */
-
 }
 
 .promotionSection {
-    /* background-color: blue; */
-    /* height: 500px; */
     min-height: 500px;
-
-
 }
 
 footer {
-    /* background-color: yellow; */
     height: 100px;
-    /* background: rgba(0, 0, 0, 0.65); */
     margin-top: 100px;
 }
-
-
-
-
-
-
-
-
 
 .currencyChanger {
     position: relative;
@@ -65,27 +30,20 @@ footer {
 .dropdown {
     display: block;
     position: absolute;
-    /* background-color: green; */
     width: 44px;
     min-width: 44px;
-    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
-    /* padding: 12px 16px; */
     z-index: 113123;
     right: 0;
     top: 50px;
-
 }
 
 .currencyChanger:hover .dropdown {
     display: block;
 }
 
-
-
 /* First section */
 .titleSection {
     text-align: center;
-
 }
 
 .storeName {
@@ -94,7 +52,6 @@ footer {
 }
 
 .titleSection img {
-    /* width: 90vw; */
     height: 300px;
     z-index: -1;
     opacity: 0.9;
@@ -108,14 +65,10 @@ footer {
 
 .motto {
     font-size: 22px;
-
 }
 
-
 /* secondSection */
-
 .promotionSection h1.products {
-
     color: rgb(128, 79, 79);
     letter-spacing: 3px;
 }
@@ -127,28 +80,9 @@ footer {
     transform: translateX(-50%);
     height: 250px;
     z-index: 3;
-
 }
-
-.pagination {
-    /* background-color: pink; */
-    /* margin-top: 100px; */
-}
-
 
 /* buttons */
-
-/* .addToCart {
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    background-color: transparent;
-    border: 1px black solid;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 5px;
-} */
-
 .viewProduct {
     position: absolute;
     left: 20%;
@@ -169,12 +103,8 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
     height: 30px;
-
-    /* background-color: red; */
     height: 80px;
-    /* padding: 30px; */
     padding: 15px;
     letter-spacing: 2px;
 }
@@ -188,9 +118,6 @@ footer .copyright {
     margin: 0;
     z-index: 21221;
     color: rgb(128, 79, 79);
-    /* margin-top: 20px; */
-    /* background-color: green; */
-    /* height: 30px; */
 }
 
 footer ul.social {
@@ -199,18 +126,10 @@ footer ul.social {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /* background-color: pink; */
-    /* box-sizing: content-box; */
 }
 
 footer ul.social li {
     margin: 0 30px;
-}
-
-footer ul.social li:hover,
-footer ul.rules li:hover {
-    /* border-bottom: 1px solid rgb(149, 57, 57); */
-
 }
 
 footer ul.rules {
@@ -219,7 +138,6 @@ footer ul.rules {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /* background-color: blue; */
 }
 
 footer ul.rules li {

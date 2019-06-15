@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
-import fonoapi from 'fonoapi-nodejs';
 import math from 'mathjs'
 import '../Styles/PhoneProperties.css';
-import {withRouter} from 'react-router-dom';
-fonoapi.token = 'cc030770b8c507b2e6bdcefce8f9f65396966f16cf328ece';
+
 class PhoneProperties extends Component {
     state = {
         randomProducts: null,
         buttonActive: false,
         showOptionsButton: false,
         propertiesFromApi: this.props.propertiesFromApi,
-       
         indexOfElement:this.props.location.pathname.replace('/properties/','')
     }
  
     componentDidMount() {
-        // this.props.history.push('/')
         window.scrollTo(0, 0)
         let indexOfElement = this.props.location.pathname;
         indexOfElement =  indexOfElement.replace('/properties/','')
@@ -42,8 +38,6 @@ class PhoneProperties extends Component {
        }
     }
       
-
-
     maniek = (currency) => {
 
         let idOfElement = this.props.location.pathname;
@@ -79,8 +73,8 @@ class PhoneProperties extends Component {
             } else {
                 console.log('Error price')
         }}
-
     }
+
     buttonLoader = () => {
         let idOfElement = this.props.location.pathname;
         idOfElement=idOfElement.replace('/properties/','');
@@ -106,6 +100,7 @@ class PhoneProperties extends Component {
             this.props.handleAddToCart(this.props.Products[indexOfProduct].id, this.props.Products[indexOfProduct].photo, this.props.Products[indexOfProduct].priceusd, this.props.Products[indexOfProduct].devicename, this.props.Products[indexOfProduct].quantity)
         }
     }
+
     aaa=(index)=>{
         const Products=this.props.Products
     const Product = Products[index]
@@ -129,9 +124,8 @@ class PhoneProperties extends Component {
      const userEmail=this.props.Products[indexOfProduct].email;
      const i = userEmail.indexOf('@');
      const d = userEmail.substring(0,i)
-     
-        return (
 
+        return (
             <div style={{overflowX:'hidden'}}>
                <div>
                 <section className="phoneProperty">
@@ -151,8 +145,6 @@ class PhoneProperties extends Component {
                             this.buttonLoader() 
                             this.handleActiveButton()
                             }}>{this.handleActiveButton(this.props.id) ? 'In Cart' : 'Add to cart'}</button>
-                        
-                       
                     </section>
                 </section>
                 
@@ -179,4 +171,4 @@ class PhoneProperties extends Component {
     }
 }
 
-export default withRouter(PhoneProperties);
+export default PhoneProperties;

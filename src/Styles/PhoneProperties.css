@@ -1,11 +1,9 @@
 section.phoneProperty {
-    /* background-color: green; */
     margin: 40px 0 0 0;
     height: 700px;
     position: relative;
     background-color: white;
     border-radius: 50px;
-    /* border: 3px solid rgb(98, 57, 57); */
     margin-left: auto;
     margin-right: auto;
     width: 1300px;
@@ -14,10 +12,8 @@ section.phoneProperty {
 }
 
 section.phoneProperty .phoneImg img {
-    /* height: 300px; */
     max-height: 500px;
     max-width: 90%;
-    /* width: 90%; */
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -25,42 +21,28 @@ section.phoneProperty .phoneImg img {
 }
 
 section.phoneProperty .phoneDetails img {
-    /* height: 300px; */
     max-height: 250px;
     max-width: 90%;
     margin-left: 50%;
     transform: translateX(-50%);
-    /* width: 90%; */
-    /* position: absolute; */
-    /* transform: translate(-50%, -50%); */
-    /* left: 50%; */
-    /* top: 50%; */
     display: none;
-
 }
 
 section.phoneDetails {
-    /* background-color: pink; */
     position: absolute;
     top: 0;
     right: 0;
-
     width: 50%;
     height: 100%;
 }
 
 section.phoneImg {
-    /* background-color: purple; */
     width: 50%;
     height: 100%;
     position: absolute;
-    /* z-index: 321321312; */
-    /* width: 47%;  */
 }
 
 section.phoneDetails .deviceName {
-    /* background-color: red; */
-    /* position: absolute; */
     text-align: center;
     font-size: 40px;
     color: rgb(87, 39, 39);
@@ -69,7 +51,6 @@ section.phoneDetails .deviceName {
 }
 
 section.phoneDetails .price {
-    /* background-color: green; */
     font-size: 25px;
     text-align: center;
     color: rgb(124, 68, 68);
@@ -77,28 +58,24 @@ section.phoneDetails .price {
 }
 
 section.phoneDetails .seller {
-    /* margin-left: 100px; */
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
 section.phoneDetails .condition {
-    /* margin-left: 100px; */
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
 section.phoneDetails .userContact {
-    /* margin-left: 100px; */
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
 section.phoneDetails .itemDescription {
-    /* margin-left: 100px; */
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 20px;
@@ -110,7 +87,6 @@ section.phoneDetails .itemDescription span {
 }
 
 section.phoneDetails .shipping {
-    /* margin-left: 100px; */
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 50px;
@@ -118,7 +94,6 @@ section.phoneDetails .shipping {
 
 
 section.phoneDetails .addToCart {
-    /* background-color: purple; */
     display: block;
     width: 250px;
     padding: 12px 0;
@@ -129,10 +104,8 @@ section.phoneDetails .addToCart {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 600;
-    /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
-    /* transform: translateX(-50%); */
     cursor: pointer;
     outline: none;
     border-radius: 50px;
@@ -144,11 +117,6 @@ section.phoneDetails .addToCart {
 section.phoneDetails .addToCart:hover {
     box-shadow: none;
 }
-
-
-
-
-
 
 section.recommendedProducts {
     width: 1000px;
@@ -185,59 +153,17 @@ section.recommendedProducts ul {
     padding: 0;
     margin-left: 50%;
     transform: translateX(-50%);
-
 }
 
 section.recommendedProducts ul li {
     width: 24.9%;
     height: 90%;
-    /* background-color: red; */
     cursor: pointer;
 }
 
 section.recommendedProducts ul li div.deviceName {
     text-align: center;
-
 }
-
-
-/* section.recommendedProducts {
- 
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin: 0 auto;
-    background-color: white;
- 
-    height: 350px;
-    border: 5px solid black;
-    margin-top: 20px;
-    border-radius: 50px;
-}
-
-section.recommendedProducts img {
-    height: 200px;
-   
-
-
-}
-
-section.recommendedProducts div {
-    
-    width: 250px;
-
-}
-
-h1.recommendedProductsTitle {
-    text-align: center;
-    background-color: white;
-}
-
-section.recommendedProducts .deviceName {
-    text-align: center;
-    font-size: 20px;
-    
-} */
 
 @media only screen and (max-width: 1330px) {
     section.phoneProperty {
@@ -277,7 +203,6 @@ section.recommendedProducts .deviceName {
     }
 
     section.phoneDetails {
-        /* background-color: red; */
         left: 50%;
         transform: translateX(-50%);
         width: 90%;

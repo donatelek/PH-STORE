@@ -1,13 +1,9 @@
 .sellItem {
     background-color: rgb(238, 231, 231);
-    /* margin-left: 20%; */
-    /* margin-right: 20%; */
     width: 900px;
     margin-left: auto;
     margin-right: auto;
-    /* max-height: 1300px; */
     min-height: 1100px;
-    /* height: 1300px; */
     margin-top: 100px;
     text-align: center;
     border: 5px solid rgb(187, 141, 141);
@@ -15,7 +11,6 @@
 }
 
 .sellItem .wrap-label {
-    /* background-color: red; */
     margin-top: 30px;
     margin-bottom: 5px;
 }
@@ -31,8 +26,6 @@
     outline: 2px solid rgb(185, 128, 128);
     text-align: center;
 }
-
-
 
 .sellItem .uploadedImg {
     margin-top: 30px;
@@ -50,15 +43,11 @@
 }
 
 .sellItem label {
-    /* font-size: 0.625em; */
-    /* margin-bottom: 55px; */
     color: rgb(185, 128, 128);
     text-transform: uppercase;
     font-weight: 600;
-    /* margin-bottom: 4px; */
     font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    /* background-color: red; */
 }
 
 .sellItem span.error {
@@ -71,14 +60,10 @@
     margin: 0;
     padding: 10px;
     border: 0px;
-
     outline: 2px solid rgb(185, 128, 128);
-    /* outline-offset: -2px; */
     font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* font-size: 0.75em; */
     font-size: 13px;
     background-color: transparent;
-    /* margin-bottom: 20px; */
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -102,12 +87,6 @@ input[type="number"] {
     background-color: rgb(238, 231, 231);
 }
 
-.zdjecie img {
-    /* height: 27%; */
-    /* background-color: green; */
-
-}
-
 .sellItem button.submitSell {
     display: block;
     width: 250px;
@@ -120,10 +99,8 @@ input[type="number"] {
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 50px;
-    /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
-    /* transform: translateX(-50%); */
     border-radius: 50px;
     border: 2px solid rgb(105, 29, 29);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -133,7 +110,6 @@ input[type="number"] {
 
 input#quantity {
     width: 30px;
-    /* font-size: 15px; */
     text-align: center;
 }
 

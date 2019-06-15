@@ -1,22 +1,17 @@
 .greeting {
     height: 750px;
-    /* background-color: blue; */
     position: relative;
     width: 100%;
     top: 50px;
     overflow: hidden;
-
 }
 
 .video {
     width: 80%;
-    /* margin: 0 auto; */
     position: relative;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-
-
 }
 
 .greeting .shopNow {
@@ -24,7 +19,6 @@
     border: none;
     border: 2px solid rgb(107, 87, 64);
     background-color: rgb(202, 178, 151);
-    /* background-color: transparent; */
     color: rgb(39, 39, 39);
     font-weight: bold;
     border-radius: 50px;

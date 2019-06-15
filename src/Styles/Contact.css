@@ -1,14 +1,11 @@
 .contactForm {
     display: block;
     margin: 0 auto;
-    /* background-color: green; */
     width: 500px;
     margin-top: 150px;
     height: 800px;
     overflow-x: hidden;
 }
-
-
 
 .contactForm .contactName input,
 .contactForm .contactEmail input,
@@ -17,7 +14,6 @@
     margin-left: 50%;
     transform: translateX(-50%);
     width: 90%;
-
     padding: 6px;
     border: 0px;
     outline: 2px solid rgb(185, 128, 128);
@@ -27,7 +23,6 @@
     background-color: transparent;
 }
 
-
 .contactForm label {
     margin-left: 20px;
     font-size: 0.625em;
@@ -36,11 +31,7 @@
     font-weight: 600;
     margin-bottom: 4px;
     font-family: "Karla", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
-
-
-
 
 .contactSubmit {
     display: block;
@@ -56,8 +47,6 @@
     margin-top: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
-    /* margin-right: auto; */
-    /* transform: translateX(-50%); */
     border-radius: 50px;
     border: 2px solid rgb(78, 17, 17);
     transition: box-shadow .3s ease;
@@ -88,20 +77,14 @@
 }
 
 @media only screen and (max-width: 515px) {
-
     .contactForm {
         width: 400px;
         margin-top: 50px;
         height: 450px;
     }
-
-    /* .contactForm {
-        width: 100vw;
-    } */
 }
 
 @media only screen and (max-width: 415px) {
-
     .contactForm {
         width: 95%;
     }
