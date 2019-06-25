@@ -1,5 +1,5 @@
 # PH-STORE
-> E-Commerce website where You can buy mobile phones
+> E-Commerce website where You can buy or sell mobile phones
 
 ## Table of contents
 
@@ -16,7 +16,7 @@
 
 ## Screenshots
 
-![Example screenshot](https://github.com/donatelek/EDM-Challenge-Frontend/blob/master/src/img/screenshot.png)
+![Example screenshot](https://github.com/donatelek/PH-STORE-Frontend/blob/master/src/img/screenshot.png)
 
 ## Project Demo
 
