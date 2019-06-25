@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PH-STORE
+> E-Commerce website where You can buy mobile phones
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+* [Screenshots](#screenshots)
+* [Project Demo](#project-demo)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Usage](#usage)
+* [To-do list](#to-do-list)
+* [Bug or Feature Request](#bug-or-feature-request)
+* [Status](#status)
+* [Contact](#contact)
+* [License](#license)
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Example screenshot](https://github.com/donatelek/EDM-Challenge-Frontend/blob/master/src/img/screenshot.png)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Project Demo
 
-### `npm test`
+Here is a working live demo :  https://ph-store.herokuapp.com
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+* React - version 16.8
+* Node - version 12.4
+* Express - version 4.16
+* PostgreSQL - version 11
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Clone this repo to your desktop and run `npm install` to install all the dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## To-do list
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* User dashboard where user can see all his listed items
+* Filter methods
+* More payment options
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Bug or Feature Request
 
-## Learn More
+If you find a bug, kindly open an issue [here](https://github.com/donatelek/EDM-Challenge-Frontend/issues/new).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/donatelek/EDM-Challenge-Frontend/issues/new).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Status
+Project is: _in progress_.
 
-### Code Splitting
+## License
+This project is licensed under the MIT License.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contact
+Created by [@donatelek](https://donatelek.github.io/Portfolio/) - feel free to contact me!
