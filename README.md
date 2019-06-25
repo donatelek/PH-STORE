@@ -16,7 +16,7 @@
 
 ## Screenshots
 
-![Example screenshot](https://github.com/donatelek/PH-STORE-Frontend/blob/master/src/img/screenshot.png)
+![Example screenshot](https://github.com/donatelek/PH-STORE-Frontend/blob/master/src/img/Screenshot.png)
 
 ## Project Demo
 
