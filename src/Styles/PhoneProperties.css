@@ -1,6 +1,7 @@
 section.phoneProperty {
     margin: 40px 0 0 0;
-    height: 700px;
+    /* height: 700px; */
+    min-height: 700px;
     position: relative;
     background-color: white;
     border-radius: 50px;
@@ -190,7 +191,7 @@ section.recommendedProducts ul li div.deviceName {
 
 @media only screen and (max-width: 830px) {
     section.phoneProperty {
-        min-height: 730px;
+        min-height: 800px;
         width: 87%;
     }
 
@@ -206,6 +207,44 @@ section.recommendedProducts ul li div.deviceName {
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
+    }
+
+    section.phoneDetails .shipping {
+        margin: 5px 0;
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .itemDescription span {
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .itemDescription {
+        margin: 5px 0;
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .userContact {
+        margin: 5px 0;
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .condition {
+        margin: 5px 0;
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .seller {
+        margin: 5px 0;
+        letter-spacing: 0;
+    }
+
+    section.phoneDetails .price {
+        margin: 10px 0;
+    }
+
+    section.phoneDetails .deviceName {
+        font-size: 35px;
+        margin-top: 20px;
     }
 }
 
@@ -247,7 +286,7 @@ section.recommendedProducts ul li div.deviceName {
     }
 
     section.phoneProperty {
-        min-height: 680px;
+        min-height: 700px;
     }
 }
 
@@ -261,27 +300,33 @@ section.recommendedProducts ul li div.deviceName {
     }
 
     section.phoneDetails .price {
-        margin-bottom: 10px;
+        margin-bottom: 2px;
+        margin-top: 0px;
     }
 
     section.phoneDetails .shipping {
-        margin-bottom: 20px;
+        margin-bottom: 2px;
+        margin-top: 0px;
     }
 
     section.phoneDetails .seller {
-        margin-bottom: 4px;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     section.phoneDetails .condition {
-        margin-bottom: 4px;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     section.phoneDetails .userContact {
-        margin-bottom: 4px;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     section.phoneDetails .itemDescription {
-        margin-bottom: 4px;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
 
     section.recommendedProducts ul li img {

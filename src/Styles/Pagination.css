@@ -82,8 +82,8 @@ h1.deviceName {
     text-decoration: none;
     list-style-type: none;
     border-bottom: none;
-    letter-spacing: 2px;
-    font-size: 25px;
+    letter-spacing: 0.5px;
+    font-size: 23px;
 }
 
 h2.devicePrice {
