@@ -30,7 +30,7 @@ class Search extends Component {
         })
         this.props.handleSearching(newArray)
     }
-    
+
     render() {
         return (
             <>

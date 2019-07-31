@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../Styles/Nav.css';
 import Logo from '../Img/LOGO1.png'
@@ -11,20 +11,20 @@ const Nav = (props) => {
 
     return (
         <nav>
-<section class="top-nav">
-    <div>
-    <Link className='storeName' to='/'><img src={Logo} alt="" /></Link>
-    </div>
-    <input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
-    <div class='menu-button'></div>
-  </label>
-    <ul class="menu">
-      <li><Link className='nav' to='/'>Products</Link></li>
-      <li><Link className="nav" to='/sell'>Sell</Link></li>
-      <li><Link className='nav' to='/login'>Log In</Link></li>
-      <li><Link className="nav" to='/register'>Register</Link></li>
-      <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
+            <section class="top-nav">
+                <div>
+                    <Link className='storeName' to='/'><img src={Logo} alt="" /></Link>
+                </div>
+                <input id="menu-toggle" type="checkbox" />
+                <label class='menu-button-container' for="menu-toggle">
+                    <div class='menu-button'></div>
+                </label>
+                <ul class="menu">
+                    <li><Link className='nav' to='/'>Products</Link></li>
+                    <li><Link className="nav" to='/sell'>Sell</Link></li>
+                    <li><Link className='nav' to='/login'>Log In</Link></li>
+                    <li><Link className="nav" to='/register'>Register</Link></li>
+                    <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
                     <li className='currency'>
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
@@ -33,44 +33,44 @@ const Nav = (props) => {
                             <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
                         </select>
                     </li>
-    </ul>
-    <div className="hamburger" style={{zIndex:'24'}}><i class="fas fa-bars" onClick={props.handleShowHamburger}></i></div>
-    {props.showHamburger&&<div className="blur" onClick={props.handleShowHamburger}></div>}
-  </section>
-  {props.showHamburger?<div  className="hamburgerNav">
-    <ul class="menu">
-      <li><Link onClick={props.handleShowHamburger} className='nav' to='/'>Products</Link></li>
-      <li><Link onClick={props.handleShowHamburger} className="nav" to='/sell'>Sell</Link></li>
-      <li><Link onClick={props.handleShowHamburger} className='nav' to='/login'>Log In</Link></li>
-      <li><Link onClick={props.handleShowHamburger} className="nav" to='/register'>Register</Link></li>
-      <li><Link onClick={props.handleShowHamburger} className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
+                </ul>
+                <div className="hamburger" style={{ zIndex: '24' }}><i class="fas fa-bars" onClick={props.handleShowHamburger}></i></div>
+                {props.showHamburger && <div className="blur" onClick={props.handleShowHamburger}></div>}
+            </section>
+            {props.showHamburger ? <div className="hamburgerNav">
+                <ul class="menu">
+                    <li><Link onClick={props.handleShowHamburger} className='nav' to='/'>Products</Link></li>
+                    <li><Link onClick={props.handleShowHamburger} className="nav" to='/sell'>Sell</Link></li>
+                    <li><Link onClick={props.handleShowHamburger} className='nav' to='/login'>Log In</Link></li>
+                    <li><Link onClick={props.handleShowHamburger} className="nav" to='/register'>Register</Link></li>
+                    <li><Link onClick={props.handleShowHamburger} className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
                     <li className='currency'>
-                    Currency:
+                        Currency:
                         <select name="currency" id="currency" onChange={handleChangeCurrency} >
                             <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
-                            {props.currency==='EUR'?<option value={props.currencyToChoose[1]}  selected>{props.currencyToChoose[1]}</option>:<option value={props.currencyToChoose[1]}  >{props.currencyToChoose[1]}</option>}
-                            {props.currency==='PLN'?<option value={props.currencyToChoose[2]}  selected>{props.currencyToChoose[2]}</option>:<option value={props.currencyToChoose[2]}  >{props.currencyToChoose[2]}</option>}
-                            {props.currency==='BTC'?<option value={props.currencyToChoose[3]}  selected>{props.currencyToChoose[3]}</option>:<option value={props.currencyToChoose[3]}  >{props.currencyToChoose[3]}</option>}
+                            {props.currency === 'EUR' ? <option value={props.currencyToChoose[1]} selected>{props.currencyToChoose[1]}</option> : <option value={props.currencyToChoose[1]}  >{props.currencyToChoose[1]}</option>}
+                            {props.currency === 'PLN' ? <option value={props.currencyToChoose[2]} selected>{props.currencyToChoose[2]}</option> : <option value={props.currencyToChoose[2]}  >{props.currencyToChoose[2]}</option>}
+                            {props.currency === 'BTC' ? <option value={props.currencyToChoose[3]} selected>{props.currencyToChoose[3]}</option> : <option value={props.currencyToChoose[3]}  >{props.currencyToChoose[3]}</option>}
                         </select>
                     </li>
-    </ul>
-    </div>:<div className="hamburgerNav" style={{display:'none'}}>
-    <ul class="menu">
-      <li><Link className='nav' to='/'>Products</Link></li>
-      <li><Link className="nav" to='/sell'>Sell</Link></li>
-      <li><Link className='nav' to='/login'>Log In</Link></li>
-      <li><Link className="nav" to='/register'>Register</Link></li>
-      <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
-                    <li className='currency'>
-                        <select name="currency" id="currency" onChange={handleChangeCurrency} >
-                            <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
-                            <option value={props.currencyToChoose[1]} >{props.currencyToChoose[1]}</option>
-                            <option value={props.currencyToChoose[2]}>{props.currencyToChoose[2]}</option>
-                            <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
-                        </select>
-                    </li>
-    </ul>
-    </div>}
+                </ul>
+            </div> : <div className="hamburgerNav" style={{ display: 'none' }}>
+                    <ul class="menu">
+                        <li><Link className='nav' to='/'>Products</Link></li>
+                        <li><Link className="nav" to='/sell'>Sell</Link></li>
+                        <li><Link className='nav' to='/login'>Log In</Link></li>
+                        <li><Link className="nav" to='/register'>Register</Link></li>
+                        <li><Link className="nav" to='/cart'>{props.Cart.length} Cart</Link></li>
+                        <li className='currency'>
+                            <select name="currency" id="currency" onChange={handleChangeCurrency} >
+                                <option value={props.currencyToChoose[0]} >{props.currencyToChoose[0]}</option>
+                                <option value={props.currencyToChoose[1]} >{props.currencyToChoose[1]}</option>
+                                <option value={props.currencyToChoose[2]}>{props.currencyToChoose[2]}</option>
+                                <option value={props.currencyToChoose[3]} >{props.currencyToChoose[3]}</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>}
         </nav>
     );
 }

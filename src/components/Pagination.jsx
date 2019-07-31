@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import '../Styles/Pagination.css'
 
 class Pagination1 extends Component {
-        state = {
-            todos: [],
-            currentPage: 1,
-            todosPerPage: 6,
-            currency: 'USD',
-            checkIfWeSearching: false
-        };
+    state = {
+        todos: [],
+        currentPage: 1,
+        todosPerPage: 6,
+        currency: 'USD',
+        checkIfWeSearching: false
+    };
 
     componentDidMount() {
-        window.addEventListener('resize',()=>{
+        window.addEventListener('resize', () => {
             this.mainPageSizeDependOnItems()
         })
         this.setState({
@@ -38,97 +38,97 @@ class Pagination1 extends Component {
         }
     }
 
-    mainPageSizeDependOnItems=()=>{
-        const currentPage=this.state.currentPage
-        const todosPerPage=this.state.todosPerPage
-        const todos=this.state.todos.length
-        const pageesNumber = Math.ceil(todos/todosPerPage)
-        const modulo= todos % todosPerPage
-        const promotionSection= document.getElementById('promotionSection');
-        if(currentPage===pageesNumber&&modulo===1||modulo===2){
-            if(window.innerWidth<911&&window.innerWidth>500){
-             promotionSection.style.height = '750px';
-         }
-            else if(window.innerWidth<501&&modulo===1){
-             promotionSection.style.height = '750px';
-         }
-            else if(window.innerWidth<501&&modulo===2){
-             promotionSection.style.height = '1250px';
-         }
-         else if(window.innerWidth>910){
-           promotionSection.style.height ='unset';
+    mainPageSizeDependOnItems = () => {
+        const currentPage = this.state.currentPage
+        const todosPerPage = this.state.todosPerPage
+        const todos = this.state.todos.length
+        const pageesNumber = Math.ceil(todos / todosPerPage)
+        const modulo = todos % todosPerPage
+        const promotionSection = document.getElementById('promotionSection');
+        if ((currentPage === pageesNumber && (modulo === 1 || modulo === 2)) && promotionSection) {
+            if (window.innerWidth < 911 && window.innerWidth > 500) {
+                promotionSection.style.height = '750px';
+            }
+            else if (window.innerWidth < 501 && modulo === 1) {
+                promotionSection.style.height = '750px';
+            }
+            else if (window.innerWidth < 501 && modulo === 2) {
+                promotionSection.style.height = '1250px';
+            }
+            else if (window.innerWidth > 910) {
+                promotionSection.style.height = 'unset';
+            }
+        } else if ((currentPage === pageesNumber && (modulo === 3 || modulo === 4)) && promotionSection) {
+            if (window.innerWidth < 910 && window.innerWidth > 500) {
+                promotionSection.style.height = '1250px';
+            } else if (window.innerWidth < 501 && modulo === 3) {
+
+                promotionSection.style.height = '1700px';
+            }
+            else if (window.innerWidth < 501 && modulo === 4) {
+                promotionSection.style.height = '2200px';
+            }
+            else if (window.innerWidth > 910) {
+                promotionSection.style.height = 'unset';
+            }
         }
-        }   else if(currentPage===pageesNumber&&modulo===3||modulo===4){
-            if(window.innerWidth<910&&window.innerWidth>500){
-             promotionSection.style.height = '1250px';
-            }else if(window.innerWidth<501&&modulo===3){
-             
-             promotionSection.style.height = '1700px';
-         }
-         else if(window.innerWidth<501&&modulo===4){
-             promotionSection.style.height = '2200px';
-         }
-         else if(window.innerWidth>910){
-           promotionSection.style.height ='unset';
+        else if ((currentPage === pageesNumber && window.innerWidth < 501 && modulo === 5) && promotionSection) {
+            promotionSection.style.height = '2700px';
         }
-     }
-            else if(currentPage===pageesNumber&&window.innerWidth<501&&modulo===5){
-         promotionSection.style.height = '2700px';
-     }
-            else if(currentPage!==pageesNumber&&window.innerWidth<501){
-        promotionSection.style.height = '3000px';
-     }else if(currentPage!==pageesNumber&&window.innerWidth<911){
-        promotionSection.style.height = '1550px';
-     }else if(window.innerWidth>910){
-       promotionSection.style.height ='unset';
-    }
+        else if ((currentPage !== pageesNumber && window.innerWidth < 501) && promotionSection) {
+            promotionSection.style.height = '3000px';
+        } else if ((currentPage !== pageesNumber && window.innerWidth < 911) && promotionSection) {
+            promotionSection.style.height = '1550px';
+        } else if (window.innerWidth > 910 && promotionSection) {
+            promotionSection.style.height = 'unset';
+        }
 
     }
 
-    handleClick=(event)=> {
+    handleClick = (event) => {
         window.scrollTo(0, 0)
         this.setState({
             currentPage: Number(event.target.id)
         })
-       
-        const currentPage=Number(event.target.id)
-        const todosPerPage=this.state.todosPerPage
-        const todos=this.state.todos.length
-        const pageesNumber = Math.ceil(todos/todosPerPage)
-        const modulo= todos % todosPerPage
-        const promotionSection= document.getElementById('promotionSection');
- 
-        if(currentPage===pageesNumber&&modulo===1||modulo===2){
-            if(window.innerWidth<911&&window.innerWidth>500){
-             promotionSection.style.height = '750px';
-         }
-            else if(window.innerWidth<501&&modulo===1){
-             promotionSection.style.height = '750px';
-         }
-            else if(window.innerWidth<501&&modulo===2){
-             promotionSection.style.height = '1250px';
-         }
-        }   else if(currentPage===pageesNumber&&modulo===3||modulo===4){
-            if(window.innerWidth<910&&window.innerWidth>500){
-             promotionSection.style.height = '1250px';
-            }else if(window.innerWidth<501&&modulo===3){
-             
-             promotionSection.style.height = '1700px';
-         }
-         else if(window.innerWidth<501&&modulo===4){
-             promotionSection.style.height = '2200px';
-         }
-     }
-            else if(currentPage===pageesNumber&&window.innerWidth<501&&modulo===5){
-         promotionSection.style.height = '2700px';
-     }
-            else if(currentPage!==pageesNumber&&window.innerWidth<501){
-        promotionSection.style.height = '3000px';
-     }else if(currentPage!==pageesNumber&&window.innerWidth<911){
-        promotionSection.style.height = '1550px';
-     }else if(window.innerWidth>910){
-       promotionSection.style.height ='unset';
-    }
+
+        const currentPage = Number(event.target.id)
+        const todosPerPage = this.state.todosPerPage
+        const todos = this.state.todos.length
+        const pageesNumber = Math.ceil(todos / todosPerPage)
+        const modulo = todos % todosPerPage
+        const promotionSection = document.getElementById('promotionSection');
+
+        if (currentPage === pageesNumber && (modulo === 1 || modulo === 2)) {
+            if (window.innerWidth < 911 && window.innerWidth > 500) {
+                promotionSection.style.height = '750px';
+            }
+            else if (window.innerWidth < 501 && modulo === 1) {
+                promotionSection.style.height = '750px';
+            }
+            else if (window.innerWidth < 501 && modulo === 2) {
+                promotionSection.style.height = '1250px';
+            }
+        } else if (currentPage === pageesNumber && (modulo === 3 || modulo === 4)) {
+            if (window.innerWidth < 910 && window.innerWidth > 500) {
+                promotionSection.style.height = '1250px';
+            } else if (window.innerWidth < 501 && modulo === 3) {
+
+                promotionSection.style.height = '1700px';
+            }
+            else if (window.innerWidth < 501 && modulo === 4) {
+                promotionSection.style.height = '2200px';
+            }
+        }
+        else if (currentPage === pageesNumber && window.innerWidth < 501 && modulo === 5) {
+            promotionSection.style.height = '2700px';
+        }
+        else if (currentPage !== pageesNumber && window.innerWidth < 501) {
+            promotionSection.style.height = '3000px';
+        } else if (currentPage !== pageesNumber && window.innerWidth < 911) {
+            promotionSection.style.height = '1550px';
+        } else if (window.innerWidth > 910) {
+            promotionSection.style.height = 'unset';
+        }
     }
 
 

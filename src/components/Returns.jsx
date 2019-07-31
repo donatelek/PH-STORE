@@ -12,7 +12,7 @@ class Returns extends Component {
     render() {
         return (
             <div className='returns'>
-                <h1  className='returnsTitle'>Delivery & Returns</h1>
+                <h1 className='returnsTitle'>Delivery & Returns</h1>
                 <h2>DELIVERY</h2>
                 <section>Deliveries within Australia are made by Star track Express, Sendle, or Australia Express Post, and will arrive within a week from the date of your order (not including public holidays or weekends). Generally most orders arrive within 3 working days.
 

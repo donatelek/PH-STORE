@@ -7,10 +7,10 @@ class SellSection extends Component {
         sell: '',
         email: '',
         price: '',
-       photoUrl:'',
-       imgUrl:'',
+        photoUrl: '',
+        imgUrl: '',
         description: '',
-        submittedCorrectly:false,
+        submittedCorrectly: false,
         condition: 'new',
         photo: 'oneplus6.png',
         quantity: 1,
@@ -27,7 +27,7 @@ class SellSection extends Component {
         email: 'Enter a valid e-mail address',
         price: 'Enter your product price',
         description: 'Enter your product description',
-        submit:'Your item has been listed!'
+        submit: 'Your item has been listed!'
     }
 
     handleAddItem = (props) => {
@@ -59,32 +59,32 @@ class SellSection extends Component {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    devicename:this.state.sell,
-                    email:this.state.email,
-                    condition:this.state.condition,
-                    priceusd:this.state.price,
-                    description:this.state.description,
-                    quantity:this.state.quantity,
-                    photo:this.state.imgUrl
+                    devicename: this.state.sell,
+                    email: this.state.email,
+                    condition: this.state.condition,
+                    priceusd: this.state.price,
+                    description: this.state.description,
+                    quantity: this.state.quantity,
+                    photo: this.state.imgUrl
                 })
-              }).then(res=>res.json()).then(res=>{
-                  this.props.fetchingProducts()
-                  this.setState({
-                    submittedCorrectly:true,
-                    sell:'',
-                    email:'',
-                    price:'',
-                    quantity:1,
-                    condition:'new',
-                    description:'',
-                    imgUrl:''
-                  })
-                  setTimeout(()=>{
-                      this.setState({
-                          submittedCorrectly:false
-                      })
-                  },4000)
-              })
+            }).then(res => res.json()).then(res => {
+                this.props.fetchingProducts()
+                this.setState({
+                    submittedCorrectly: true,
+                    sell: '',
+                    email: '',
+                    price: '',
+                    quantity: 1,
+                    condition: 'new',
+                    description: '',
+                    imgUrl: ''
+                })
+                setTimeout(() => {
+                    this.setState({
+                        submittedCorrectly: false
+                    })
+                }, 4000)
+            })
         } else {
             this.setState({
                 errors: {
@@ -123,61 +123,61 @@ class SellSection extends Component {
 
     test = (e) => {
         this.setState({
-            imgUrl:e.target.value
-        })  
+            imgUrl: e.target.value
+        })
     }
 
     render() {
         return (
-            <section className='sellItem' style={{overflowX:'hidden'}}>
+            <section className='sellItem' style={{ overflowX: 'hidden' }}>
                 <div className="wrap center">
                     <form onSubmit={this.handleSubmit} >
-                    <h1>Sell Your Item</h1>
+                        <h1>Sell Your Item</h1>
                         <div className="wrap-label">
                             <label onChange={this.handleFromChange} htmlFor="name">What do you want to sell?</label>
-                            <br/>
+                            <br />
                             {this.state.errors.sell && <span className='error'>{this.messages.sell}</span>}
                         </div>
-                        <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false"/>
+                        <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Email</label>
-                            <br/>
+                            <br />
                             {this.state.errors.email && <span className='error'>{this.messages.email}</span>}
                         </div>
-                        <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellcheck="false"/>
+                        <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Price</label>
-                            <br/>
+                            <br />
                             {this.state.errors.price && <span className='error'>{this.messages.price}</span>}
                         </div>
-                        <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false"/>
+                        <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Quantity</label>
                         </div>
-                        <input onChange={this.handleFromChange} type="quantity" id="quantity" value={this.state.quantity} spellcheck="false"/>
+                        <input onChange={this.handleFromChange} type="quantity" id="quantity" value={this.state.quantity} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="condition">Condition</label>
-                            </div>
-                            <select onChange={this.handleFromChange} name="condition" id="condition">
-                                <option value="new">New</option>
-                                <option value="used">Used</option>
-                                <option value="damaged">Damaged</option>
-                            </select>
+                        </div>
+                        <select onChange={this.handleFromChange} name="condition" id="condition">
+                            <option value="new">New</option>
+                            <option value="used">Used</option>
+                            <option value="damaged">Damaged</option>
+                        </select>
                         <div className="wrap-label">
                             <label htmlFor="name">Description</label>
-                            <br/>
+                            <br />
                             {this.state.errors.description && <span className='error'>{this.messages.description}</span>}
                         </div>
-                        <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellcheck="false"/>
-                       <div className="wrap-label">
-                       <label htmlFor="">Image Url</label>
-                       </div>
-                        <input type="text" onChange={this.test} value={this.state.imgUrl} spellcheck="false"/>
-                        <br/>
-                        <Img src={this.state.imgUrl}  className='uploadedImg'/>
-                        <br/>
+                        <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellcheck="false" />
+                        <div className="wrap-label">
+                            <label htmlFor="">Image Url</label>
+                        </div>
+                        <input type="text" onChange={this.test} value={this.state.imgUrl} spellcheck="false" />
+                        <br />
+                        <Img src={this.state.imgUrl} className='uploadedImg' />
+                        <br />
                         {this.state.submittedCorrectly && <span className='error'>{this.messages.submit}</span>}
-                        <br/>
+                        <br />
                         <button type="submit" className='submitSell'>Submit</button>
                     </form>
                 </div>

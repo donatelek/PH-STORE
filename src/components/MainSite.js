@@ -15,14 +15,14 @@ import Register from './Register.jsx';
 import Returns from './Returns.jsx';
 import Terms from './Terms.jsx';
 import Feedback from './Feedback.jsx';
-import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 
 
 
 
 class App extends Component {
   state = {
-    showHamburger:false,
+    showHamburger: false,
     shuffle: [],
     idOfProduct: null,
     Cart: [],
@@ -35,29 +35,29 @@ class App extends Component {
     checkIfWeSearching: false,
     Products1: [],
     Products: [],
-    loadPage:false,
+    loadPage: false,
   }
 
-  UNSAFE_componentWillMount(){
+  UNSAFE_componentWillMount() {
     fetch('https://ph-store-server.herokuapp.com/products', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json()).then(res => {
-          console.log(res)
-          this.setState({
-            Products:res,
-            Products1:res,
-            loadPage:true
-          })
-        }).catch(err => console.log(err))
-        if(localStorage.Cart){
-          const datas = JSON.parse(localStorage["Cart"]); 
-          if(datas.length){
-            this.setState({
-              Cart:datas
-            })
-          }
-        }
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(res => res.json()).then(res => {
+      console.log(res)
+      this.setState({
+        Products: res,
+        Products1: res,
+        loadPage: true
+      })
+    }).catch(err => console.log(err))
+    if (localStorage.Cart) {
+      const datas = JSON.parse(localStorage["Cart"]);
+      if (datas.length) {
+        this.setState({
+          Cart: datas
+        })
+      }
+    }
   }
   componentDidMount() {
     fetch('https://openexchangerates.org/api/latest.json?app_id=acd7ca6ba434434685f7f05df216b290')
@@ -71,38 +71,38 @@ class App extends Component {
         )
       }).catch(err => alert(err))
     let anArrayOfUniqueNumbers = [];
-  let numberGenerator = (arr) => {
-    if (arr.length >= 4) return;
-    let newNumber = Math.floor(Math.random() * 4 + 1);
-    if (arr.indexOf(newNumber) < 0) {
-      arr.push(newNumber);
-    }
-    numberGenerator(arr);
-  };
+    let numberGenerator = (arr) => {
+      if (arr.length >= 4) return;
+      let newNumber = Math.floor(Math.random() * 4 + 1);
+      if (arr.indexOf(newNumber) < 0) {
+        arr.push(newNumber);
+      }
+      numberGenerator(arr);
+    };
 
-  numberGenerator(anArrayOfUniqueNumbers);
-  this.setState({
-    shuffle: anArrayOfUniqueNumbers
-  })
-  }
-
-  updatingCart=(update)=>{
+    numberGenerator(anArrayOfUniqueNumbers);
     this.setState({
-      Cart:update
+      shuffle: anArrayOfUniqueNumbers
     })
   }
 
-  fetchingProducts=()=>{
+  updatingCart = (update) => {
+    this.setState({
+      Cart: update
+    })
+  }
+
+  fetchingProducts = () => {
     fetch('https://ph-store-server.herokuapp.com/products', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-      }).then(res => res.json()).then(res => {
-        this.setState({
-          Products:res,
-          Products1:res
-        })
-       
-      }).catch(err => console.log(err))
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }).then(res => res.json()).then(res => {
+      this.setState({
+        Products: res,
+        Products1: res
+      })
+
+    }).catch(err => console.log(err))
   }
 
 
@@ -117,12 +117,12 @@ class App extends Component {
       numberGenerator(arr);
     };
     numberGenerator(anArrayOfUniqueNumbers);
-    if(idOfProduct){
+    if (idOfProduct) {
       this.setState({
         idOfProduct,
         shuffle: anArrayOfUniqueNumbers
       })
-    }else{
+    } else {
       this.setState({
         shuffle: anArrayOfUniqueNumbers
       })
@@ -151,14 +151,14 @@ class App extends Component {
     })
   }
 
-  handleShowHamburger=()=>{
-    if(!this.state.showHamburger){
+  handleShowHamburger = () => {
+    if (!this.state.showHamburger) {
       document.body.style.overflow = "hidden"
-    }else{
+    } else {
       document.body.style.overflow = "visible"
     }
     this.setState({
-      showHamburger:!this.state.showHamburger
+      showHamburger: !this.state.showHamburger
     })
   }
 
@@ -174,18 +174,18 @@ class App extends Component {
     }
   }
 
-  handleAddToCart = (id,index) => {
+  handleAddToCart = (id, index) => {
     let products = this.state.Products;
     const product = products.find(item => {
       return item.id === id
     })
-      const Cart = this.state.Cart;
-      Cart.push(product)
+    const Cart = this.state.Cart;
+    Cart.push(product)
     this.setState({
       Cart
     })
-    const saveStorage= JSON.stringify(Cart)
-    localStorage.setItem('Cart',saveStorage)
+    const saveStorage = JSON.stringify(Cart)
+    localStorage.setItem('Cart', saveStorage)
   }
 
   handleSearching = (Products) => {
@@ -194,20 +194,20 @@ class App extends Component {
     })
   }
 
-  igrek = (ee,index) => {
+  igrek = (ee, index) => {
     const products = this.state.Products1
     const cart = this.state.Cart
-    cart.splice(index,1)
+    cart.splice(index, 1)
     this.setState({
-      Cart:cart,
+      Cart: cart,
       Products: products
     })
-    const saveStorage= JSON.stringify(cart)
-     localStorage.setItem('Cart',saveStorage)
+    const saveStorage = JSON.stringify(cart)
+    localStorage.setItem('Cart', saveStorage)
   }
 
   render() {
-    const products = this.state.Products.map((product,index) => {
+    const products = this.state.Products.map((product, index) => {
       return (
         <Products
           currency={this.state.currency}
@@ -252,11 +252,11 @@ class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/feedback' component={Feedback} />
-          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek} Products1={this.state.Products1} updatingCart={this. updatingCart}/>)} />
-          {this.state.loadPage&&<Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu}  setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart}/>)} />}
-          {this.state.loadPage&&<Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency}  checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
+          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek} Products1={this.state.Products1} updatingCart={this.updatingCart} />)} />
+          {this.state.loadPage && <Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu} setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart} />)} />}
+          {this.state.loadPage && <Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency} checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
           <Route path='/sell' render={(props) => (<SellSection {...props} handleAddItem={this.handleAddItem} fetchingProducts={this.fetchingProducts} />)} />
-            <Footer/>
+          <Footer />
         </div>
       </Router>
     );
