@@ -10,6 +10,12 @@ section.phoneProperty {
     width: 1300px;
     overflow-x: hidden;
     border: 5px solid rgb(185, 128, 128);
+
+
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 section.phoneProperty .phoneImg img {
