@@ -23,7 +23,7 @@ class SellSection extends Component {
     }
 
     messages = {
-        sell: 'Enter what you want to sell',
+        sell: 'Enter what you want to sell (max 23 char.)',
         email: 'Enter a valid e-mail address',
         price: 'Enter your product price',
         description: 'Enter your product description',
@@ -103,7 +103,7 @@ class SellSection extends Component {
         let price = false;
         let description = false;
         let correct = false
-        if (this.state.sell.length > 0) {
+        if (this.state.sell.length > 0 && this.state.sell.length < 24) {
             sell = true;
         }
         if (this.state.email.includes('@')) {

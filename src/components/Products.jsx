@@ -26,7 +26,7 @@ class Products extends Component {
                     <h1 className='deviceName'>{this.props.devicename}</h1>
                     <h2 className='devicePrice'>{this.props.priceusd + ' ' + this.props.currency}</h2>
                 </Link>
-                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
+                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i className="fas fa-cart-plus"></i>}</button>
                 </div>}
 
                 {this.props.currency === 'EUR' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
@@ -34,7 +34,7 @@ class Products extends Component {
                     <h1 className='deviceName'>{this.props.devicename}</h1>
                     <h2 className='devicePrice'>{Math.round(this.props.priceusd * this.props.EUR)} {this.props.currency}</h2>
                 </Link>
-                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
+                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i className="fas fa-cart-plus"></i>}</button>
                 </div>}
 
                 {this.props.currency === 'PLN' && <div key={this.props.indexOfElement}><Link className='cardProduct' onClick={() => this.props.setIdOfProduct(this.props.id)} to={`/properties/${this.props.id}`}>
@@ -50,7 +50,7 @@ class Products extends Component {
                     <h1 className='deviceName'>{this.props.devicename}</h1>
                     <h2 className="devicePrice">{math.round(this.props.priceusd * this.props.BTC, 4)} {this.props.currency}</h2>
                 </Link>
-                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i class="fas fa-cart-plus"></i>}</button>
+                    <button className='cartIcon' onClick={() => this.props.handleAddToCart(this.props.id)} disabled={this.handleActiveButton(this.props.id)}>{this.handleActiveButton(this.props.id) ? 'In Cart' : <i className="fas fa-cart-plus"></i>}</button>
                 </div>}
             </>
         );

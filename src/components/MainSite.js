@@ -43,7 +43,6 @@ class App extends Component {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then(res => {
-      console.log(res)
       this.setState({
         Products: res,
         Products1: res,

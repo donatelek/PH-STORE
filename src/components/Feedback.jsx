@@ -74,7 +74,6 @@ class Feedback extends Component {
             })
             const feedbacks = this.state.feedbacks
             feedbacks.unshift({ name: this.state.name, comment: this.state.feedback })
-            console.log(feedbacks)
             this.setState({
                 feedbacks
             })

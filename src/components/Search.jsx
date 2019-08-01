@@ -36,7 +36,7 @@ class Search extends Component {
             <>
                 <div className="search">
                     <input className="searchInput" onChange={this.handleSearchInput} value={this.state.searchInput} type="text" placeholder="Search" />
-                    <i class="fas fa-search"></i>
+                    <i className="fas fa-search"></i>
                 </div>
             </>
         );

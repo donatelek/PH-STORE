@@ -11,15 +11,15 @@ const Nav = (props) => {
 
     return (
         <nav>
-            <section class="top-nav">
+            <section className="top-nav">
                 <div>
                     <Link className='storeName' to='/'><img src={Logo} alt="" /></Link>
                 </div>
                 <input id="menu-toggle" type="checkbox" />
-                <label class='menu-button-container' for="menu-toggle">
-                    <div class='menu-button'></div>
+                <label className='menu-button-container' htmlFor="menu-toggle">
+                    <div className='menu-button'></div>
                 </label>
-                <ul class="menu">
+                <ul className="menu">
                     <li><Link className='nav' to='/'>Products</Link></li>
                     <li><Link className="nav" to='/sell'>Sell</Link></li>
                     <li><Link className='nav' to='/login'>Log In</Link></li>
@@ -34,7 +34,7 @@ const Nav = (props) => {
                         </select>
                     </li>
                 </ul>
-                <div className="hamburger" style={{ zIndex: '24' }}><i class="fas fa-bars" onClick={props.handleShowHamburger}></i></div>
+                <div className="hamburger" style={{ zIndex: '24' }}><i className="fas fa-bars" onClick={props.handleShowHamburger}></i></div>
                 {props.showHamburger && <div className="blur" onClick={props.handleShowHamburger}></div>}
             </section>
             {props.showHamburger ? <div className="hamburgerNav">
@@ -55,7 +55,7 @@ const Nav = (props) => {
                     </li>
                 </ul>
             </div> : <div className="hamburgerNav" style={{ display: 'none' }}>
-                    <ul class="menu">
+                    <ul className="menu">
                         <li><Link className='nav' to='/'>Products</Link></li>
                         <li><Link className="nav" to='/sell'>Sell</Link></li>
                         <li><Link className='nav' to='/login'>Log In</Link></li>
