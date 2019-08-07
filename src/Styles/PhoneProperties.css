@@ -8,7 +8,7 @@ section.phoneProperty {
     margin-left: auto;
     margin-right: auto;
     width: 1300px;
-    overflow-x: hidden;
+    overflow: hidden;
     border: 5px solid rgb(185, 128, 128);
 
 
