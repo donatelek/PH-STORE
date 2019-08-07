@@ -28,6 +28,8 @@ Here is a working live demo :  https://ph-store.herokuapp.com
 * Node - version 12.4
 * Express - version 4.16
 * PostgreSQL - version 11
+* Jest - version 24.8
+* Enzyme - version 3.10
 
 ## Setup
 
