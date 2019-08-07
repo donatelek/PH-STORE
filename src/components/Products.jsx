@@ -64,12 +64,8 @@ Products.propTypes = {
     id: PropTypes.number,
     photo: PropTypes.string,
     devicename: PropTypes.string,
-    priceusd: PropTypes.number,
     quantity: PropTypes.string,
     AddedToCart: PropTypes.bool,
-    EUR: PropTypes.string,
-    PLN: PropTypes.string,
-    BTC: PropTypes.string,
     setIdOfProduct: PropTypes.func,
     indexOfElement: PropTypes.number,
     Cart: PropTypes.arrayOf(PropTypes.object)

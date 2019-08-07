@@ -139,23 +139,23 @@ class SellSection extends Component {
                             <br />
                             {this.state.errors.sell && <span data-test='sellErrorSell' className='error'>{this.messages.sell}</span>}
                         </div>
-                        <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false" />
+                        <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellCheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Email</label>
                             <br />
                             {this.state.errors.email && <span data-test='emailErrorSell' className='error'>{this.messages.email}</span>}
                         </div>
-                        <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellcheck="false" />
+                        <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellCheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Price</label>
                             <br />
                             {this.state.errors.price && <span data-test='priceErrorSell' className='error'>{this.messages.price}</span>}
                         </div>
-                        <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false" />
+                        <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellCheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Quantity</label>
                         </div>
-                        <input onChange={this.handleFromChange} type="quantity" id="quantity" value={this.state.quantity} spellcheck="false" />
+                        <input onChange={this.handleFromChange} type="quantity" id="quantity" value={this.state.quantity} spellCheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="condition">Condition</label>
                         </div>
@@ -169,11 +169,11 @@ class SellSection extends Component {
                             <br />
                             {this.state.errors.description && <span data-test='descriptionErrorSell' className='error'>{this.messages.description}</span>}
                         </div>
-                        <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellcheck="false" />
+                        <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellCheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="">Image Url</label>
                         </div>
-                        <input type="text" onChange={this.test} value={this.state.imgUrl} spellcheck="false" />
+                        <input type="text" onChange={this.test} value={this.state.imgUrl} spellCheck="false" />
                         <br />
                         <Img src={this.state.imgUrl} className='uploadedImg' />
                         <br />

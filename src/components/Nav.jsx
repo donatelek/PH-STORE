@@ -38,7 +38,7 @@ const Nav = (props) => {
                 {props.showHamburger && <div className="blur" data-test='navBlur' onClick={props.handleShowHamburger}></div>}
             </section>
             {props.showHamburger ? <div data-test='hamburgerNavMobile' className="hamburgerNav">
-                <ul class="menu">
+                <ul className="menu">
                     <li><Link onClick={props.handleShowHamburger} className='nav' to='/'>Products</Link></li>
                     <li><Link onClick={props.handleShowHamburger} className="nav" to='/sell'>Sell</Link></li>
                     <li><Link onClick={props.handleShowHamburger} className='nav' to='/login'>Log In</Link></li>
