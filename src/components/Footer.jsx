@@ -6,12 +6,12 @@ const Footer = () => {
         <>
             <footer>
                 <ul className='rules'>
-                    <li><Link className='terms' to='/terms-and-conditions'>Terms & Conditions</Link></li>
-                    <li><Link className='deliv' to='/delivery-returns'>Delivery & Returns</Link></li>
+                    <li><Link data-test='terms' className='terms' to='/terms-and-conditions'>Terms & Conditions</Link></li>
+                    <li><Link data-test='deliv' className='deliv' to='/delivery-returns'>Delivery & Returns</Link></li>
                 </ul>
                 <ul className='social'>
-                    <li><Link className='feed' to='/feedback'>Feedback</Link></li>
-                    <li><Link className='cont' to='/contact'>Contact Us</Link></li>
+                    <li><Link data-test='feed' className='feed' to='/feedback'>Feedback</Link></li>
+                    <li><Link data-test='contact' className='cont' to='/contact'>Contact Us</Link></li>
                     <li className='language'>EN</li>
                 </ul>
                 <div className="copyright">© 2019 PH-STORE</div>

@@ -5,7 +5,11 @@ class Terms extends Component {
     state = {}
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+        try {
+            window.scrollTo(0, 0)
+        } catch (err) {
+
+        }
     }
 
     render() {

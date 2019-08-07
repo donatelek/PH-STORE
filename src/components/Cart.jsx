@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../Styles/Cart.css";
 import math from 'mathjs'
-
+import PropTypes from 'prop-types';
 import BitcoinPayment from './BitcoinPayment';
 
 class Cart extends Component {
@@ -126,7 +126,7 @@ class Cart extends Component {
                 price = price + item.priceusd * item.quantity * this.props.BTC
             }
             else {
-                alert('error with subtotal price')
+                console.log('error with subtotal price')
             }
         })
         const finalPrice = price.toFixed(2)
@@ -224,7 +224,7 @@ class Cart extends Component {
         return (
             <>
                 <section className="cartSection">
-                    <h1 className='cartTitle'>{this.state.ItemsAddedToCart.length === 0 ? 'Your cart is empty' : 'Your Cart:'}</h1>
+                    <h1 className='cartTitle' data-test='cartTitle'>{this.state.ItemsAddedToCart.length === 0 ? 'Your cart is empty' : 'Your Cart:'}</h1>
                     <div className='cartItemsDescription'>
                         <div className='cartProduct'>Product</div>
                         <div className='cartPrice'>Price</div>
@@ -234,18 +234,29 @@ class Cart extends Component {
                     {itemsInCart}
                 </section>
                 <section className="checkout">
-                    <div className="discount">Discount: <span>-0 {this.props.currency}</span></div>
+                    <div className="discount" >Discount: <span data-test='discount' >-0 {this.props.currency}</span></div>
                     <div className="couponCode">Enter Promo Code: <input type="text" /></div>
                     <div className="shipping">Shipping: <span>FREE</span></div>
-                    <div className='subtotalCart'>Subtotal: <span>{this.Subtotal()} {this.props.currency}</span></div>
-                    {this.props.currency !== 'BTC' && this.state.ItemsAddedToCart.length ? <button className="paypal" onClick={this.paypalCheckout}><span className="buy">Buy now with</span> <span className="logo">Pay</span><span className="logo2">Pal</span></button> : null}
-                    {this.props.currency === 'BTC' && this.state.ItemsAddedToCart.length ? <button className="btc" onClick={this.handleShowBitcoinPayment}>Pay with Bitcoin <i class="fab fa-bitcoin"></i></button> : null}
+                    <div className='subtotalCart' data-test='subtotal' >Subtotal: <span>{this.Subtotal()} {this.props.currency}</span></div>
+                    {this.props.currency !== 'BTC' && this.state.ItemsAddedToCart.length ? <button data-test='paypal' className="paypal" onClick={this.paypalCheckout}><span className="buy">Buy now with</span> <span className="logo">Pay</span><span className="logo2">Pal</span></button> : null}
+                    {this.props.currency === 'BTC' && this.state.ItemsAddedToCart.length ? <button data-test='bitcoin' className="btc" onClick={this.handleShowBitcoinPayment}>Pay with Bitcoin <i class="fab fa-bitcoin"></i></button> : null}
                 </section>
-                {this.state.showBitcoinPayment && <BitcoinPayment handleShowBitcoinPayment={this.handleShowBitcoinPayment} Subtotal={this.Subtotal} />}
+                {this.state.showBitcoinPayment && <BitcoinPayment data-test='BitcoinPayment' handleShowBitcoinPayment={this.handleShowBitcoinPayment} Subtotal={this.Subtotal} />}
             </>
         )
     }
 }
 
+Cart.propTypes = {
+    Cart: PropTypes.arrayOf(PropTypes.object),
+    currency: PropTypes.string,
+    EUR: PropTypes.number,
+    PLN: PropTypes.number,
+    BTC: PropTypes.number,
+    Products: PropTypes.arrayOf(PropTypes.object),
+    igrek: PropTypes.func,
+    Products1: PropTypes.arrayOf(PropTypes.object),
+    updatingCart: PropTypes.func
+};
 
 export default Cart;

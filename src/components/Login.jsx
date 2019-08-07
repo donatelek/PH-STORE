@@ -12,7 +12,11 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+        try {
+            window.scrollTo(0, 0)
+        } catch (err) {
+
+        }
     }
 
     messages = {
@@ -72,7 +76,7 @@ class Login extends Component {
             <>
                 <div className='loginForm'>
                     <h1>LOGIN</h1>
-                    {this.state.errors.email || this.state.errors.password ? <div className='loginError'>{this.messages.error}</div> : null}
+                    {this.state.errors.email || this.state.errors.password ? <div className='loginError' data-test='loginError' >{this.messages.error}</div> : null}
                     <div className='login'>
                         <label className='login' htmlFor="login">Email</label>
                         <br />

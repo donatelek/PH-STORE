@@ -4,9 +4,14 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.0",
+    "check-prop-types": "^1.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "fonoapi-nodejs": "^0.1.1",
+    "jest": "^24.8.0",
     "jquery": "^3.4.1",
     "mathjs": "^5.10.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.1",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
@@ -23,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=node",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +39,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "watchPathIgnorePatterns": [
+      "shopping_app/node_modules"
+    ]
+  }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/SellSection.css';
 import Img from 'react-image';
+import PropTypes from 'prop-types';
 
 class SellSection extends Component {
     state = {
@@ -136,19 +137,19 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label onChange={this.handleFromChange} htmlFor="name">What do you want to sell?</label>
                             <br />
-                            {this.state.errors.sell && <span className='error'>{this.messages.sell}</span>}
+                            {this.state.errors.sell && <span data-test='sellErrorSell' className='error'>{this.messages.sell}</span>}
                         </div>
                         <input onChange={this.handleFromChange} type="text" id="sell" value={this.state.sell} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Email</label>
                             <br />
-                            {this.state.errors.email && <span className='error'>{this.messages.email}</span>}
+                            {this.state.errors.email && <span data-test='emailErrorSell' className='error'>{this.messages.email}</span>}
                         </div>
                         <input onChange={this.handleFromChange} type="email" id="email" value={this.state.email} spellcheck="false" />
                         <div className="wrap-label">
                             <label htmlFor="name">Price</label>
                             <br />
-                            {this.state.errors.price && <span className='error'>{this.messages.price}</span>}
+                            {this.state.errors.price && <span data-test='priceErrorSell' className='error'>{this.messages.price}</span>}
                         </div>
                         <input value={this.state.price} type="number" id="price" onChange={this.handleFromChange} spellcheck="false" />
                         <div className="wrap-label">
@@ -166,7 +167,7 @@ class SellSection extends Component {
                         <div className="wrap-label">
                             <label htmlFor="name">Description</label>
                             <br />
-                            {this.state.errors.description && <span className='error'>{this.messages.description}</span>}
+                            {this.state.errors.description && <span data-test='descriptionErrorSell' className='error'>{this.messages.description}</span>}
                         </div>
                         <textarea value={this.state.description} type="text" id="description" onChange={this.handleFromChange} spellcheck="false" />
                         <div className="wrap-label">
@@ -176,7 +177,7 @@ class SellSection extends Component {
                         <br />
                         <Img src={this.state.imgUrl} className='uploadedImg' />
                         <br />
-                        {this.state.submittedCorrectly && <span className='error'>{this.messages.submit}</span>}
+                        {this.state.submittedCorrectly && <span data-test='submittedCorrectlySell' className='error'>{this.messages.submit}</span>}
                         <br />
                         <button type="submit" className='submitSell'>Submit</button>
                     </form>
@@ -185,5 +186,10 @@ class SellSection extends Component {
         );
     }
 }
+
+SellSection.propTypes = {
+    handleAddItem: PropTypes.func,
+    fetchingProducts: PropTypes.func
+};
 
 export default SellSection;

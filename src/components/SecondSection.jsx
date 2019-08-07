@@ -1,6 +1,7 @@
 import React from 'react';
 import Pagination from './Pagination'
 import Search from './Search';
+import PropTypes from 'prop-types';
 
 const SecondSection = (props) => {
     return (
@@ -10,10 +11,19 @@ const SecondSection = (props) => {
             </div>
             <h1 className='products'>Products</h1>
             <div className="wrapper">
-                <Pagination checkIfWeSearching={props.checkIfWeSearching} products={props.products} checkIfWeSearchingBoolean={props.checkIfWeSearchingBoolean} currency={props.currency} bogus={props.bogus} pageid={props.match.params.id} path={props.match.path.replace('/', ' ')} />
+                <Pagination checkIfWeSearching={props.checkIfWeSearching} products={props.products} checkIfWeSearchingBoolean={props.checkIfWeSearchingBoolean} currency={props.currency} />
             </div>
         </section>
     );
 }
+
+SecondSection.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object),
+    currency: PropTypes.string,
+    checkIfWeSearching: PropTypes.func,
+    checkIfWeSearchingBoolean: PropTypes.bool,
+    handleSearching: PropTypes.func,
+    products1: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default SecondSection;

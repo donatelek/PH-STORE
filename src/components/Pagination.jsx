@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/Pagination.css'
-
-class Pagination1 extends Component {
+import PropTypes from 'prop-types';
+class Pagination extends Component {
     state = {
         todos: [],
         currentPage: 1,
@@ -11,9 +11,14 @@ class Pagination1 extends Component {
     };
 
     componentDidMount() {
-        window.addEventListener('resize', () => {
-            this.mainPageSizeDependOnItems()
-        })
+        try {
+            window.addEventListener('resize', () => {
+                this.mainPageSizeDependOnItems()
+            })
+        } catch (err) {
+
+        }
+
         this.setState({
             todos: this.props.products
         })
@@ -138,7 +143,7 @@ class Pagination1 extends Component {
         const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
         const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
         const renderTodos = currentTodos.map((todo, index) => {
-            return <div key={index}>{todo}</div>;
+            return <div data-test='todos' key={index}>{todo}</div>;
         });
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
@@ -147,6 +152,7 @@ class Pagination1 extends Component {
         const renderPageNumbers = pageNumbers.map(number => {
             return (
                 <li
+                    data-test='pageNumber'
                     key={number}
                     id={number}
                     onClick={this.handleClick}
@@ -164,4 +170,12 @@ class Pagination1 extends Component {
     }
 }
 
-export default Pagination1;
+Pagination.propTypes = {
+    handleShowBitcoinPayment: PropTypes.func,
+    checkIfWeSearching: PropTypes.func,
+    products: PropTypes.arrayOf(PropTypes.object),
+    checkIfWeSearchingBoolean: PropTypes.bool,
+    currency: PropTypes.string,
+};
+
+export default Pagination;

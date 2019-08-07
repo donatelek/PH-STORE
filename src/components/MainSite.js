@@ -4,7 +4,6 @@ import '../Styles/MainSite.css'
 import PhoneProperties from './PhoneProperties.jsx';
 import Cart from './Cart.jsx';
 import SellSection from './SellSection.jsx'
-
 import SecondSection from './SecondSection.jsx';
 import Nav from './Nav.jsx';
 import Footer from './Footer.jsx';
@@ -39,36 +38,47 @@ class App extends Component {
   }
 
   UNSAFE_componentWillMount() {
-    fetch('https://ph-store-server.herokuapp.com/products', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }).then(res => res.json()).then(res => {
-      this.setState({
-        Products: res,
-        Products1: res,
-        loadPage: true
-      })
-    }).catch(err => console.log(err))
-    if (localStorage.Cart) {
-      const datas = JSON.parse(localStorage["Cart"]);
-      if (datas.length) {
+    try {
+      fetch('https://ph-store-server.herokuapp.com/products', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      }).then(res => res.json()).then(res => {
         this.setState({
-          Cart: datas
+          Products: res,
+          Products1: res,
+          loadPage: true
         })
+      }).catch(err => console.log(err))
+      if (localStorage.Cart) {
+        const datas = JSON.parse(localStorage["Cart"]);
+        if (datas.length) {
+          this.setState({
+            Cart: datas
+          })
+        }
       }
+    } catch (err) {
+
     }
+
+
   }
   componentDidMount() {
-    fetch('https://openexchangerates.org/api/latest.json?app_id=acd7ca6ba434434685f7f05df216b290')
-      .then(res => res.json())
-      .then(res => {
-        return (this.setState({
-          EUR: res.rates.EUR,
-          PLN: res.rates.PLN,
-          BTC: res.rates.BTC,
-        })
-        )
-      }).catch(err => alert(err))
+    try {
+      fetch('https://openexchangerates.org/api/latest.json?app_id=acd7ca6ba434434685f7f05df216b290')
+        .then(res => res.json())
+        .then(res => {
+          return (this.setState({
+            EUR: res.rates.EUR,
+            PLN: res.rates.PLN,
+            BTC: res.rates.BTC,
+          })
+          )
+        }).catch(err => alert(err))
+    } catch (err) {
+
+    }
+
     let anArrayOfUniqueNumbers = [];
     let numberGenerator = (arr) => {
       if (arr.length >= 4) return;
@@ -218,9 +228,9 @@ class App extends Component {
           priceusd={product.priceusd}
           quantity={product.quantity}
           AddedToCart={product.AddedToCart}
-          EUR={this.state.EUR}
-          PLN={this.state.PLN}
-          BTC={this.state.BTC}
+          EUR={Number(this.state.EUR)}
+          PLN={Number(this.state.PLN)}
+          BTC={Number(this.state.BTC)}
           setIdOfProduct={this.setIdOfProduct}
           indexOfElement={index}
           Cart={this.state.Cart}
@@ -236,8 +246,6 @@ class App extends Component {
             setCurrencyNav={this.setCurrencyNav}
             currency={this.state.currency}
             Cart={this.state.Cart}
-            handleOpenSell={this.handleOpenSell}
-            handleOpenCart={this.handleOpenCart}
             currencyToChoose={this.state.currencyToChoose}
             products1={this.state.Products1}
             products={this.state.Products}
@@ -251,8 +259,8 @@ class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
           <Route path='/feedback' component={Feedback} />
-          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} testujeto={this.testujeto} igrek={this.igrek} Products1={this.state.Products1} updatingCart={this.updatingCart} />)} />
-          {this.state.loadPage && <Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} Products33={this.state.Products} tututu={this.state.tututu} setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart} />)} />}
+          <Route path='/cart' render={(props) => (<Cart {...props} Cart={this.state.Cart} currency={this.state.currency} EUR={this.state.EUR} PLN={this.state.PLN} BTC={this.state.BTC} Products={this.state.Products} igrek={this.igrek} Products1={this.state.Products1} updatingCart={this.updatingCart} />)} />
+          {this.state.loadPage && <Route path='/properties' render={props => (<PhoneProperties {...props} Products={this.state.Products1} handleAddToCart={this.handleAddToCart} idOfProduct={this.state.idOfProduct} shuffle={this.state.shuffle} EUR={this.state.EUR} BTC={this.state.BTC} PLN={this.state.PLN} currency={this.state.currency} setIdOfProduct={this.setIdOfProduct} Cart={this.state.Cart} />)} />}
           {this.state.loadPage && <Route path='/' exact render={(props) => (<SecondSection {...props} products={products} currency={this.state.currency} checkIfWeSearching={this.checkIfWeSearching} checkIfWeSearchingBoolean={this.state.checkIfWeSearching} handleSearching={this.handleSearching} products1={this.state.Products1} />)} />}
           <Route path='/sell' render={(props) => (<SellSection {...props} handleAddItem={this.handleAddItem} fetchingProducts={this.fetchingProducts} />)} />
           <Footer />

@@ -16,7 +16,11 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+        try {
+            window.scrollTo(0, 0)
+        } catch (err) {
+
+        }
     }
 
     messages = {
@@ -105,22 +109,22 @@ class Register extends Component {
                 <div className='firstName'>
                     <label htmlFor="login">FIRST NAME</label>
                     <input type="text" id='login' onChange={this.handleFirstName} />
-                    {this.state.errors.firstName && <div className='error'>{this.messages.firstName}</div>}
+                    {this.state.errors.firstName && <div data-test='firstNameRegister' className='error'>{this.messages.firstName}</div>}
                 </div>
                 <div className='lastName'>
                     <label htmlFor="login">LAST NAME</label>
                     <input type="text" id='login' onChange={this.handleLastName} />
-                    {this.state.errors.lastName && <div className='error'>{this.messages.lastName}</div>}
+                    {this.state.errors.lastName && <div data-test='lastNameRegister' className='error'>{this.messages.lastName}</div>}
                 </div>
                 <div className='login'>
                     <label htmlFor="login">EMAIL</label>
                     <input type="text" id='login' onChange={this.handleEmail} />
-                    {this.state.errors.email && <div className='error'>{this.messages.email}</div>}
+                    {this.state.errors.email && <div data-test='emailRegister' className='error'>{this.messages.email}</div>}
                 </div>
                 <div className='password'>
                     <label htmlFor="password">PASSWORD</label>
                     <input type="password" id='password' onChange={this.handlePassword} />
-                    {this.state.errors.password && <div className='error'>{this.messages.password}</div>}
+                    {this.state.errors.password && <div data-test='passwordRegister' className='error'>{this.messages.password}</div>}
                 </div>
                 <button className='submitLogin' onClick={this.handleSubmit} >CREATE</button>
                 <button className='returnToStore'><Link className='return' to='/'>Return to Store</Link></button>

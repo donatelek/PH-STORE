@@ -14,7 +14,11 @@ class Contact extends Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0)
+    try {
+      window.scrollTo(0, 0)
+
+    } catch (err) {
+    }
   }
 
   messages = {
@@ -121,16 +125,16 @@ class Contact extends Component {
               <label>Email</label>
               <br />
               <input type="email" name="user_email" onChange={this.handleNameChange} value={this.state.name} />
-              {this.state.errors.name && <div className="error">{this.messages.name}</div>}
+              {this.state.errors.name && <div data-test='emailError' className="error">{this.messages.name}</div>}
             </div>
             <div className='contactMessage'>
               <label>Message</label>
               <br />
               <textarea id="feedback-entry"
                 name="feedback-entry" onChange={this.handleChange} value={this.state.feedback}> </textarea>
-              {this.state.errors.feedback && <div className="error">{this.messages.feedback}</div>}
+              {this.state.errors.feedback && <div data-test='messageError' className="error">{this.messages.feedback}</div>}
             </div>
-            {this.state.formEmailSent && <div className="error">Message has been sent!</div>}
+            {this.state.formEmailSent && <div data-test='messageSent' className="error">Message has been sent!</div>}
             <input className='contactSubmit' type="submit" value="Send" />
           </form>
         </div>

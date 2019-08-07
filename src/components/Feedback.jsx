@@ -13,18 +13,27 @@ class Feedback extends Component {
     }
 
     UNSAFE_componentWillMount() {
-        fetch('https://ph-store-server.herokuapp.com/feedback', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        }).then(res => res.json()).then(res => {
-            this.setState({
-                feedbacks: res
-            })
-        }).catch(err => console.log(err))
+        try {
+            fetch('https://ph-store-server.herokuapp.com/feedback', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            }).then(res => res.json()).then(res => {
+                this.setState({
+                    feedbacks: res
+                })
+            }).catch(err => console.log(err))
+        } catch (err) {
+
+        }
+
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0)
+        try {
+            window.scrollTo(0, 0)
+        } catch (err) {
+
+        }
     }
 
     messages = {
@@ -106,13 +115,13 @@ class Feedback extends Component {
         }
     }
     render() {
-        const feedbacks = this.state.feedbacks.map(feedback => {
+        const feedbacks = this.state.feedbacks.map((feedback, index) => {
             return (
-                <>
-                    <h1 className='userFeedbackName'>{feedback.name}</h1>
-                    {feedback.feedback && <article className='userFeedback'>{feedback.feedback}</article>}
+                <div key={index}>
+                    <h1 className='userFeedbackName' data-test='userFeedbackName' >{feedback.name}</h1>
+                    {feedback.feedback && <article data-test='userFeedbackComments' className='userFeedback'>{feedback.feedback}</article>}
                     {feedback.comment && <article className='userFeedback'>{feedback.comment}</article>}
-                </>
+                </div>
             )
         })
 
@@ -122,12 +131,12 @@ class Feedback extends Component {
                 <div className='feedbackName'>
                     <label htmlFor="name">YOUR NAME:</label>
                     <input id='name' name='name' type="text" onChange={this.handleInputChange} value={this.state.name} />
-                    {this.state.errors.name && <div className="error">{this.messages.name}</div>}
+                    {this.state.errors.name && <div data-test='nameError' className="error">{this.messages.name}</div>}
                 </div>
                 <div className='feedbackText'>
                     <label htmlFor="text">FEEDBACK:</label>
                     <textarea name="text" id="text" cols="30" rows="10" onChange={this.handleInputChange} value={this.state.feedback} ></textarea>
-                    {this.state.errors.feedback && <div className="error">{this.messages.feedback}</div>}
+                    {this.state.errors.feedback && <div data-test='feedbackError' className="error">{this.messages.feedback}</div>}
                 </div>
                 {this.state.feedbackSent && <div className="error">Your feedback has been submitted!</div>}
                 <button onClick={this.handleFeedbackSubmit} className="feedbackSubmit">Submit</button>
